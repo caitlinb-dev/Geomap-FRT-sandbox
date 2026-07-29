@@ -1534,7 +1534,8 @@ export default class svgMap {
   getTooltipContent(countryID, tooltipDiv = this.tooltip) {
     // Custom tooltip
     if (this.options.onGetTooltip) {
-      var customDiv = this.options.onGetTooltip(
+      var customDiv = this.options.onGetTooltip.call(
+        this,
         tooltipDiv,
         countryID,
         this.options.data.values[countryID]
