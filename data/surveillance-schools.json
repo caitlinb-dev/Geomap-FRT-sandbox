@@ -79,7 +79,7 @@
   },
   "AU": {
     "surveillanceExists": "Y",
-    "legalChallenge": "Y",
+    "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Australia+%2855%29#edit-actions",
     "countryName": "Australia"
   },
@@ -99,7 +99,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Bahamas#edit-actions",
-    "countryName": "Bahamas"
+    "countryName": "Bahamas (The)"
   },
   "BH": {
     "surveillanceExists": "N",
@@ -159,7 +159,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Bolivia+%281050%29#edit-actions",
-    "countryName": "Bolivia"
+    "countryName": "Bolivia (Plurinational State of)"
   },
   "BA": {
     "surveillanceExists": "N",
@@ -237,7 +237,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Cape+Verde#edit-actions",
-    "countryName": "Cape Verde"
+    "countryName": "Cabo Verde"
   },
   "BQ": {
     "surveillanceExists": "N",
@@ -273,7 +273,7 @@
     "surveillanceExists": "Y",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=China+%28119%29#edit-actions",
-    "countryName": "China"
+    "countryName": "China (the People's Republic of)"
   },
   "CX": {
     "surveillanceExists": "N",
@@ -345,7 +345,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Czech+Republic+%28372%29#edit-actions",
-    "countryName": "Czech Republic"
+    "countryName": "Czechia"
   },
   "CD": {
     "surveillanceExists": "N",
@@ -435,7 +435,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Federated+States+of+Micronesia#edit-actions",
-    "countryName": "Federated States of Micronesia"
+    "countryName": "Micronesia (Federated States of)"
   },
   "FJ": {
     "surveillanceExists": "N",
@@ -483,7 +483,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Gambia#edit-actions",
-    "countryName": "Gambia"
+    "countryName": "Gambia (Republic of The)"
   },
   "GE": {
     "surveillanceExists": "N",
@@ -492,8 +492,8 @@
     "countryName": "Georgia"
   },
   "DE": {
-    "surveillanceExists": "Y",
-    "legalChallenge": "Y",
+    "surveillanceExists": "N",
+    "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Germany+%28210%29#edit-actions",
     "countryName": "Germany"
   },
@@ -609,7 +609,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Iran+%28356%29#edit-actions",
-    "countryName": "Iran"
+    "countryName": "Iran (Islamic Republic of)"
   },
   "IQ": {
     "surveillanceExists": "N",
@@ -645,7 +645,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Ivory+Coast#edit-actions",
-    "countryName": "Ivory Coast"
+    "countryName": "Côte D'Ivoire"
   },
   "JM": {
     "surveillanceExists": "N",
@@ -654,7 +654,7 @@
     "countryName": "Jamaica"
   },
   "JP": {
-    "surveillanceExists": "Y",
+    "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Japan+%28360%29#edit-actions",
     "countryName": "Japan"
@@ -711,7 +711,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Laos#edit-actions",
-    "countryName": "Laos"
+    "countryName": "Lao People's Democratic Republic"
   },
   "LV": {
     "surveillanceExists": "N",
@@ -771,7 +771,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Macedonia+%2819%29#edit-actions",
-    "countryName": "Macedonia"
+    "countryName": "North Macedonia"
   },
   "MG": {
     "surveillanceExists": "N",
@@ -849,7 +849,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Moldova+%28875%29#edit-actions",
-    "countryName": "Moldova"
+    "countryName": "Republic of Moldova"
   },
   "MC": {
     "surveillanceExists": "N",
@@ -903,7 +903,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Nauru#edit-actions",
-    "countryName": "Nauru"
+    "countryName": "Naoero"
   },
   "NP": {
     "surveillanceExists": "Y",
@@ -915,7 +915,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Netherlands+%28353%29#edit-actions",
-    "countryName": "Netherlands"
+    "countryName": "Netherlands (Kingdom of the)"
   },
   "NC": {
     "surveillanceExists": "N",
@@ -963,7 +963,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=North+Korea#edit-actions",
-    "countryName": "North Korea"
+    "countryName": "Democratic People's Republic of Korea"
   },
   "MP": {
     "surveillanceExists": "N",
@@ -999,7 +999,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Palestine+%281015%29#edit-actions",
-    "countryName": "Palestine (Gaza and West Bank)"
+    "countryName": "State of Palestine"
   },
   "PA": {
     "surveillanceExists": "N",
@@ -1077,7 +1077,7 @@
     "surveillanceExists": "Y",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Russia#edit-actions",
-    "countryName": "Russia"
+    "countryName": "Russian Federation"
   },
   "RW": {
     "surveillanceExists": "N",
@@ -1131,7 +1131,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=São+Tomé+and+Príncipe#edit-actions",
-    "countryName": "São Tomé and Príncipe"
+    "countryName": "Sao Tome and Principe"
   },
   "SA": {
     "surveillanceExists": "N",
@@ -1212,10 +1212,10 @@
     "countryName": "South Georgia and the South Sandwich Islands"
   },
   "KR": {
-    "surveillanceExists": "Y",
-    "legalChallenge": "Y",
+    "surveillanceExists": "N",
+    "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=South+Korea+%28361%29#edit-actions",
-    "countryName": "South Korea"
+    "countryName": "Republic of Korea"
   },
   "SS": {
     "surveillanceExists": "N",
@@ -1260,7 +1260,7 @@
     "countryName": "Eswatini"
   },
   "SE": {
-    "surveillanceExists": "N",
+    "surveillanceExists": "Y",
     "legalChallenge": "Y",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Sweden+%28215%29#edit-actions",
     "countryName": "Sweden"
@@ -1275,7 +1275,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Syria+%28249%29#edit-actions",
-    "countryName": "Syria"
+    "countryName": "Syrian Arab Republic"
   },
   "TW": {
     "surveillanceExists": "N",
@@ -1293,7 +1293,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Tanzania+%28221%29#edit-actions",
-    "countryName": "Tanzania"
+    "countryName": "United Republic of Tanzania"
   },
   "TH": {
     "surveillanceExists": "N",
@@ -1341,7 +1341,7 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Turkey+%28237%29#edit-actions",
-    "countryName": "Turkey"
+    "countryName": "Türkiye"
   },
   "TM": {
     "surveillanceExists": "N",
@@ -1383,13 +1383,13 @@
     "surveillanceExists": "Y",
     "legalChallenge": "Y",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=United+Kingdom+%2828%29#edit-actions",
-    "countryName": "United Kingdom"
+    "countryName": "United Kingdom of Great Britain and Northern Ireland"
   },
   "US": {
     "surveillanceExists": "Y",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=United+States+of+America+%2827%29#edit-actions",
-    "countryName": "United States"
+    "countryName": "United States of America"
   },
   "UM": {
     "surveillanceExists": "N",
@@ -1431,13 +1431,13 @@
     "surveillanceExists": "N",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Venezuela+%28235%29#edit-actions",
-    "countryName": "Venezuela"
+    "countryName": "Venezuela, Bolivarian Republic of"
   },
   "VN": {
     "surveillanceExists": "Y",
     "legalChallenge": "N",
     "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Vietnam#edit-actions",
-    "countryName": "Vietnam"
+    "countryName": "Viet Nam"
   },
   "WF": {
     "surveillanceExists": "N",
