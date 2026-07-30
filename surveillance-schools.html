@@ -441,12 +441,8 @@
           <span class="legend-text">Facial recognition identified</span>
         </div>
         <div class="legend-item">
-          <span class="legend-color" style="background: #7c3aed;"></span>
+          <span class="legend-color" style="background: #E49000;"></span>
           <span class="legend-text">Facial recognition + legal challenge</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-color" style="background: #dc2626;"></span>
-          <span class="legend-text">Legal challenge (no FR yet)</span>
         </div>
         <div class="legend-item">
           <span class="legend-color" style="background: #d4d9e0;"></span>
@@ -828,12 +824,10 @@
             // Determine color based on surveillance and legal challenge status
             var color;
             if (surveillanceExists === 'Y' && legalChallenge === 'Y') {
-              color = '#7c3aed'; // Purple: surveillance + legal challenge
+              color = '#E49000'; // Purple: surveillance + legal challenge
             } else if (surveillanceExists === 'Y' && legalChallenge === 'N') {
               color = '#1e3283'; // Dark blue: surveillance only
-            } else if (surveillanceExists === 'N' && legalChallenge === 'Y') {
-              color = '#dc2626'; // Red: legal challenge only (no surveillance yet)
-            } else {
+           } else {
               color = '#d4d9e0'; // Grey/beige: no surveillance, no challenge
             }
 
