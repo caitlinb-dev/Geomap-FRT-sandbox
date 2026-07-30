@@ -8,6 +8,7 @@
 
     <script src="./dist/svg-map.umd.min.js"></script>
     <link href="./dist/svg-map.min.css" rel="stylesheet" />
+    <link href="./styles/surveillance-subnational-modal.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Gilroy:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
@@ -571,6 +572,21 @@
       </main>
     </div>
 
+    <div id="subnationalModal" class="subnational-modal" hidden>
+      <div class="subnational-modal-backdrop" data-close-subnational="true"></div>
+      <section class="subnational-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="subnationalModalTitle">
+        <div class="subnational-modal-header">
+          <h2 class="subnational-modal-title" id="subnationalModalTitle">Subnational view</h2>
+          <button type="button" class="subnational-modal-close" id="subnationalModalCloseButton">Close</button>
+        </div>
+        <div class="subnational-modal-body">
+          <p class="subnational-modal-description" id="subnationalModalDescription">Click a state to view surveillance and legal challenge details.</p>
+          <div class="subnational-map-stage" id="subnationalMapStage"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./scripts/subnational-map-feature.js"></script>
     <script>
       var FACIAL_RECOGNITION_FEED_URL = 'https://privacyinternational.org/examples/facial-recognition/feed';
       var hasResolvedLastUpdatedFromFeed = false;
@@ -590,6 +606,11 @@
         isPlaying: false,
         playTimerId: null
       };
+      var subnationalFeature = createSubnationalMapFeature({
+        getBaseValues: function () {
+          return timelineState.baseValues || {};
+        }
+      });
 
       setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
 
@@ -777,10 +798,12 @@
           valuesForYear[countryID] = {
             surveillance: surveillanceExists === 'Y' ? 1 : 0,
             surveillanceExists: surveillanceExists,
-            countryName: base.countryName || '',
+            name: base.name || '',
             legalChallenge: legalChallenge,
             trackerLink: base.trackerLink || '',
             firstExampleYear: typeof firstYear === 'number' ? firstYear : null,
+            subnational: base.subnational || null,
+            subnationalEnabled: !!(base.subnational && base.subnational.enabled),
             color:
               surveillanceExists === 'Y' && legalChallenge === 'Y'
                 ? '#E49000'
@@ -1052,7 +1075,7 @@
             var svgMapInstance = this;
             var countries = svgMapInstance.countries;
             var countryName =
-              (countryValues && countryValues.countryName) ||
+              (countryValues && countryValues.name) ||
               countries[countryID] ||
               'Unknown country';
 
@@ -1062,15 +1085,6 @@
             var innerHTML = '';
 
             if (countryValues) {
-              var hasSurveillance =
-                countryValues.surveillanceExists === 'Y'
-                  ? 'Yes'
-                  : 'No data';
-              var hasChallenge =
-                countryValues.legalChallenge === 'Y'
-                  ? 'Yes'
-                  : 'No data';
-              var challengeColor = countryValues.legalChallenge === 'Y' ? '#2c3e50' : '#999';
               var trackerLink = countryValues.trackerLink || '#';
               var showTrackerLink = countryValues.surveillanceExists === 'Y' && trackerLink !== '#';
               var flagUrl =
@@ -1078,30 +1092,25 @@
                 countryID.toLowerCase() +
                 '.svg';
               var emojiFlag = (svgMapInstance.emojiFlags && svgMapInstance.emojiFlags[countryID]) || '';
+              var canOpenSubnationalMap = !!(countryValues.subnational && countryValues.subnational.enabled);
 
-              innerHTML = '<div style="padding: 12px 16px;">' +
+              innerHTML = subnationalFeature.createTooltipMarkup({
+                subjectLabel: 'Country',
+                entityName: countryName,
+                surveillanceExists: countryValues.surveillanceExists,
+                legalChallenge: countryValues.legalChallenge,
+                trackerLink: showTrackerLink ? trackerLink : '',
+                flagHtml:
                 '<div style="text-align: center; margin-bottom: 10px;">' +
                 '<img src="' + flagUrl + '" alt="Flag of ' + countryName + '" style="height: 28px; width: auto; border: 1px solid #d9d9d9; border-radius: 2px;" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';" />' +
                 '<span style="display: none; font-size: 22px; line-height: 1;">' + emojiFlag + '</span>' +
-                '</div>' +
-                '<div style="margin-bottom: 12px;">' +
-                '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">Country name:</span>' +
-                '<span style="font-weight: 600; font-size: 16px; color: #111;">' + countryName + '</span>' +
-                '</div>' +
-                '<div style="margin-bottom: 8px;">' +
-                '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">Has facial recognition been deployed:</span>' +
-                '<span style="font-weight: 600; color: ' + (hasSurveillance === 'Yes' ? '#1e3283' : '#999') + ';">' + hasSurveillance + '</span>' +
-                '</div>' +
-                '<div style="margin-bottom: 12px;">' +
-                '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">legal action initiated:</span>' +
-                '<span style="font-weight: 600; color: ' + challengeColor + ';">' + hasChallenge + '</span>' +
-                '</div>' +
-                (showTrackerLink
-                  ? '<div style="padding-top: 12px; border-top: 1px solid #e0e0e0;">' +
-                    '<a class="js-tracker-link" href="' + trackerLink + '" target="_blank" rel="noopener noreferrer" style="color: #1e3283; text-decoration: underline; font-weight: 500; font-size: 13px;">Open PI News Tracker ↗</a>' +
+                '</div>',
+                extraButtonHtml: canOpenSubnationalMap
+                  ? '<div style="padding-top: 10px;">' +
+                    '<button type="button" class="js-open-subnational-map" data-country-id="' + countryID + '">View state-by-state map</button>' +
                     '</div>'
-                  : '') +
-                '</div>';
+                  : ''
+              });
             } else {
               var fallbackFlagUrl =
                 'https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/' +
@@ -1130,6 +1139,19 @@
                 trackerAnchor.addEventListener(eventName, function (event) {
                   event.stopPropagation();
                 });
+              });
+            }
+
+            var subnationalButton = tooltipContentElement.querySelector('.js-open-subnational-map');
+            if (subnationalButton) {
+              ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(function (eventName) {
+                subnationalButton.addEventListener(eventName, function (event) {
+                  event.stopPropagation();
+                });
+              });
+
+              subnationalButton.addEventListener('click', function () {
+                subnationalFeature.openSubnationalModal(countryID);
               });
             }
 
@@ -1174,44 +1196,35 @@
 
           return response.json();
         })
-        .then(function (values) {
+        .then(function (payload) {
+          var values = payload && payload.countries ? payload.countries : null;
+          if (!values || typeof values !== 'object') {
+            throw new Error('Invalid surveillance JSON schema: expected a top-level countries object.');
+          }
+
           var normalizedValues = {};
 
           Object.keys(values).forEach(function (countryID) {
             var entry = values[countryID] || {};
-            var rawSurveillanceExists = String(entry.surveillanceExists || '').toUpperCase();
-            var surveillanceExists =
-              rawSurveillanceExists === 'Y' || rawSurveillanceExists === 'N'
-                ? rawSurveillanceExists
-                : '';
-            var rawLegalChallenge = String(entry.legalChallenge || '').toUpperCase();
-            var legalChallenge =
-              rawLegalChallenge === 'Y' || rawLegalChallenge === 'N'
-                ? rawLegalChallenge
-                : '';
+            var surveillanceExists = subnationalFeature.normalizeBinaryFlag(entry.surveillanceExists);
+            var legalChallenge = subnationalFeature.normalizeBinaryFlag(entry.legalChallenge);
             var parsedFirstExampleYear = parseInt(entry.firstExampleYear, 10);
             var firstExampleYear = Number.isNaN(parsedFirstExampleYear)
               ? null
               : parsedFirstExampleYear;
+            var subnational = subnationalFeature.normalizeSubnational(entry);
 
-            // Determine color based on surveillance and legal challenge status
-            var color;
-            if (surveillanceExists === 'Y' && legalChallenge === 'Y') {
-              color = '#E49000'; // Purple: surveillance + legal challenge
-            } else if (surveillanceExists === 'Y' && legalChallenge === 'N') {
-              color = '#1e3283'; // Dark blue: surveillance only
-           } else {
-              color = '#d4d9e0'; // Grey/beige: no surveillance, no challenge
-            }
+            var color = subnationalFeature.getStatusColor(surveillanceExists, legalChallenge);
 
             normalizedValues[countryID] = {
-              // Keep applyData numeric for svgMap internals while exposing Y/N in the JSON
               surveillance: surveillanceExists === 'Y' ? 1 : 0,
               surveillanceExists: surveillanceExists,
-              countryName: entry.countryName || '',
+              name: entry.name || '',
               legalChallenge: legalChallenge,
               trackerLink: entry.trackerLink || '',
               firstExampleYear: firstExampleYear,
+              subnational: subnational,
+              subnationalEnabled: !!subnational.enabled,
               color: color
             };
           });

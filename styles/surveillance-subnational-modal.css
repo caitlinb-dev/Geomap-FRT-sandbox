@@ -1,0 +1,143 @@
+.subnational-modal[hidden] {
+  display: none;
+}
+
+.subnational-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+}
+
+.subnational-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.55);
+}
+
+.subnational-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(960px, calc(100vw - 32px));
+  margin: 24px auto;
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #cfd8e6;
+  box-shadow: 0 18px 55px rgba(10, 25, 56, 0.28);
+  display: flex;
+  flex-direction: column;
+}
+
+.subnational-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px 12px 18px;
+  border-bottom: 1px solid #e7edf7;
+  background: linear-gradient(180deg, #f8fbff 0%, #f2f7ff 100%);
+}
+
+.subnational-modal-title {
+  margin: 0;
+  font-size: 20px;
+  color: #1e3283;
+  letter-spacing: -0.3px;
+}
+
+.subnational-modal-close {
+  border: 1px solid #c6d3ea;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3283;
+  cursor: pointer;
+}
+
+.subnational-modal-close:hover {
+  background: #eff4ff;
+}
+
+.subnational-modal-body {
+  padding: 14px 16px 18px 16px;
+  overflow: auto;
+}
+
+.subnational-modal-description {
+  margin: 0 0 12px 0;
+  color: #52607a;
+  font-size: 13px;
+}
+
+.subnational-map-stage {
+  position: relative;
+  min-height: 520px;
+  border: 1px solid #d5ddec;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f9fbff 0%, #eff5ff 100%);
+  overflow: hidden;
+}
+
+.subnational-map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.subnational-region {
+  stroke: #7c8fa8;
+  stroke-width: 1.2;
+  cursor: pointer;
+  transition: stroke 0.15s ease;
+}
+
+.subnational-region:hover,
+.subnational-region.subnational-active {
+  stroke: #1e3283;
+  stroke-width: 2;
+}
+
+.subnational-tooltip {
+  position: absolute;
+  min-width: 220px;
+  max-width: 290px;
+  border-radius: 10px;
+  border: 1px solid #d6deef;
+  background: #ffffff;
+  box-shadow: 0 8px 26px rgba(11, 28, 69, 0.22);
+  pointer-events: auto;
+  z-index: 4;
+}
+
+.subnational-tooltip[hidden] {
+  display: none;
+}
+
+.subnational-error {
+  color: #8f1d1d;
+  background: #fff1f1;
+  border: 1px solid #f3c3c3;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 4px;
+}
+
+.js-open-subnational-map {
+  margin-top: 10px;
+  border: 1px solid #1e3283;
+  background: #1e3283;
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.js-open-subnational-map:hover {
+  background: #152452;
+  border-color: #152452;
+}
