@@ -163,6 +163,85 @@
         color: #1e3283;
       }
 
+      .timeline-panel {
+        margin: 14px 0 26px 0;
+        padding: 14px 16px 12px 16px;
+        border: 1px solid #d5ddec;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #f9fbff 0%, #f1f6ff 100%);
+      }
+
+      .timeline-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .timeline-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .timeline-title {
+        color: #1e3283;
+        font-weight: 700;
+        font-size: 15px;
+      }
+
+      .timeline-year {
+        color: #1e3283;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+      }
+
+      .timeline-play-button {
+        appearance: none;
+        border: 1px solid #1e3283;
+        background: #1e3283;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        border-radius: 999px;
+        padding: 7px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .timeline-play-button:hover {
+        background: #152452;
+        border-color: #152452;
+      }
+
+      .timeline-play-button:disabled {
+        cursor: not-allowed;
+        background: #8ea0be;
+        border-color: #8ea0be;
+      }
+
+      .timeline-range {
+        width: 100%;
+        accent-color: #1e3283;
+        margin: 4px 0 6px 0;
+      }
+
+      .timeline-years {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #657188;
+      }
+
+      .timeline-status {
+        margin-top: 8px;
+        color: #5a6780;
+        font-size: 12px;
+      }
+
       #svgMapSurveillance {
         width: 100%;
         height: 600px;
@@ -452,6 +531,32 @@
 
       <div id="svgMapSurveillance"></div>
 
+      <section class="timeline-panel" id="timelinePanel" aria-label="Map timeline" hidden>
+        <div class="timeline-header">
+          <div class="timeline-title">Timeline</div>
+          <div class="timeline-controls">
+            <button type="button" class="timeline-play-button" id="timelinePlayButton" disabled aria-label="Play timeline animation">Play</button>
+            <div class="timeline-year" id="timelineYearLabel">-</div>
+          </div>
+        </div>
+        <input
+          type="range"
+          class="timeline-range"
+          id="timelineRange"
+          min="0"
+          max="0"
+          value="0"
+          step="1"
+          disabled
+          aria-label="Timeline year"
+        />
+        <div class="timeline-years" aria-hidden="true">
+          <span id="timelineStartYearLabel">-</span>
+          <span id="timelineEndYearLabel">-</span>
+        </div>
+        <div class="timeline-status" id="timelineStatus">Loading timeline data...</div>
+      </section>
+
       <div class="contribution-hero">
         <h2>Help Us Map Facial Recognition</h2>
         <p>If you know of an example of facial recognition being used in education that is not yet on this list, please let us know to help us expand this map.</p>
@@ -469,10 +574,24 @@
     <script>
       var FACIAL_RECOGNITION_FEED_URL = 'https://privacyinternational.org/examples/facial-recognition/feed';
       var hasResolvedLastUpdatedFromFeed = false;
+      var LAST_UPDATED_FALLBACK_ISO = '2026-06-26';
+      var lastUpdatedIsoDate = LAST_UPDATED_FALLBACK_ISO;
       var CACHE_KEY = 'surveillance_schools_rss_date';
       var CACHE_TIMESTAMP_KEY = 'surveillance_schools_rss_date_timestamp';
       var LAST_KNOWN_RSS_DATE_KEY = 'surveillance_schools_last_known_rss_date';
       var CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
+      var timelineState = {
+        mapInstance: null,
+        baseValues: null,
+        firstYearByCountry: {},
+        startYear: null,
+        endYear: null,
+        currentYear: null,
+        isPlaying: false,
+        playTimerId: null
+      };
+
+      setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
 
       function getCachedRssDate() {
         var cached = localStorage.getItem(CACHE_KEY);
@@ -507,13 +626,13 @@
 
       function formatLastUpdated(dateString) {
         if (!dateString) {
-          return 'June 26, 2026';
+          return formatLastUpdated(LAST_UPDATED_FALLBACK_ISO);
         }
 
         var parsedDate = new Date(dateString);
 
         if (Number.isNaN(parsedDate.getTime())) {
-          return 'June 26, 2026';
+          return formatLastUpdated(LAST_UPDATED_FALLBACK_ISO);
         }
 
         return new Intl.DateTimeFormat('en-GB', {
@@ -525,12 +644,261 @@
 
       function setLastUpdated(dateString) {
         var lastUpdatedElement = document.getElementById('lastUpdated');
+        var parsedDate = new Date(dateString || LAST_UPDATED_FALLBACK_ISO);
+
+        if (Number.isNaN(parsedDate.getTime())) {
+          parsedDate = new Date(LAST_UPDATED_FALLBACK_ISO);
+        }
+
+        lastUpdatedIsoDate = parsedDate.toISOString();
 
         if (!lastUpdatedElement) {
           return;
         }
 
-        lastUpdatedElement.innerHTML = '<strong>Last updated:</strong> ' + formatLastUpdated(dateString);
+        lastUpdatedElement.innerHTML = '<strong>Last updated:</strong> ' + formatLastUpdated(lastUpdatedIsoDate);
+      }
+
+      function getLastUpdatedYear() {
+        var parsedDate = new Date(lastUpdatedIsoDate || LAST_UPDATED_FALLBACK_ISO);
+
+        if (Number.isNaN(parsedDate.getTime())) {
+          parsedDate = new Date(LAST_UPDATED_FALLBACK_ISO);
+        }
+
+        return parsedDate.getUTCFullYear();
+      }
+
+      function setTimelineStatus(message) {
+        var timelineStatusElement = document.getElementById('timelineStatus');
+
+        if (timelineStatusElement) {
+          timelineStatusElement.textContent = message;
+        }
+      }
+
+      function setTimelinePlaying(isPlaying) {
+        var timelinePlayButton = document.getElementById('timelinePlayButton');
+
+        timelineState.isPlaying = isPlaying;
+
+        if (!timelinePlayButton) {
+          return;
+        }
+
+        timelinePlayButton.textContent = isPlaying ? 'Pause' : 'Play';
+        timelinePlayButton.setAttribute('aria-label', isPlaying ? 'Pause timeline animation' : 'Play timeline animation');
+      }
+
+      function stopTimelinePlayback() {
+        if (timelineState.playTimerId) {
+          clearInterval(timelineState.playTimerId);
+          timelineState.playTimerId = null;
+        }
+
+        setTimelinePlaying(false);
+      }
+
+      function startTimelinePlayback() {
+        var timelineRange = document.getElementById('timelineRange');
+
+        if (!timelineRange || timelineRange.disabled) {
+          return;
+        }
+
+        stopTimelinePlayback();
+        setTimelinePlaying(true);
+
+        timelineState.playTimerId = setInterval(function () {
+          var currentYear = parseInt(timelineRange.value, 10);
+          var endYear = parseInt(timelineRange.max, 10);
+
+          if (Number.isNaN(currentYear) || Number.isNaN(endYear)) {
+            stopTimelinePlayback();
+            return;
+          }
+
+          if (currentYear >= endYear) {
+            stopTimelinePlayback();
+            return;
+          }
+
+          var nextYear = currentYear + 1;
+          timelineRange.value = String(nextYear);
+          applyTimelineYear(nextYear);
+        }, 800);
+      }
+
+      function toggleTimelinePlayback() {
+        if (timelineState.isPlaying) {
+          stopTimelinePlayback();
+        } else {
+          var timelineRange = document.getElementById('timelineRange');
+          if (timelineRange && parseInt(timelineRange.value, 10) >= parseInt(timelineRange.max, 10)) {
+            timelineRange.value = String(timelineRange.min);
+            applyTimelineYear(timelineRange.value);
+          }
+
+          startTimelinePlayback();
+        }
+      }
+
+      function loadEarliestYearsByCountry(baseValues, endYear) {
+        var firstYearByCountry = {};
+
+        Object.keys(baseValues).forEach(function (countryID) {
+          if (baseValues[countryID].surveillanceExists !== 'Y') {
+            return;
+          }
+
+          var parsedYear = parseInt(baseValues[countryID].firstExampleYear, 10);
+          firstYearByCountry[countryID] = Number.isNaN(parsedYear)
+            ? endYear
+            : parsedYear;
+        });
+
+        return Promise.resolve(firstYearByCountry);
+      }
+
+      function buildValuesForYear(baseValues, firstYearByCountry, year) {
+        var valuesForYear = {};
+
+        Object.keys(baseValues).forEach(function (countryID) {
+          var base = baseValues[countryID] || {};
+          var firstYear = firstYearByCountry[countryID];
+          var becomesActive =
+            base.surveillanceExists === 'Y' &&
+            typeof firstYear === 'number' &&
+            year >= firstYear;
+
+          var surveillanceExists = becomesActive ? 'Y' : 'N';
+          var legalChallenge = becomesActive ? base.legalChallenge : 'N';
+
+          valuesForYear[countryID] = {
+            surveillance: surveillanceExists === 'Y' ? 1 : 0,
+            surveillanceExists: surveillanceExists,
+            countryName: base.countryName || '',
+            legalChallenge: legalChallenge,
+            trackerLink: base.trackerLink || '',
+            firstExampleYear: typeof firstYear === 'number' ? firstYear : null,
+            color:
+              surveillanceExists === 'Y' && legalChallenge === 'Y'
+                ? '#E49000'
+                : surveillanceExists === 'Y'
+                  ? '#1e3283'
+                  : '#d4d9e0'
+          };
+        });
+
+        return valuesForYear;
+      }
+
+      function applyTimelineYear(year) {
+        if (!timelineState.mapInstance || !timelineState.baseValues) {
+          return;
+        }
+
+        var yearNumber = parseInt(year, 10);
+        if (Number.isNaN(yearNumber)) {
+          return;
+        }
+
+        timelineState.currentYear = yearNumber;
+
+        var valuesForYear = buildValuesForYear(
+          timelineState.baseValues,
+          timelineState.firstYearByCountry,
+          yearNumber
+        );
+
+        var dataForYear = {
+          data: {
+            surveillance: {}
+          },
+          applyData: 'surveillance',
+          values: valuesForYear
+        };
+
+        timelineState.mapInstance.options.data = dataForYear;
+        timelineState.mapInstance.applyData(dataForYear);
+
+        var timelineYearLabel = document.getElementById('timelineYearLabel');
+        if (timelineYearLabel) {
+          timelineYearLabel.textContent = String(yearNumber);
+        }
+
+        setTimelineStatus('Showing map state for ' + yearNumber + '.');
+      }
+
+      function initializeTimeline(baseValues) {
+        var timelinePanel = document.getElementById('timelinePanel');
+        var timelineRange = document.getElementById('timelineRange');
+        var timelineStartYearLabel = document.getElementById('timelineStartYearLabel');
+        var timelineEndYearLabel = document.getElementById('timelineEndYearLabel');
+        var timelinePlayButton = document.getElementById('timelinePlayButton');
+
+        if (!timelinePanel || !timelineRange) {
+          return;
+        }
+
+        setTimelineStatus('Loading timeline data...');
+
+        var endYear = getLastUpdatedYear();
+
+        loadEarliestYearsByCountry(baseValues, endYear)
+          .then(function (firstYearByCountry) {
+            timelineState.firstYearByCountry = firstYearByCountry;
+
+            var startYear = endYear;
+
+            Object.keys(baseValues).forEach(function (countryID) {
+              if (baseValues[countryID].surveillanceExists !== 'Y') {
+                return;
+              }
+
+              var firstYear = firstYearByCountry[countryID];
+              if (typeof firstYear === 'number' && firstYear < startYear) {
+                startYear = firstYear;
+              }
+            });
+
+            if (startYear > endYear) {
+              startYear = endYear;
+            }
+
+            timelineState.startYear = startYear;
+            timelineState.endYear = endYear;
+
+            timelineRange.min = String(startYear);
+            timelineRange.max = String(endYear);
+            timelineRange.value = String(startYear);
+            timelineRange.disabled = false;
+            timelineRange.oninput = function () {
+              stopTimelinePlayback();
+              applyTimelineYear(this.value);
+            };
+
+            if (timelinePlayButton) {
+              timelinePlayButton.disabled = false;
+              timelinePlayButton.onclick = toggleTimelinePlayback;
+            }
+
+            if (timelineStartYearLabel) {
+              timelineStartYearLabel.textContent = String(startYear);
+            }
+
+            if (timelineEndYearLabel) {
+              timelineEndYearLabel.textContent = String(endYear);
+            }
+
+            timelinePanel.hidden = false;
+            applyTimelineYear(startYear);
+          })
+          .catch(function (error) {
+            console.warn('Could not build timeline from surveillance JSON firstExampleYear data:', error);
+            stopTimelinePlayback();
+            timelinePanel.hidden = true;
+          });
       }
 
       function getLatestPubDateFromFeedXml(feedXmlText) {
@@ -785,16 +1153,17 @@
           originalHideTooltip();
         }
 
+        return mapInstance;
       }
 
-      fetchLatestRssDate()
+      var lastUpdatedReadyPromise = fetchLatestRssDate()
         .then(function (rssDate) {
           hasResolvedLastUpdatedFromFeed = true;
           setLastUpdated(rssDate);
         })
         .catch(function (error) {
           console.warn('Could not fetch RSS date or load cached RSS date:', error);
-          setLastUpdated('2026-06-26');
+          setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
         });
 
       fetch('./data/surveillance-schools.json')
@@ -820,6 +1189,10 @@
               rawLegalChallenge === 'Y' || rawLegalChallenge === 'N'
                 ? rawLegalChallenge
                 : '';
+            var parsedFirstExampleYear = parseInt(entry.firstExampleYear, 10);
+            var firstExampleYear = Number.isNaN(parsedFirstExampleYear)
+              ? null
+              : parsedFirstExampleYear;
 
             // Determine color based on surveillance and legal challenge status
             var color;
@@ -838,22 +1211,32 @@
               countryName: entry.countryName || '',
               legalChallenge: legalChallenge,
               trackerLink: entry.trackerLink || '',
+              firstExampleYear: firstExampleYear,
               color: color
             };
           });
 
-          renderMap({
+          var mapInstance = renderMap({
             data: {
               surveillance: {}
             },
             applyData: 'surveillance',
             values: normalizedValues
           });
+
+          timelineState.mapInstance = mapInstance;
+          timelineState.baseValues = normalizedValues;
+
+          initializeTimeline(normalizedValues);
+
+          lastUpdatedReadyPromise.finally(function () {
+            initializeTimeline(normalizedValues);
+          });
         })
         .catch(function (error) {
           console.error('Failed to load surveillance data JSON:', error);
           if (!hasResolvedLastUpdatedFromFeed) {
-            setLastUpdated('2026-06-26');
+            setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
           }
           var description = document.querySelector('.description');
           if (description) {
