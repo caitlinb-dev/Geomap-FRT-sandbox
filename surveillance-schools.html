@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script src="https://cdn.jsdelivr.net/npm/svgmap@2.21.0/dist/svg-map.umd.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/svgmap@2.21.0/dist/svg-map.min.css" rel="stylesheet" />
+    <script src="./dist/svg-map.umd.min.js"></script>
+    <link href="./dist/svg-map.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Gilroy:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
@@ -779,28 +779,6 @@
             return;
           }
           originalHideTooltip();
-        };
-
-        // Palestine borders from https://github.com/nunoguerreirodesousa/svgmap/pull/1
-        var psBorderPathFromPr =
-          'M1166.9,366.1l-2-0.9l-0.7,4.3l1.4,0.7l-1.2,0.8l-0.1,1.7l2.4-0.8l0.6-1.9L1166.9,366.1L1166.9,366.1z M1160.82,373.58l0.80,-0.95l0.45,0.60l-0.60,0.40z';
-        var psCountry = mapInstance.mapImage.querySelector('[data-id="PS"]');
-        if (psCountry) {
-          psCountry.setAttribute('d', psBorderPathFromPr);
-
-          var keepPalestineOnTop = function () {
-            if (psCountry.parentNode && psCountry.parentNode.lastChild !== psCountry) {
-              psCountry.parentNode.appendChild(psCountry);
-            }
-          };
-
-          keepPalestineOnTop();
-
-          // Use a MutationObserver so Palestine stays on top whenever ANY other
-          // country element is raised (e.g. on every pointermove over Israel),
-          // without relying on a specific event list that might miss cases.
-          var psObserver = new MutationObserver(keepPalestineOnTop);
-          psObserver.observe(psCountry.parentNode, { childList: true });
         }
 
       }
