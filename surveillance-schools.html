@@ -894,7 +894,7 @@
 
             timelineRange.min = String(startYear);
             timelineRange.max = String(endYear);
-            timelineRange.value = String(startYear);
+            timelineRange.value = String(endYear);
             timelineRange.disabled = false;
             timelineRange.oninput = function () {
               stopTimelinePlayback();
@@ -915,7 +915,7 @@
             }
 
             timelinePanel.hidden = false;
-            applyTimelineYear(startYear);
+            applyTimelineYear(endYear);
           })
           .catch(function (error) {
             console.warn('Could not build timeline from surveillance JSON firstExampleYear data:', error);
