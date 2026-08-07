@@ -441,6 +441,10 @@
           <span class="legend-text">Facial recognition identified</span>
         </div>
         <div class="legend-item">
+          <span class="legend-color" style="background: #E49000;"></span>
+          <span class="legend-text">Facial recognition + legal challenge</span>
+        </div>
+        <div class="legend-item">
           <span class="legend-color" style="background: #d4d9e0;"></span>
           <span class="legend-text">No data or not present</span>
         </div>
@@ -721,7 +725,7 @@
                 '<span style="font-weight: 600; color: ' + (hasSurveillance === 'Yes' ? '#1e3283' : '#999') + ';">' + hasSurveillance + '</span>' +
                 '</div>' +
                 '<div style="margin-bottom: 12px;">' +
-                '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">legal action innitiated:</span>' +
+                '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">legal action initiated:</span>' +
                 '<span style="font-weight: 600; color: ' + challengeColor + ';">' + hasChallenge + '</span>' +
                 '</div>' +
                 (showTrackerLink
@@ -817,6 +821,16 @@
                 ? rawLegalChallenge
                 : '';
 
+            // Determine color based on surveillance and legal challenge status
+            var color;
+            if (surveillanceExists === 'Y' && legalChallenge === 'Y') {
+              color = '#E49000'; // Purple: surveillance + legal challenge
+            } else if (surveillanceExists === 'Y' && legalChallenge === 'N') {
+              color = '#1e3283'; // Dark blue: surveillance only
+           } else {
+              color = '#d4d9e0'; // Grey/beige: no surveillance, no challenge
+            }
+
             normalizedValues[countryID] = {
               // Keep applyData numeric for svgMap internals while exposing Y/N in the JSON
               surveillance: surveillanceExists === 'Y' ? 1 : 0,
@@ -824,7 +838,7 @@
               countryName: entry.countryName || '',
               legalChallenge: legalChallenge,
               trackerLink: entry.trackerLink || '',
-              color: surveillanceExists === 'Y' ? '#1e3283' : '#d4d9e0'
+              color: color
             };
           });
 
