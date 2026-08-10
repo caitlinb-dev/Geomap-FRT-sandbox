@@ -32,7 +32,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Albania+%281229%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2026,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -240,7 +240,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Bangladesh+%28232%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2025,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -773,7 +773,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Chile+%2861%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2019,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -786,7 +786,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=China+%28119%29#edit-actions",
-      "firstExampleYear": 2023,
+      "firstExampleYear": 2017,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -1904,7 +1904,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Malaysia#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2020,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2021,7 +2021,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Mexico+%28117%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2022,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2164,7 +2164,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Nepal+%281080%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2025,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2684,7 +2684,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Serbia+%28873%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2026,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2723,7 +2723,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Singapore+%28224%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2018,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2931,7 +2931,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "Y",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Sweden+%28215%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2018,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2983,7 +2983,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Tajikistan+%28932%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2023,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -3191,7 +3191,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "Y",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=United+Kingdom+%2828%29#edit-actions",
-      "firstExampleYear": 2023,
+      "firstExampleYear": 2021,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -3204,7 +3204,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=United+States+of+America+%2827%29#edit-actions",
-      "firstExampleYear": 2022,
+      "firstExampleYear": 2019,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -3380,6 +3380,7 @@
         "map": null,
         "regions": {}
       }
-    }
+    },
+    "firstExampleYear": null
   }
 }
