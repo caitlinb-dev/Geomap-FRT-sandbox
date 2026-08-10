@@ -64,13 +64,15 @@ async function main() {
   const rawInput = await fs.readFile(INPUT_PATH, 'utf8');
   const data = JSON.parse(rawInput);
 
-  const countries = Object.entries(data);
+  const countries = Object.entries(data.countries ?? data);
 
   for (const [countryID, entry] of countries) {
-    if (!entry || String(entry.surveillanceExists || '').toUpperCase() !== 'Y') {
-      if (entry) {
-        entry.firstExampleYear = null;
-      }
+    if (!entry || typeof entry !== 'object') {
+      continue;
+    }
+
+    if (String(entry.surveillanceExists || '').toUpperCase() !== 'Y') {
+      entry.firstExampleYear = null;
       continue;
     }
 
