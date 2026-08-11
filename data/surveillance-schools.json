@@ -398,189 +398,189 @@
             "name": "Acre",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ac",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-AL": {
             "name": "Alagoas",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/al",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-AM": {
             "name": "Amazonas",
             "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/am",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": 2020
           },
           "BR-AP": {
             "name": "Amapá",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ap",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-BA": {
             "name": "Bahia",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ba",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-CE": {
             "name": "Ceará",
-            "surveillanceExists": "Y",
+            "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ce",
-            "firstExampleYear": 2023
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-ES": {
             "name": "Espírito Santo",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/es",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-GO": {
             "name": "Goiás",
             "surveillanceExists": "Y",
-            "legalChallenge": "Y",
-            "trackerLink": "https://example.org/facial-recognition/brazil/go",
-            "firstExampleYear": 2018
+            "legalChallenge": "N",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-MA": {
             "name": "Maranhão",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ma",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-MG": {
             "name": "Minas Gerais",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/mg",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-MS": {
             "name": "Mato Grosso do Sul",
             "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ms",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": 2021
           },
           "BR-MT": {
             "name": "Mato Grosso",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/mt",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-PA": {
             "name": "Pará",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/pa",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-PB": {
             "name": "Paraíba",
-            "surveillanceExists": "Y",
+            "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/pb",
-            "firstExampleYear": 2024
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-PE": {
             "name": "Pernambuco",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/pe",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-PI": {
             "name": "Piauí",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/pi",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-PR": {
             "name": "Paraná",
             "surveillanceExists": "Y",
             "legalChallenge": "Y",
-            "trackerLink": "https://example.org/facial-recognition/brazil/pr",
-            "firstExampleYear": 2019
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-RJ": {
             "name": "Rio de Janeiro",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/rj",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-RN": {
             "name": "Rio Grande do Norte",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/rn",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-RO": {
             "name": "Rondônia",
             "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/ro",
-            "firstExampleYear": 2022
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-RR": {
             "name": "Roraima",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/rr",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-RS": {
             "name": "Rio Grande do Sul",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/rs",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-SC": {
             "name": "Santa Catarina",
-            "surveillanceExists": "Y",
+            "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/sc",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": 2017
           },
           "BR-SE": {
             "name": "Sergipe",
             "surveillanceExists": "N",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/se",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-SP": {
             "name": "São Paulo",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/sp",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           },
           "BR-TO": {
             "name": "Tocantins",
             "surveillanceExists": "Y",
-            "legalChallenge": "Y",
-            "trackerLink": "https://example.org/facial-recognition/brazil/to",
-            "firstExampleYear": 2020
+            "legalChallenge": "N",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "firstExampleYear": null
           },
           "BR-DF": {
             "name": "Distrito Federal",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://example.org/facial-recognition/brazil/df",
+            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
             "firstExampleYear": null
           }
         }
@@ -1174,9 +1174,9 @@
     "FR": {
       "name": "France",
       "surveillanceExists": "Y",
-      "legalChallenge": "N",
+      "legalChallenge": "Y",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=France+%28220%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2018,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -1485,7 +1485,7 @@
     },
     "IN": {
       "name": "India",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=India+%28121%29#edit-actions",
       "firstExampleYear": null,
@@ -1511,10 +1511,10 @@
     },
     "IR": {
       "name": "Iran (Islamic Republic of)",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Iran+%28356%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2023,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -1615,10 +1615,10 @@
     },
     "JP": {
       "name": "Japan",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Japan+%28360%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2019,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -1693,7 +1693,7 @@
     },
     "XK": {
       "name": "Kosovo",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Kosovo+%28354%29#edit-actions",
       "firstExampleYear": null,
@@ -1719,10 +1719,10 @@
     },
     "KG": {
       "name": "Kyrgyzstan",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Kyrgyzstan+%28371%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2025,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -1848,7 +1848,7 @@
       }
     },
     "MO": {
-      "name": "Macau",
+      "name": "Macau, Special Administrative Region of China",
       "surveillanceExists": "N",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Macau#edit-actions",
@@ -2382,10 +2382,10 @@
     },
     "PG": {
       "name": "Papua New Guinea",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Papua+New+Guinea#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2024,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -2460,7 +2460,7 @@
     },
     "PT": {
       "name": "Portugal",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Portugal+%28362%29#edit-actions",
       "firstExampleYear": null,
@@ -3357,7 +3357,7 @@
     },
     "ZM": {
       "name": "Zambia",
-      "surveillanceExists": "Y",
+      "surveillanceExists": "N",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Zambia#edit-actions",
       "firstExampleYear": null,
