@@ -95,7 +95,7 @@ var countries = {
   GY: 'Guyana',
   HT: 'Haiti',
   HN: 'Honduras',
-  HK: 'Hong Kong Special Administrative Region of the Peoples Republic of China.',
+  HK: 'Hong Kong, Special Administrative Region of the People's Republic of China.',
   HU: 'Hungary',
   IS: 'Iceland',
   IN: 'India',
