@@ -55,8 +55,7 @@ async function fetchEarliestYear(countryID, trackerUrl) {
     const htmlText = await response.text();
     return earliestYearFromHtml(htmlText);
   } catch (error) {
-    console.warn(`Failed to fetch earliest year for ${countryID}: ${error.message}`);
-    return null;
+    throw new Error(`Failed to fetch earliest year for ${countryID}: ${error.message}`);
   }
 }
 
