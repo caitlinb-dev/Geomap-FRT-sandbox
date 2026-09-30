@@ -8,7 +8,9 @@
       title: null,
       description: null,
       modal: null,
+      dialog: null,
       closeButton: null,
+      lastFocusedElement: null,
       isInitialized: false
     };
 
@@ -117,10 +119,17 @@
       }
 
       state.modal = document.getElementById('subnationalModal');
+      state.dialog = state.modal
+        ? state.modal.querySelector('.subnational-modal-dialog')
+        : null;
       state.mapStage = document.getElementById('subnationalMapStage');
       state.title = document.getElementById('subnationalModalTitle');
       state.description = document.getElementById('subnationalModalDescription');
       state.closeButton = document.getElementById('subnationalModalCloseButton');
+
+      if (state.dialog && !state.dialog.hasAttribute('tabindex')) {
+        state.dialog.setAttribute('tabindex', '-1');
+      }
 
       if (state.closeButton) {
         state.closeButton.addEventListener('click', closeSubnationalModal);
@@ -136,12 +145,66 @@
       }
 
       document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && state.modal && !state.modal.hidden) {
+        if (!state.modal || state.modal.hidden) {
+          return;
+        }
+
+        if (event.key === 'Escape') {
           closeSubnationalModal();
+          return;
+        }
+
+        if (event.key === 'Tab') {
+          containModalFocus(event);
         }
       });
 
       state.isInitialized = true;
+    }
+
+    function getModalFocusableElements() {
+      if (!state.dialog) {
+        return [];
+      }
+
+      return Array.prototype.slice.call(
+        state.dialog.querySelectorAll(
+          'a[href], area[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]), [contenteditable="true"]'
+        )
+      ).filter(function (element) {
+        return !element.hidden && !element.closest('[hidden]');
+      });
+    }
+
+    function containModalFocus(event) {
+      if (!state.dialog) {
+        return;
+      }
+
+      var focusableElements = getModalFocusableElements();
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        state.dialog.focus();
+        return;
+      }
+
+      var firstFocusable = focusableElements[0];
+      var lastFocusable = focusableElements[focusableElements.length - 1];
+      var activeElement = document.activeElement;
+
+      if (event.shiftKey) {
+        if (activeElement === firstFocusable || !state.dialog.contains(activeElement)) {
+          event.preventDefault();
+          lastFocusable.focus();
+        }
+        return;
+      }
+
+      if (activeElement === lastFocusable || !state.dialog.contains(activeElement)) {
+        event.preventDefault();
+        firstFocusable.focus();
+      }
     }
 
     function closeSubnationalModal() {
@@ -152,6 +215,16 @@
       state.modal.hidden = true;
       state.activeCountryID = null;
       document.body.style.overflow = '';
+
+      if (
+        state.lastFocusedElement &&
+        document.contains(state.lastFocusedElement) &&
+        typeof state.lastFocusedElement.focus === 'function'
+      ) {
+        state.lastFocusedElement.focus();
+      }
+
+      state.lastFocusedElement = null;
     }
 
     function getGeometryBounds(geometry) {
@@ -293,9 +366,12 @@
       path.setAttribute('class', 'subnational-region');
       path.setAttribute('data-region-code', regionCode);
       path.setAttribute('data-region-name', regionData.name || regionCode);
+      path.setAttribute('role', 'button');
+      path.setAttribute('tabindex', '0');
+      path.setAttribute('aria-label', 'View details for ' + (regionData.name || regionCode));
       path.style.fill = getStatusColor(regionData.surveillanceExists, regionData.legalChallenge);
 
-      path.addEventListener('click', function (event) {
+      function activateRegion(event) {
         svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
           activeEl.classList.remove('subnational-active');
         });
@@ -313,8 +389,17 @@
         });
 
         var rect = state.mapStage.getBoundingClientRect();
-        var left = event.clientX - rect.left + 10;
-        var top = event.clientY - rect.top + 10;
+        var left = 0;
+        var top = 0;
+
+        if (typeof event.clientX === 'number' && typeof event.clientY === 'number') {
+          left = event.clientX - rect.left + 10;
+          top = event.clientY - rect.top + 10;
+        } else {
+          var box = path.getBBox();
+          left = box.x + box.width / 2 + 10;
+          top = box.y + box.height / 2 + 10;
+        }
 
         tooltip.style.left = Math.max(8, Math.min(left, rect.width - 300)) + 'px';
         tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
@@ -330,6 +415,14 @@
         }
 
         event.stopPropagation();
+      }
+
+      path.addEventListener('click', activateRegion);
+      path.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activateRegion(event);
+        }
       });
 
       svg.appendChild(path);
@@ -489,6 +582,10 @@
       }
 
       state.activeCountryID = countryID;
+      state.lastFocusedElement =
+        document.activeElement && document.activeElement !== document.body
+          ? document.activeElement
+          : null;
       state.modal.hidden = false;
       document.body.style.overflow = 'hidden';
 
@@ -498,6 +595,12 @@
 
       if (state.description) {
         state.description.textContent = 'Click a ' + (countryValues.subnational.levelName || 'region').toLowerCase() + ' to view surveillance and legal challenge details.';
+      }
+
+      if (state.closeButton) {
+        state.closeButton.focus();
+      } else if (state.dialog) {
+        state.dialog.focus();
       }
 
       renderSubnationalMap(countryID, countryValues);
