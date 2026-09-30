@@ -226,7 +226,9 @@
       var propertyName = mapConfig.regionCodeProperty || 'id';
       var prefix = mapConfig.regionCodePrefix || '';
       var properties = feature && feature.properties ? feature.properties : {};
-      var rawCode = properties[propertyName];
+      var rawCode = feature && typeof feature.getAttribute === 'function'
+        ? feature.getAttribute(propertyName)
+        : properties[propertyName];
 
       if (rawCode === undefined || rawCode === null || rawCode === '') {
         return null;
@@ -254,7 +256,7 @@
       var mapUrl = subnational.map.url;
 
       if (state.cache[mapUrl]) {
-        buildSubnationalSvg(state.cache[mapUrl], countryID, countryValues);
+        buildSubnationalMapSource(state.cache[mapUrl], countryID, countryValues);
         return Promise.resolve();
       }
 
@@ -264,16 +266,134 @@
             throw new Error('Failed to load subnational map source.');
           }
 
-          return response.json();
+          return subnational.map.format === 'svg' ? response.text() : response.json();
         })
-        .then(function (geojson) {
-          state.cache[mapUrl] = geojson;
-          buildSubnationalSvg(geojson, countryID, countryValues);
+        .then(function (mapSource) {
+          state.cache[mapUrl] = mapSource;
+          buildSubnationalMapSource(mapSource, countryID, countryValues);
         })
         .catch(function (error) {
           console.error('Subnational map load error:', error);
           showSubnationalError('Could not load the subnational map for this country.');
         });
+    }
+
+    function buildSubnationalMapSource(mapSource, countryID, countryValues) {
+      if (countryValues.subnational.map.format === 'svg') {
+        buildSubnationalSvgAsset(mapSource, countryID, countryValues);
+        return;
+      }
+
+      buildSubnationalSvg(mapSource, countryID, countryValues);
+    }
+
+    function appendInteractiveRegion(svg, tooltip, pathData, regionCode, regionData, subnational) {
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', pathData);
+      path.setAttribute('class', 'subnational-region');
+      path.setAttribute('data-region-code', regionCode);
+      path.setAttribute('data-region-name', regionData.name || regionCode);
+      path.style.fill = getStatusColor(regionData.surveillanceExists, regionData.legalChallenge);
+
+      path.addEventListener('click', function (event) {
+        svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
+          activeEl.classList.remove('subnational-active');
+        });
+
+        svg.querySelectorAll('.subnational-region[data-region-code="' + regionCode + '"]').forEach(function (regionEl) {
+          regionEl.classList.add('subnational-active');
+        });
+
+        tooltip.innerHTML = createTooltipMarkup({
+          subjectLabel: subnational.levelName || 'Region',
+          entityName: regionData.name || regionCode,
+          surveillanceExists: regionData.surveillanceExists,
+          legalChallenge: regionData.legalChallenge,
+          trackerLink: regionData.trackerLink
+        });
+
+        var rect = state.mapStage.getBoundingClientRect();
+        var left = event.clientX - rect.left + 10;
+        var top = event.clientY - rect.top + 10;
+
+        tooltip.style.left = Math.max(8, Math.min(left, rect.width - 300)) + 'px';
+        tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
+        tooltip.hidden = false;
+
+        var trackerAnchor = tooltip.querySelector('.js-tracker-link');
+        if (trackerAnchor) {
+          ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(function (eventName) {
+            trackerAnchor.addEventListener(eventName, function (anchorEvent) {
+              anchorEvent.stopPropagation();
+            });
+          });
+        }
+
+        event.stopPropagation();
+      });
+
+      svg.appendChild(path);
+    }
+
+    function finishSubnationalSvg(svg, tooltip) {
+      svg.addEventListener('click', function () {
+        tooltip.hidden = true;
+        svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
+          activeEl.classList.remove('subnational-active');
+        });
+      });
+
+      state.mapStage.appendChild(svg);
+      state.mapStage.appendChild(tooltip);
+    }
+
+    function buildSubnationalSvgAsset(svgSource, countryID, countryValues) {
+      if (!state.mapStage || typeof svgSource !== 'string') {
+        return;
+      }
+
+      var sourceDocument = new DOMParser().parseFromString(svgSource, 'image/svg+xml');
+      var sourceSvg = sourceDocument.documentElement;
+      var sourcePaths = sourceDocument.querySelectorAll('path');
+
+      if (!sourceSvg || sourceSvg.nodeName.toLowerCase() !== 'svg' || sourceDocument.querySelector('parsererror') || sourcePaths.length === 0) {
+        showSubnationalError('No geographic paths were found in this subnational map file.');
+        return;
+      }
+
+      var subnational = countryValues.subnational;
+      state.mapStage.innerHTML = '';
+
+      var tooltip = document.createElement('div');
+      tooltip.className = 'subnational-tooltip';
+      tooltip.hidden = true;
+
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', sourceSvg.getAttribute('viewBox') || '0 0 920 620');
+      svg.setAttribute('class', 'subnational-map-svg');
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-label', (countryValues.name || countryID) + ' subnational map');
+
+      sourcePaths.forEach(function (sourcePath) {
+        var regionCode = getRegionCode(sourcePath, subnational.map);
+        var pathData = sourcePath.getAttribute('d');
+        if (!regionCode || !pathData) {
+          return;
+        }
+
+        var regionData = subnational.regions[regionCode] || {
+          name: sourcePath.getAttribute('name') || regionCode,
+          surveillanceExists: 'N',
+          legalChallenge: 'N',
+          trackerLink: '',
+          firstExampleYear: null,
+          color: '#d4d9e0'
+        };
+
+        appendInteractiveRegion(svg, tooltip, pathData, regionCode, regionData, subnational);
+      });
+
+      finishSubnationalSvg(svg, tooltip);
     }
 
     function buildSubnationalSvg(geojson, countryID, countryValues) {
@@ -352,60 +472,10 @@
           return;
         }
 
-        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', pathData);
-        path.setAttribute('class', 'subnational-region');
-        path.setAttribute('data-region-code', regionCode);
-        path.setAttribute('data-region-name', regionData.name || regionCode);
-        path.style.fill = getStatusColor(regionData.surveillanceExists, regionData.legalChallenge);
-
-        path.addEventListener('click', function (event) {
-          svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
-            activeEl.classList.remove('subnational-active');
-          });
-
-          path.classList.add('subnational-active');
-
-          tooltip.innerHTML = createTooltipMarkup({
-            subjectLabel: subnational.levelName || 'Region',
-            entityName: regionData.name || regionCode,
-            surveillanceExists: regionData.surveillanceExists,
-            legalChallenge: regionData.legalChallenge,
-            trackerLink: regionData.trackerLink
-          });
-
-          var rect = state.mapStage.getBoundingClientRect();
-          var left = event.clientX - rect.left + 10;
-          var top = event.clientY - rect.top + 10;
-
-          tooltip.style.left = Math.max(8, Math.min(left, rect.width - 300)) + 'px';
-          tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
-          tooltip.hidden = false;
-
-          var trackerAnchor = tooltip.querySelector('.js-tracker-link');
-          if (trackerAnchor) {
-            ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(function (eventName) {
-              trackerAnchor.addEventListener(eventName, function (anchorEvent) {
-                anchorEvent.stopPropagation();
-              });
-            });
-          }
-
-          event.stopPropagation();
-        });
-
-        svg.appendChild(path);
+        appendInteractiveRegion(svg, tooltip, pathData, regionCode, regionData, subnational);
       });
 
-      svg.addEventListener('click', function () {
-        tooltip.hidden = true;
-        svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
-          activeEl.classList.remove('subnational-active');
-        });
-      });
-
-      state.mapStage.appendChild(svg);
-      state.mapStage.appendChild(tooltip);
+      finishSubnationalSvg(svg, tooltip);
     }
 
     function openSubnationalModal(countryID) {
