@@ -40,8 +40,6 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "regen:india-map": "node scripts/generate-india-states-svg.mjs",
-    "regen:us-map": "node scripts/generate-us-states-svg.mjs",
     "regen:timeline-years": "node scripts/regenerate-surveillance-first-year.mjs",
     "prepublishOnly": "npm run build && node test/assets.js"
   },
@@ -50,7 +48,6 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "csso": "^5.0.5",
-    "d3-geo": "^3.1.1",
     "rollup": "^4.61.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.100.0"
