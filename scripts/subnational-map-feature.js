@@ -453,7 +453,17 @@
             trackerLinkText: subnational.trackerLinkText
           });
 
+          tooltip.hidden = false;
+
           var rect = state.mapStage.getBoundingClientRect();
+          var scrollContainer = state.mapStage.parentElement;
+          var scrollRect = scrollContainer ? scrollContainer.getBoundingClientRect() : rect;
+          var visibleLeft = Math.max(rect.left, scrollRect.left, 0);
+          var visibleTop = Math.max(rect.top, scrollRect.top, 0);
+          var visibleRight = Math.min(rect.right, scrollRect.right, window.innerWidth);
+          var visibleBottom = Math.min(rect.bottom, scrollRect.bottom, window.innerHeight);
+          var visibleWidth = Math.max(0, visibleRight - visibleLeft);
+          var visibleHeight = Math.max(0, visibleBottom - visibleTop);
           var left = 0;
           var top = 0;
 
@@ -466,9 +476,20 @@
             top = box.y + box.height / 2 + 10;
           }
 
-          tooltip.style.left = Math.max(8, Math.min(left, rect.width - 300)) + 'px';
-          tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
-          tooltip.hidden = false;
+          tooltip.style.boxSizing = 'border-box';
+          tooltip.style.maxWidth = Math.max(0, visibleWidth - 16) + 'px';
+          tooltip.style.minWidth = Math.min(220, Math.max(0, visibleWidth - 16)) + 'px';
+          tooltip.style.maxHeight = Math.max(0, visibleHeight - 16) + 'px';
+          tooltip.style.overflowY = 'auto';
+
+          var tooltipRect = tooltip.getBoundingClientRect();
+          var minLeft = visibleLeft - rect.left + 8;
+          var maxLeft = visibleRight - rect.left - tooltipRect.width - 8;
+          var minTop = visibleTop - rect.top + 8;
+          var maxTop = visibleBottom - rect.top - tooltipRect.height - 8;
+
+          tooltip.style.left = Math.max(minLeft, Math.min(left, maxLeft)) + 'px';
+          tooltip.style.top = Math.max(minTop, Math.min(top, maxTop)) + 'px';
 
           var trackerAnchor = tooltip.querySelector('.js-tracker-link');
           if (trackerAnchor) {
