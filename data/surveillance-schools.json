@@ -387,6 +387,7 @@
       "subnational": {
         "enabled": true,
         "levelName": "State",
+        "trackerLinkText": "Open InternetLab report",
         "map": {
           "format": "geojson",
           "url": "./data/maps/br-states.geojson",

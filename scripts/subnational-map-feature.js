@@ -67,6 +67,7 @@
       return {
         enabled: !!subnational.enabled,
         levelName: subnational.levelName || 'Region',
+        trackerLinkText: subnational.trackerLinkText || '',
         map: map
           ? {
               format: map.format || 'geojson',
@@ -87,6 +88,7 @@
       var surveillanceColor = hasSurveillance === 'Yes' ? '#1e3283' : '#999';
       var challengeColor = opts.legalChallenge === 'Y' ? '#2c3e50' : '#999';
       var trackerLink = opts.trackerLink || '';
+      var trackerLinkText = escapeHtml(opts.trackerLinkText || 'Open PI News Tracker');
       var showTrackerLink = opts.surveillanceExists === 'Y' && !!trackerLink;
       var extraButtonHtml = opts.extraButtonHtml || '';
 
@@ -106,7 +108,7 @@
         '</div>' +
         (showTrackerLink
           ? '<div style="padding-top: 12px; border-top: 1px solid #e0e0e0;">' +
-            '<a class="js-tracker-link" href="' + escapeHtml(trackerLink) + '" target="_blank" rel="noopener noreferrer" style="color: #1e3283; text-decoration: underline; font-weight: 500; font-size: 13px;">Open PI News Tracker ↗</a>' +
+            '<a class="js-tracker-link" href="' + escapeHtml(trackerLink) + '" target="_blank" rel="noopener noreferrer" style="color: #1e3283; text-decoration: underline; font-weight: 500; font-size: 13px;">' + trackerLinkText + ' ↗</a>' +
             '</div>'
           : '') +
         extraButtonHtml +
@@ -447,7 +449,8 @@
             entityName: regionData.name || regionCode,
             surveillanceExists: regionData.surveillanceExists,
             legalChallenge: regionData.legalChallenge,
-            trackerLink: regionData.trackerLink
+            trackerLink: regionData.trackerLink,
+            trackerLinkText: subnational.trackerLinkText
           });
 
           var rect = state.mapStage.getBoundingClientRect();
