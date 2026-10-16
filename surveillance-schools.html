@@ -1236,25 +1236,6 @@
           originalHideTooltip();
         };
 
-        // Palestine borders from https://github.com/nunoguerreirodesousa/svgmap/pull/1
-        var psBorderPathFromPr =
-          'M1166.9,366.1l-2-0.9l-0.7,4.3l1.4,0.7l-1.2,0.8l-0.1,1.7l2.4-0.8l0.6-1.9L1166.9,366.1L1166.9,366.1z M1160.82,373.58l0.80,-0.95l0.45,0.60l-0.60,0.40z';
-        var psCountry = mapInstance.mapImage.querySelector('[data-id="PS"]');
-        if (psCountry) {
-          psCountry.setAttribute('d', psBorderPathFromPr);
-
-          var keepPalestineOnTop = function () {
-            if (psCountry.parentNode && psCountry.parentNode.lastChild !== psCountry) {
-              psCountry.parentNode.appendChild(psCountry);
-            }
-          };
-
-          keepPalestineOnTop();
-
-          var psObserver = new MutationObserver(keepPalestineOnTop);
-          psObserver.observe(psCountry.parentNode, { childList: true });
-        }
-
         return mapInstance;
       }
 
