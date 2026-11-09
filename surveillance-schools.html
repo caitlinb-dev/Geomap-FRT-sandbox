@@ -643,7 +643,6 @@
     <script src="./scripts/subnational-map-feature.js"></script>
     <script>
       var FACIAL_RECOGNITION_FEED_URL = 'https://privacyinternational.org/examples/facial-recognition/feed';
-      var hasResolvedLastUpdatedFromFeed = false;
       var LAST_UPDATED_FALLBACK_ISO = '2026-06-26';
       var lastUpdatedIsoDate = LAST_UPDATED_FALLBACK_ISO;
       var CACHE_KEY = 'surveillance_schools_rss_date';
@@ -666,7 +665,7 @@
         }
       });
 
-      setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
+      setLastUpdated(getLastKnownRssDate() || LAST_UPDATED_FALLBACK_ISO);
 
       function getCachedRssDate() {
         var cached = localStorage.getItem(CACHE_KEY);
@@ -686,6 +685,16 @@
       }
 
       function setCachedRssDate(dateString) {
+        var parsedDate = new Date(dateString);
+        var lastKnownDate = new Date(getLastKnownRssDate());
+
+        if (
+          Number.isNaN(parsedDate.getTime()) ||
+          (!Number.isNaN(lastKnownDate.getTime()) && parsedDate < lastKnownDate)
+        ) {
+          return;
+        }
+
         try {
           localStorage.setItem(CACHE_KEY, dateString);
           localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
@@ -732,6 +741,20 @@
         }
 
         lastUpdatedElement.innerHTML = '<strong>Last updated:</strong> ' + formatLastUpdated(lastUpdatedIsoDate);
+      }
+
+      function setLastUpdatedIfNewer(dateString) {
+        var parsedDate = new Date(dateString);
+        var currentDate = new Date(lastUpdatedIsoDate);
+
+        if (
+          Number.isNaN(parsedDate.getTime()) ||
+          (!Number.isNaN(currentDate.getTime()) && parsedDate < currentDate)
+        ) {
+          return;
+        }
+
+        setLastUpdated(parsedDate.toISOString());
       }
 
       function getLastUpdatedYear() {
@@ -1241,12 +1264,10 @@
 
       var lastUpdatedReadyPromise = fetchLatestRssDate()
         .then(function (rssDate) {
-          hasResolvedLastUpdatedFromFeed = true;
-          setLastUpdated(rssDate);
+          setLastUpdatedIfNewer(rssDate);
         })
         .catch(function (error) {
           console.warn('Could not fetch RSS date or load cached RSS date:', error);
-          setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
         });
 
       fetch('./data/surveillance-schools.json')
@@ -1309,9 +1330,6 @@
         })
         .catch(function (error) {
           console.error('Failed to load surveillance data JSON:', error);
-          if (!hasResolvedLastUpdatedFromFeed) {
-            setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
-          }
           var description = document.querySelector('.description');
           if (description) {
             description.innerHTML =
