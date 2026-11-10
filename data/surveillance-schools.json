@@ -1521,7 +1521,9 @@
             "name": "Chhattisgarh"
           },
           "IN-DL": {
-            "name": "Delhi"
+            "name": "Delhi",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-DH": {
             "name": "Dadra and Nagar Haveli and Daman and Diu"
@@ -1545,7 +1547,9 @@
             "name": "Jammu and Kashmir"
           },
           "IN-KA": {
-            "name": "Karnataka"
+            "name": "Karnataka",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-KL": {
             "name": "Kerala"
@@ -1590,7 +1594,9 @@
             "name": "Sikkim"
           },
           "IN-TG": {
-            "name": "Telangana"
+            "name": "Telangana",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-TN": {
             "name": "Tamil Nadu"
@@ -1599,7 +1605,9 @@
             "name": "Tripura"
           },
           "IN-UP": {
-            "name": "Uttar Pradesh"
+            "name": "Uttar Pradesh",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-UT": {
             "name": "Uttarakhand"
@@ -3345,7 +3353,9 @@
             "name": "California"
           },
           "US-CO": {
-            "name": "Colorado"
+            "name": "Colorado",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-CT": {
             "name": "Connecticut"
@@ -3426,13 +3436,17 @@
             "name": "New Jersey"
           },
           "US-NM": {
-            "name": "New Mexico"
+            "name": "New Mexico",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-NV": {
             "name": "Nevada"
           },
           "US-NY": {
-            "name": "New York"
+            "name": "New York",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-OH": {
             "name": "Ohio"
@@ -3459,7 +3473,9 @@
             "name": "Tennessee"
           },
           "US-TX": {
-            "name": "Texas"
+            "name": "Texas",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-UT": {
             "name": "Utah"
@@ -3471,10 +3487,14 @@
             "name": "Vermont"
           },
           "US-WA": {
-            "name": "Washington"
+            "name": "Washington",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-WI": {
-            "name": "Wisconsin"
+            "name": "Wisconsin",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-WV": {
             "name": "West Virginia"
