@@ -5,6 +5,8 @@
     var title = section.querySelector('[data-stories-title]');
     var status = section.querySelector('[data-stories-status]');
     var cards = section.querySelector('[data-stories-cards]');
+    var contributionCopy = section.querySelector('.contribution-hero p');
+    var defaultContributionCopy = contributionCopy.textContent;
     var retryButton = section.querySelector('[data-stories-retry]');
     var storiesByCountry = new Map();
     var selectedCountry = null;
@@ -70,6 +72,9 @@
       title.textContent = 'Stories from ' + selectedCountry.name;
       retryButton.hidden = loadState !== 'error';
       var allStories = storiesByCountry.get(selectedCountry.id) || [];
+      contributionCopy.textContent = loadState === 'ready' && !allStories.length
+        ? "We don't have any examples of facial recognition being used in education for this country yet. If you know of any that are not yet on this list, please let us know and help us expand this map."
+        : defaultContributionCopy;
       var visibleStories = loadState === 'ready' ? allStories.filter(function (story) {
         return selectedYear === null || Number(story.date.slice(0, 4)) <= selectedYear;
       }) : [];
@@ -86,6 +91,7 @@
         message = visibleStories.length + (visibleStories.length === 1 ? ' story' : ' stories') +
           (selectedYear === null ? '' : ' through ' + selectedYear) + '.';
       }
+          status.hidden = loadState === 'ready' && !allStories.length;
       if (status.textContent !== message) status.textContent = message;
       var nextIDs = selectedCountry.id + ':' + visibleStories.map(function (story) { return story.id; }).join(',');
       if (renderedIDs !== nextIDs) {
