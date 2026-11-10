@@ -432,6 +432,59 @@
     }
 
     function finishSubnationalSvg(svg, tooltip) {
+      var initialViewBox = svg.getAttribute('viewBox').trim().split(/[ ,]+/).map(Number);
+      var zoomLevel = 1;
+      var mapWrapper = document.createElement('div');
+      mapWrapper.className = 'svgMap-map-wrapper subnational-map-controls-scope';
+      var zoomButtons = document.createElement('div');
+      zoomButtons.className = 'svgMap-map-controls-wrapper svgMap-controls-position-topRight';
+      var zoomContainer = document.createElement('div');
+      zoomContainer.className = 'svgMap-map-controls-zoom';
+      mapWrapper.appendChild(zoomButtons);
+      zoomButtons.appendChild(zoomContainer);
+
+      function createZoomButton(control, label, onClick) {
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'svgMap-control-button svgMap-zoom-button svgMap-zoom-' + control + '-button';
+        button.setAttribute('aria-label', label);
+        button.addEventListener('click', onClick);
+        zoomContainer.appendChild(button);
+        return button;
+      }
+
+      var zoomInButton = createZoomButton('in', 'Zoom in', function () {
+        zoomLevel = Math.min(8, zoomLevel * 1.25);
+        updateViewBox();
+      });
+      var zoomOutButton = createZoomButton('out', 'Zoom out', function () {
+        zoomLevel = Math.max(1, zoomLevel / 1.25);
+        updateViewBox();
+      });
+      var recenterButton = createZoomButton('reset', 'Recenter map', function () {
+        zoomLevel = 1;
+        updateViewBox();
+      });
+
+      function setButtonDisabled(button, disabled) {
+        button.classList.toggle('svgMap-disabled', disabled);
+        button.setAttribute('aria-disabled', String(disabled));
+      }
+
+      function updateViewBox() {
+        var width = initialViewBox[2] / zoomLevel;
+        var height = initialViewBox[3] / zoomLevel;
+        var x = initialViewBox[0] + (initialViewBox[2] - width) / 2;
+        var y = initialViewBox[1] + (initialViewBox[3] - height) / 2;
+        svg.setAttribute('viewBox', [x, y, width, height].join(' '));
+        setButtonDisabled(zoomInButton, zoomLevel >= 8);
+        setButtonDisabled(zoomOutButton, zoomLevel <= 1);
+        setButtonDisabled(recenterButton, zoomLevel <= 1);
+      }
+
+      updateViewBox();
+      svg.classList.add('svgMap-map-image');
+
       svg.addEventListener('click', function () {
         tooltip.hidden = true;
         if (featureOptions.onRegionClear) featureOptions.onRegionClear();
@@ -440,7 +493,8 @@
         });
       });
 
-      state.mapStage.appendChild(svg);
+      mapWrapper.appendChild(svg);
+      state.mapStage.appendChild(mapWrapper);
       state.mapStage.appendChild(tooltip);
     }
 

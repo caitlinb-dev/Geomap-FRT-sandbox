@@ -89,6 +89,16 @@
   display: block;
 }
 
+.subnational-map-stage > .subnational-map-controls-scope {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
 .subnational-map-stories-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
