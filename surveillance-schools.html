@@ -293,7 +293,8 @@
 
       #svgMapSurveillance {
         width: 100%;
-        height: 600px;
+        height: auto;
+        box-sizing: border-box;
         border: 1px solid #cfd8e6;
         border-radius: 4px;
         background: linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
@@ -498,6 +499,121 @@
         opacity: 1;
       }
 
+      .map-stories-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+        margin-bottom: 26px;
+      }
+
+      .map-timeline-column {
+        min-width: 0;
+      }
+
+      .map-timeline-column .timeline-panel {
+        margin-bottom: 0;
+      }
+
+      .country-stories {
+        min-width: 0;
+        margin: 0;
+      }
+
+      .country-stories h2 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        color: #1e3283;
+        overflow-wrap: anywhere;
+      }
+
+      .country-stories-status {
+        margin: 0 0 20px;
+        color: #344d73;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .country-story {
+        background: linear-gradient(135deg, #f0f3fb 0%, #e8ecf6 100%);
+        padding: 24px;
+        margin-bottom: 20px;
+        border: 2px solid rgba(30, 50, 131, 0.14);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(30, 50, 131, 0.12);
+        overflow-wrap: anywhere;
+      }
+
+      .country-story h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        line-height: 1.35;
+        color: #1e3283;
+      }
+
+      @media (min-width: 1000px) {
+        .map-stories-layout.has-selected-country {
+          grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+        }
+
+        .has-selected-country .country-stories {
+          contain: size;
+          align-self: stretch;
+          overflow-y: auto;
+          overscroll-behavior-y: contain;
+          scrollbar-gutter: stable;
+          padding: 0 12px 0 2px;
+        }
+      }
+
+      .country-story time {
+        display: block;
+        margin-bottom: 18px;
+        color: #344d73;
+        font-size: 13px;
+      }
+
+      .country-story p {
+        margin: 0 0 14px;
+        color: #344d73;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .country-story-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 14px;
+      }
+
+      .country-story-button,
+      .country-stories-retry {
+        box-sizing: border-box;
+        max-width: 100%;
+        padding: 10px 18px;
+        border: 0;
+        border-radius: 999px;
+        background: #1e3283;
+        color: white;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .country-story-button:hover,
+      .country-stories-retry:hover {
+        background: #152452;
+      }
+
+      @media (max-width: 480px) {
+        .country-story {
+          padding: 18px;
+        }
+      }
+
       *:focus-visible {
         outline: 3px solid #1e3283;
         outline-offset: 2px;
@@ -579,6 +695,8 @@
         </div>
       </div>
 
+      <div class="map-stories-layout">
+      <div class="map-timeline-column">
       <div id="svgMapSurveillance"></div>
 
       <section class="timeline-panel" id="timelinePanel" aria-label="Map timeline" hidden>
@@ -603,6 +721,15 @@
         <div class="timeline-year-markers" id="timelineYearMarkers" aria-hidden="true"></div>
         <div class="timeline-status" id="timelineStatus">Loading timeline data...</div>
       </section>
+      </div>
+
+      <section class="country-stories" id="countryStories" aria-labelledby="countryStoriesTitle" tabindex="0">
+        <h2 id="countryStoriesTitle" data-stories-title hidden>Country stories</h2>
+        <p class="country-stories-status" role="status" aria-live="polite" aria-atomic="true" data-stories-status>Click a country to see relevant stories</p>
+        <button type="button" class="country-stories-retry" data-stories-retry hidden>Retry loading stories</button>
+        <div data-stories-cards></div>
+      </section>
+      </div>
 
       <aside class="map-disclaimer" aria-label="Disclaimer">
         <strong>Disclaimer:</strong> This map is a best-effort attempt to visualise the spread of facial recognition in schools around the world.
@@ -641,6 +768,7 @@
     </div>
 
     <script src="./scripts/subnational-map-feature.js"></script>
+    <script src="./scripts/country-stories-feature.js"></script>
     <script>
       var FACIAL_RECOGNITION_FEED_URL = 'https://privacyinternational.org/examples/facial-recognition/feed';
       var hasResolvedLastUpdatedFromFeed = false;
@@ -665,6 +793,8 @@
           return timelineState.baseValues || {};
         }
       });
+      var countryStoriesFeature = createCountryStoriesFeature(document.getElementById('countryStories'));
+      countryStoriesFeature.load();
 
       setLastUpdated(LAST_UPDATED_FALLBACK_ISO);
 
@@ -881,6 +1011,7 @@
         }
 
         timelineState.currentYear = yearNumber;
+        countryStoriesFeature.setYear(yearNumber);
 
         var valuesForYear = buildValuesForYear(
           timelineState.baseValues,
@@ -1130,6 +1261,7 @@
           mouseWheelZoomWithKey: true,
           showContinentSelector: false,
           showZoomReset: true,
+          resetZoomOnResize: true,
           flagType: 'emoji',
           tooltipTrigger: 'click',
           onGetTooltip: function (tooltipDiv, countryID, countryValues) {
@@ -1139,6 +1271,8 @@
               (countryValues && countryValues.name) ||
               countries[countryID] ||
               'Unknown country';
+
+            countryStoriesFeature.selectCountry(countryID, countryName);
 
             var tooltipContentElement = document.createElement('div');
             tooltipContentElement.style.padding = '0';
@@ -1221,6 +1355,14 @@
           }
         });
 
+        var originalMapReset = mapInstance.mapReset.bind(mapInstance);
+        mapInstance.mapReset = function () {
+          originalMapReset();
+          mapInstance.mapPanZoom.fit();
+          mapInstance.mapPanZoom.zoom(mapInstance.options.initialZoom);
+          mapInstance.mapPanZoom.center();
+        };
+
         // Patch hideTooltip so moving the mouse from a country to the tooltip
         // (over empty SVG space) does not close the tooltip before the user can
         // click the news-tracker link inside it.
@@ -1235,6 +1377,7 @@
           }
           originalHideTooltip();
         };
+        window.addEventListener('resize', originalHideTooltip);
 
         // Palestine borders from https://github.com/nunoguerreirodesousa/svgmap/pull/1
         var psBorderPathFromPr =

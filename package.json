@@ -43,14 +43,18 @@
     "regen:india-map": "node scripts/generate-india-states-svg.mjs",
     "regen:us-map": "node scripts/generate-us-states-svg.mjs",
     "regen:timeline-years": "node scripts/regenerate-surveillance-first-year.mjs",
+    "refresh:stories": "node scripts/refresh-facial-recognition-stories.mjs",
+    "test:stories": "node --test test/facial-recognition-stories.test.mjs",
     "prepublishOnly": "npm run build && node test/assets.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
+    "cheerio": "^1.2.0",
     "csso": "^5.0.5",
     "d3-geo": "^3.1.1",
+    "jsdom": "^26.1.0",
     "rollup": "^4.61.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.100.0"
