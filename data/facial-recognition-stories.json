@@ -248,7 +248,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-SP", "BR-RJ", "BR-GO", "BR-PR", "BR-RO", "BR-DF", "BR-MS", "BR-PI", "BR-AL", "BR-AM", "BR-ES"]
     },
     {
       "id": "5835",
@@ -607,7 +608,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-PR"]
     },
     {
       "id": "5855",
@@ -1339,7 +1341,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-PR"]
     },
     {
       "id": "5211",
@@ -1618,7 +1621,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-TO", "BR-BA", "BR-CE", "BR-PE", "BR-GO", "BR-MG", "BR-RJ", "BR-SP", "BR-RS", "BR-SC"]
     },
     {
       "id": "5822",
