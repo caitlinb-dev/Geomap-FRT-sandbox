@@ -95,7 +95,26 @@
       if (status.textContent !== message) status.textContent = message;
       var nextIDs = selectedCountry.id + ':' + visibleStories.map(function (story) { return story.id; }).join(',');
       if (renderedIDs !== nextIDs) {
-        cards.replaceChildren.apply(cards, visibleStories.map(createCard));
+        if (window.Vue) {
+          var countryID = selectedCountry.id;
+          window.Vue.render(window.Vue.h(window.Vue.TransitionGroup, {
+            name: 'fade', tag: 'div', class: 'country-story-list', appear: true
+          }, {
+            default: function () {
+              return visibleStories.map(function (story) {
+                return window.Vue.h('div', {
+                  key: countryID + ':' + story.id,
+                  class: 'country-story-transition',
+                  ref: function (node) {
+                    if (node && !node.firstChild) node.appendChild(createCard(story));
+                  }
+                });
+              });
+            }
+          }), cards);
+        } else {
+          cards.replaceChildren.apply(cards, visibleStories.map(createCard));
+        }
         renderedIDs = nextIDs;
       }
     }
