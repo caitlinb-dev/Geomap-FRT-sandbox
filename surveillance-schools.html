@@ -1379,6 +1379,26 @@
         };
         window.addEventListener('resize', originalHideTooltip);
 
+        var backgroundPointer = null;
+        mapInstance.mapImage.addEventListener('pointerdown', function (event) {
+          backgroundPointer = event.button === 0 && !event.target.closest('.svgMap-country')
+            ? { id: event.pointerId, x: event.clientX, y: event.clientY }
+            : null;
+        });
+        mapInstance.mapImage.addEventListener('pointercancel', function () {
+          backgroundPointer = null;
+        });
+        mapInstance.mapImage.addEventListener('pointerup', function (event) {
+          var start = backgroundPointer;
+          backgroundPointer = null;
+          if (!start || start.id !== event.pointerId || event.button !== 0 ||
+              event.target.closest('.svgMap-country') ||
+              Math.abs(start.x - event.clientX) > 5 ||
+              Math.abs(start.y - event.clientY) > 5) return;
+          countryStoriesFeature.clearSelection();
+          originalHideTooltip();
+        });
+
         // Palestine borders from https://github.com/nunoguerreirodesousa/svgmap/pull/1
         var psBorderPathFromPr =
           'M1166.9,366.1l-2-0.9l-0.7,4.3l1.4,0.7l-1.2,0.8l-0.1,1.7l2.4-0.8l0.6-1.9L1166.9,366.1L1166.9,366.1z M1160.82,373.58l0.80,-0.95l0.45,0.60l-0.60,0.40z';

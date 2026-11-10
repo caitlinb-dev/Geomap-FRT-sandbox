@@ -155,6 +155,11 @@
     retryButton.addEventListener('click', loadStories);
     return {
       load: loadStories,
+      clearSelection: function () {
+        selectedCountry = null;
+        section.hidden = true;
+        section.parentElement.classList.remove('has-selected-country');
+      },
       selectCountry: function (countryID, countryName) {
         var countryChanged = !selectedCountry || selectedCountry.id !== countryID;
         selectedCountry = { id: countryID, name: countryName };

@@ -200,6 +200,26 @@ test('story section shows the selection prompt until a country is clicked', asyn
   assert.doesNotMatch(section.querySelector('[role="status"]').textContent, /Click a country/);
 });
 
+test('dismissed stories stay closed during updates and reopen on country selection', async context => {
+  let resolveFetch;
+  const { section, feature } = storyPage(context, () => new Promise(resolve => { resolveFetch = resolve; }));
+  const loading = feature.load();
+  feature.selectCountry('CA', 'Canada');
+  feature.clearSelection();
+  assert.equal(section.hidden, true);
+  assert.equal(section.parentElement.classList.contains('has-selected-country'), false);
+  resolveFetch({ ok: true, json: async () => snapshot });
+  await loading;
+  feature.setYear(2020);
+  assert.equal(section.hidden, true);
+  assert.equal(section.parentElement.classList.contains('has-selected-country'), false);
+  feature.selectCountry('CA', 'Canada');
+  assert.equal(section.hidden, false);
+  assert.equal(section.parentElement.classList.contains('has-selected-country'), true);
+  assert.equal(section.querySelector('h2').textContent, 'Stories from Canada');
+  assert.equal(section.querySelectorAll('article').length, 3);
+});
+
 test('country selection and timeline filter complete cards newest first', async context => {
   const { section, feature } = storyPage(context);
   await feature.load();
