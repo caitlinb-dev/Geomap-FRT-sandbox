@@ -1362,6 +1362,24 @@
           mapInstance.mapPanZoom.center();
         };
 
+          var originalMoveTooltip = mapInstance.moveTooltip.bind(mapInstance);
+          mapInstance.moveTooltip = function (event) {
+            originalMoveTooltip(event);
+            var tooltip = mapInstance.tooltip;
+            if (!tooltip) return;
+            var mapBounds = document.getElementById('svgMapSurveillance').getBoundingClientRect();
+            var tooltipWidth = tooltip.offsetWidth;
+            var mapLeft = mapBounds.left + window.scrollX + 8;
+            var mapRight = mapBounds.right + window.scrollX - 8;
+            var minX = mapLeft + tooltipWidth / 2;
+            var maxX = mapRight - tooltipWidth / 2;
+            var currentX = parseFloat(tooltip.style.left);
+            var adjustedX = minX <= maxX
+              ? Math.max(minX, Math.min(maxX, currentX))
+              : (mapLeft + mapRight) / 2;
+            tooltip.style.left = adjustedX + 'px';
+          };
+
         // Patch hideTooltip so moving the mouse from a country to the tooltip
         // (over empty SVG space) does not close the tooltip before the user can
         // click the news-tracker link inside it.
