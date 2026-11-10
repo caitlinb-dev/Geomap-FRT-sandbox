@@ -86,8 +86,6 @@
       var hasChallenge = opts.legalChallenge === 'Y' ? 'Yes' : 'No data';
       var surveillanceColor = hasSurveillance === 'Yes' ? '#1e3283' : '#999';
       var challengeColor = opts.legalChallenge === 'Y' ? '#2c3e50' : '#999';
-      var trackerLink = opts.trackerLink || '';
-      var showTrackerLink = opts.surveillanceExists === 'Y' && !!trackerLink;
       var extraButtonHtml = opts.extraButtonHtml || '';
 
       return '<div style="padding: 12px 16px;">' +
@@ -104,11 +102,6 @@
         '<span style="color: #666; font-size: 12px; display: block; margin-bottom: 3px;">Legal action initiated:</span>' +
         '<span style="font-weight: 600; color: ' + challengeColor + ';">' + hasChallenge + '</span>' +
         '</div>' +
-        (showTrackerLink
-          ? '<div style="padding-top: 12px; border-top: 1px solid #e0e0e0;">' +
-            '<a class="js-tracker-link" href="' + escapeHtml(trackerLink) + '" target="_blank" rel="noopener noreferrer" style="color: #1e3283; text-decoration: underline; font-weight: 500; font-size: 13px;">Open PI News Tracker ↗</a>' +
-            '</div>'
-          : '') +
         extraButtonHtml +
         '</div>';
     }
