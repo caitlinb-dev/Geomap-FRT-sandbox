@@ -4,6 +4,7 @@
     var state = {
       cache: {},
       activeCountryID: null,
+      mapRequestID: 0,
       mapStage: null,
       title: null,
       description: null,
@@ -207,6 +208,8 @@
 
       state.modal.hidden = true;
       state.activeCountryID = null;
+      state.mapRequestID++;
+      if (featureOptions.onRegionClear) featureOptions.onRegionClear();
       document.body.style.overflow = '';
 
       if (
@@ -320,6 +323,7 @@
       }
 
       var mapUrl = subnational.map.url;
+      var requestID = state.mapRequestID;
 
       if (state.cache[mapUrl]) {
         buildSubnationalMapSource(state.cache[mapUrl], countryID, countryValues);
@@ -336,9 +340,11 @@
         })
         .then(function (mapSource) {
           state.cache[mapUrl] = mapSource;
+          if (requestID !== state.mapRequestID) return;
           buildSubnationalMapSource(mapSource, countryID, countryValues);
         })
         .catch(function (error) {
+          if (requestID !== state.mapRequestID) return;
           console.error('Subnational map load error:', error);
           showSubnationalError('Could not load the subnational map for this country.');
         });
@@ -398,6 +404,10 @@
         tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
         tooltip.hidden = false;
 
+        if (featureOptions.onRegionSelect) {
+          featureOptions.onRegionSelect(state.activeCountryID, regionCode, regionData.name || regionCode);
+        }
+
         var trackerAnchor = tooltip.querySelector('.js-tracker-link');
         if (trackerAnchor) {
           ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(function (eventName) {
@@ -424,6 +434,7 @@
     function finishSubnationalSvg(svg, tooltip) {
       svg.addEventListener('click', function () {
         tooltip.hidden = true;
+        if (featureOptions.onRegionClear) featureOptions.onRegionClear();
         svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
           activeEl.classList.remove('subnational-active');
         });
@@ -575,6 +586,9 @@
       }
 
       state.activeCountryID = countryID;
+      state.mapRequestID++;
+      state.mapStage.replaceChildren();
+      if (featureOptions.onRegionClear) featureOptions.onRegionClear();
       state.lastFocusedElement =
         document.activeElement && document.activeElement !== document.body
           ? document.activeElement

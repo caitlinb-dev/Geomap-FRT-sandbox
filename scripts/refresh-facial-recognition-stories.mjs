@@ -219,6 +219,24 @@ export async function refreshStories({ countryPath = COUNTRY_PATH, outputPath = 
   if (previous && snapshot.stories.length < previous.stories.length) {
     throw new Error(`Story count fell from ${previous.stories.length} to ${snapshot.stories.length}; review collection before replacing snapshot`);
   }
+  const previousStories = new Map((previous?.stories || []).map(story => [story.id, story]));
+  const countryEntries = data.countries ?? data;
+  for (const story of snapshot.stories) {
+    const saved = previousStories.get(story.id);
+    if (!saved || !Object.hasOwn(saved, 'regionIDs')) continue;
+    if (!Array.isArray(saved.regionIDs)) {
+      throw new Error(`Invalid regionIDs for story ${story.id}: expected an array`);
+    }
+    for (const regionID of saved.regionIDs) {
+      const countryID = typeof regionID === 'string' ? regionID.slice(0, 2) : '';
+      if (typeof regionID !== 'string' || !/^[A-Z]{2}-[A-Z0-9]+$/.test(regionID) ||
+          !story.countryIDs.includes(countryID) ||
+          !Object.hasOwn(countryEntries[countryID]?.subnational?.regions || {}, regionID)) {
+        throw new Error(`Invalid regionID ${JSON.stringify(regionID)} for story ${story.id}`);
+      }
+    }
+    story.regionIDs = [...new Set(saved.regionIDs)];
+  }
   const outputs = [
     { path: countryPath, data: updateFirstExampleYears(data, snapshot.stories) },
     { path: outputPath, data: snapshot }

@@ -1,19 +1,62 @@
 (function () {
   'use strict';
 
-  window.createCountryStoriesFeature = function (section) {
+  window.createCountryStoriesStore = function () {
+    var listeners = [];
+    var pending = null;
+    var currentState = 'loading';
+    var payload = null;
+
+    function notify() {
+      listeners.forEach(function (listener) { listener(currentState, payload); });
+    }
+
+    return {
+      subscribe: function (listener) {
+        listeners.push(listener);
+        listener(currentState, payload);
+      },
+      load: function () {
+        if (pending) return pending;
+        currentState = 'loading';
+        notify();
+        pending = fetch('./data/facial-recognition-stories.json')
+          .then(function (response) {
+            if (!response.ok) throw new Error('Failed to load country stories');
+            return response.json();
+          })
+          .then(function (snapshot) {
+            payload = snapshot;
+            currentState = 'ready';
+            notify();
+          })
+          .catch(function (error) {
+            currentState = 'error';
+            notify();
+            console.warn('Could not load country stories:', error);
+          })
+          .finally(function () { pending = null; });
+        return pending;
+      }
+    };
+  };
+
+  window.createCountryStoriesFeature = function (section, options) {
+    var featureOptions = options || {};
+    var store = featureOptions.store || window.createCountryStoriesStore();
+    var regionView = !!featureOptions.regionView;
     var title = section.querySelector('[data-stories-title]');
     var status = section.querySelector('[data-stories-status]');
     var cards = section.querySelector('[data-stories-cards]');
     var contributionCopy = section.querySelector('.contribution-hero p');
-    var defaultContributionCopy = contributionCopy.textContent;
+    var defaultContributionCopy = contributionCopy ? contributionCopy.textContent : '';
     var retryButton = section.querySelector('[data-stories-retry]');
     var storiesByCountry = new Map();
     var selectedCountry = null;
+    var selectedRegion = null;
     var selectedYear = null;
     var loadState = 'loading';
     var renderedIDs = null;
-    var pendingLoad = null;
 
     function safeUrl(value) {
       try {
@@ -66,13 +109,19 @@
 
     function render() {
       if (!selectedCountry) return;
-      section.parentElement.classList.add('has-selected-country');
+      if (!regionView) section.parentElement.classList.add('has-selected-country');
       section.hidden = false;
       title.hidden = false;
-      title.textContent = 'Stories from ' + selectedCountry.name;
+      var subjectName = selectedRegion ? selectedRegion.name : selectedCountry.name;
+      title.textContent = 'Stories from ' + subjectName;
       retryButton.hidden = loadState !== 'error';
       var allStories = storiesByCountry.get(selectedCountry.id) || [];
-      contributionCopy.textContent = loadState === 'ready' && !allStories.length
+      if (selectedRegion) {
+        allStories = allStories.filter(function (story) {
+          return (story.regionIDs || []).includes(selectedRegion.id);
+        });
+      }
+      if (contributionCopy) contributionCopy.textContent = loadState === 'ready' && !allStories.length
         ? "We don't have any examples of facial recognition being used in education for this country yet. If you know of any that are not yet on this list, please let us know and help us expand this map."
         : defaultContributionCopy;
       var visibleStories = loadState === 'ready' ? allStories.filter(function (story) {
@@ -84,16 +133,18 @@
       } else if (loadState === 'error') {
         message = 'Stories could not be loaded. The map is still available.';
       } else if (!allStories.length) {
-        message = 'No facial-recognition-tagged stories are recorded for ' + selectedCountry.name + '.';
+        message = selectedRegion
+          ? 'No stories have been tagged for ' + subjectName + ' yet.'
+          : 'No facial-recognition-tagged stories are recorded for ' + subjectName + '.';
       } else if (!visibleStories.length) {
-        message = 'No facial-recognition-tagged stories are recorded for ' + selectedCountry.name + ' through ' + selectedYear + '.';
+        message = 'No facial-recognition-tagged stories are recorded for ' + subjectName + ' through ' + selectedYear + '.';
       } else {
         message = visibleStories.length + (visibleStories.length === 1 ? ' story' : ' stories') +
           (selectedYear === null ? '' : ' through ' + selectedYear) + '.';
       }
-          status.hidden = loadState === 'ready' && !allStories.length;
+          status.hidden = !regionView && loadState === 'ready' && !allStories.length;
       if (status.textContent !== message) status.textContent = message;
-      var nextIDs = selectedCountry.id + ':' + visibleStories.map(function (story) { return story.id; }).join(',');
+      var nextIDs = selectedCountry.id + ':' + (selectedRegion ? selectedRegion.id : '') + ':' + visibleStories.map(function (story) { return story.id; }).join(',');
       if (renderedIDs !== nextIDs) {
         cards.replaceChildren.apply(cards, visibleStories.map(createCard));
         renderedIDs = nextIDs;
@@ -106,6 +157,11 @@
           Number.isNaN(Date.parse(story.date)) || new Date(story.date).toISOString().slice(0, 10) !== story.date ||
           !safeUrl(story.sourceUrl) || !Array.isArray(story.countryIDs) ||
           !story.countryIDs.every(function (countryID) { return /^[A-Z]{2}$/.test(countryID); }) ||
+          (story.regionIDs !== undefined && (!Array.isArray(story.regionIDs) ||
+            !story.regionIDs.every(function (regionID) {
+              return typeof regionID === 'string' && /^[A-Z]{2}-[A-Z0-9]+$/.test(regionID) &&
+                story.countryIDs.includes(regionID.slice(0, 2));
+            }))) ||
           !Array.isArray(story.paragraphs) || !story.paragraphs.length ||
           !story.paragraphs.every(function (paragraph) { return typeof paragraph === 'string'; }) ||
           !Array.isArray(story.articleLinks) || !story.articleLinks.every(function (articleLink) {
@@ -115,16 +171,9 @@
       }
     }
 
-    function loadStories() {
-      if (pendingLoad) return pendingLoad;
-      loadState = 'loading';
-      render();
-      pendingLoad = fetch('./data/facial-recognition-stories.json')
-        .then(function (response) {
-          if (!response.ok) throw new Error('Failed to load country stories');
-          return response.json();
-        })
-        .then(function (payload) {
+    store.subscribe(function (nextState, payload) {
+      loadState = nextState;
+      if (loadState === 'ready') {
           if (!payload || payload.schemaVersion !== 1 || !Array.isArray(payload.stories) || !payload.stories.length) {
             throw new Error('Invalid country story snapshot');
           }
@@ -145,32 +194,41 @@
             });
           });
           storiesByCountry = index;
-          loadState = 'ready';
-        })
-        .catch(function (error) {
-          loadState = 'error';
-          console.warn('Could not load country stories:', error);
-        })
-        .finally(function () {
-          pendingLoad = null;
-          render();
-        });
-      return pendingLoad;
-    }
+      }
+      render();
+    });
 
-    retryButton.addEventListener('click', loadStories);
+    retryButton.addEventListener('click', store.load);
     return {
-      load: loadStories,
+      load: store.load,
       clearSelection: function () {
         selectedCountry = null;
-        section.hidden = true;
-        section.parentElement.classList.remove('has-selected-country');
+        selectedRegion = null;
+        if (regionView) {
+          title.hidden = true;
+          status.hidden = false;
+          status.textContent = 'No state selected.';
+          retryButton.hidden = true;
+          cards.replaceChildren();
+          renderedIDs = null;
+        } else {
+          section.hidden = true;
+          section.parentElement.classList.remove('has-selected-country');
+        }
       },
       selectCountry: function (countryID, countryName) {
         var countryChanged = !selectedCountry || selectedCountry.id !== countryID;
         selectedCountry = { id: countryID, name: countryName };
+        selectedRegion = null;
         render();
         if (countryChanged) section.scrollTop = 0;
+      },
+      selectRegion: function (countryID, regionID, regionName) {
+        var regionChanged = !selectedRegion || selectedRegion.id !== regionID;
+        selectedCountry = { id: countryID, name: countryID };
+        selectedRegion = { id: regionID, name: regionName };
+        render();
+        if (regionChanged) section.scrollTop = 0;
       },
       setYear: function (year) {
         selectedYear = Number.isInteger(year) ? year : null;
