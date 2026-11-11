@@ -15,6 +15,16 @@ This repository serves two purposes:
 
 If you are here for the campaign-facing map, start with `surveillance-schools.html`.
 
+### Map Data Attribution
+
+The country-level map is rendered with [svgMap](https://github.com/StephanWagner/svgMap).
+The India and U.S. state boundaries are derived from [geoBoundaries](https://github.com/wmgeolab/geoBoundaries/?tab=License-1-ov-file);
+see the [India](data/maps/in-states-ATTRIBUTION.md) and [U.S.](data/maps/us-states-ATTRIBUTION.md) attribution records for dataset and license details.
+
+The Brazil state boundaries in [data/maps/br-states.geojson](data/maps/br-states.geojson)
+are sourced from [diasbruno/svg-state-maps-of-brazil](https://github.com/diasbruno/svg-state-maps-of-brazil)
+and are provided under the [Unlicense](https://unlicense.org/).
+
 ## Country Story Cards
 
 Selecting a country shows facial-recognition-tagged entries from Privacy International's
