@@ -152,6 +152,31 @@ test('a failed collection leaves both saved stories and country years untouched'
   assert.equal(await fs.readFile(files.outputPath, 'utf8'), files.snapshotText);
 });
 
+test('refresh preserves manual region tags by ID while updating source fields', async context => {
+  const files = await refreshFiles(context);
+  const data = JSON.parse(files.countryText);
+  data.countries.CA.subnational = { regions: { 'CA-NS': {}, 'CA-ON': {} } };
+  await fs.writeFile(files.countryPath, JSON.stringify(data));
+  for (const regionIDs of [['CA-NS', 'CA-ON', 'CA-NS'], []]) {
+    await fs.writeFile(files.outputPath, JSON.stringify({ stories: [{ id: '5808', title: 'Old title', regionIDs }] }));
+    const result = await refreshStories({ ...files, fetchPage: async url => url === TRACKER_URL ? listingHtml() : storyHtml() });
+    assert.deepEqual(result.stories[0].regionIDs, [...new Set(regionIDs)]);
+    assert.equal(result.stories[0].title, 'Proctoring company data leak raises concerns');
+    assert.deepEqual(JSON.parse(await fs.readFile(files.outputPath, 'utf8')).stories[0].regionIDs, [...new Set(regionIDs)]);
+  }
+});
+
+test('invalid manual region tags leave both output files untouched', async context => {
+  const files = await refreshFiles(context);
+  for (const regionIDs of ['CA-NS', [null], ['CA-UNKNOWN'], ['US-CA'], ['ca-ns']]) {
+    const previous = JSON.stringify({ stories: [{ id: '5808', regionIDs }] });
+    await fs.writeFile(files.outputPath, previous);
+    await assert.rejects(refreshStories({ ...files, fetchPage: async url => url === TRACKER_URL ? listingHtml() : storyHtml() }), /Invalid regionID.*5808/);
+    assert.equal(await fs.readFile(files.outputPath, 'utf8'), previous);
+    assert.equal(await fs.readFile(files.countryPath, 'utf8'), files.countryText);
+  }
+});
+
 test('a shrinking collection leaves both saved stories and country years untouched', async context => {
   const files = await refreshFiles(context);
   const previous = JSON.stringify({ stories: [{ id: 'first' }, { id: 'second' }] });
@@ -331,4 +356,111 @@ test('country and state tooltips omit the tracker link but retain status and con
     assert.match(tooltip.textContent, /Legal action initiated:Yes/);
     assert.equal(tooltip.querySelector('button').textContent, 'View state-by-state map');
   }
+});
+
+test('shared story views filter explicit region tags independently and respect the year', async context => {
+  const payload = structuredClone(snapshot);
+  const tagged = payload.stories.find(story => story.countryIDs.includes('US'));
+  tagged.regionIDs = ['US-CA', 'US-NY', 'US-CA'];
+  let fetchCount = 0;
+  const { feature, document } = storyPage(context, async () => {
+    fetchCount++;
+    return { ok: true, json: async () => payload };
+  });
+  const store = document.defaultView.createCountryStoriesStore();
+  const country = document.defaultView.createCountryStoriesFeature(document.getElementById('countryStories'), { store });
+  const section = document.getElementById('subnationalStories');
+  const region = document.defaultView.createCountryStoriesFeature(section, { store, regionView: true });
+  country.selectCountry('US', 'United States');
+  region.selectRegion('US', 'US-CA', 'California');
+  await Promise.all([country.load(), region.load()]);
+  assert.equal(fetchCount, 1);
+  assert.equal(section.querySelector('h2').textContent, 'Stories from California');
+  assert.deepEqual([...section.querySelectorAll('article')].map(card => card.dataset.storyId), [tagged.id]);
+  assert.ok(document.getElementById('countryStories').querySelectorAll('article').length > 1);
+  region.selectRegion('US', 'US-NY', 'New York');
+  assert.equal(section.querySelectorAll('article').length, 1);
+  region.setYear(Number(tagged.date.slice(0, 4)) - 1);
+  assert.equal(section.querySelectorAll('article').length, 0);
+  assert.match(section.querySelector('[role="status"]').textContent, /New York through/);
+  region.setYear(null);
+  region.selectRegion('BR', 'BR-SP', 'São Paulo');
+  assert.equal(section.querySelectorAll('article').length, 0);
+  assert.match(section.querySelector('[role="status"]').textContent, /No stories have been tagged/);
+  region.clearSelection();
+  region.setYear(2026);
+  assert.equal(section.querySelector('[role="status"]').textContent, 'No state selected.');
+  assert.equal(section.parentElement.classList.contains('has-selected-country'), false);
+  feature.clearSelection();
+});
+
+test('region loading, shared retry and invalid tags preserve the current selection', async context => {
+  const payload = structuredClone(snapshot);
+  const tagged = payload.stories.find(story => story.countryIDs.includes('US'));
+  tagged.regionIDs = ['US-CA'];
+  let resolveFetch;
+  let attempts = 0;
+  const { document } = storyPage(context, () => {
+    attempts++;
+    if (attempts === 1) return Promise.reject(new Error('Offline'));
+    return new Promise(resolve => { resolveFetch = resolve; });
+  });
+  const store = document.defaultView.createCountryStoriesStore();
+  const section = document.getElementById('subnationalStories');
+  const region = document.defaultView.createCountryStoriesFeature(section, { store, regionView: true });
+  region.selectRegion('US', 'US-NY', 'New York');
+  await region.load();
+  assert.equal(section.querySelector('button').hidden, false);
+  section.querySelector('button').click();
+  const loading = region.load();
+  region.selectRegion('US', 'US-CA', 'California');
+  resolveFetch({ ok: true, json: async () => payload });
+  await loading;
+  assert.equal(attempts, 2);
+  assert.equal(section.querySelectorAll('article').length, 1);
+  tagged.regionIDs = ['BR-SP'];
+  const invalid = region.load();
+  resolveFetch({ ok: true, json: async () => payload });
+  await invalid;
+  assert.equal(section.querySelector('button').hidden, false);
+  assert.equal(section.querySelectorAll('article').length, 0);
+});
+
+test('SVG and GeoJSON state selections support keyboard, clearing and stale-load protection', async context => {
+  const { document } = storyPage(context);
+  const browser = document.defaultView;
+  browser.eval(await fs.readFile(new URL('../scripts/subnational-map-feature.js', import.meta.url), 'utf8'));
+  const baseValues = {
+    US: { name: 'United States', subnational: { enabled: true, map: { format: 'svg', url: '/us.svg', regionCodeProperty: 'postal', regionCodePrefix: 'US-' }, regions: { 'US-CA': { name: 'California' } } } },
+    BR: { name: 'Brazil', subnational: { enabled: true, map: { format: 'geojson', url: '/br.json', regionCodeProperty: 'sigla', regionCodePrefix: 'BR-' }, regions: { 'BR-SP': { name: 'São Paulo' } } } }
+  };
+  let resolveMap;
+  browser.fetch = () => new Promise(resolve => { resolveMap = resolve; });
+  const selected = [];
+  let cleared = 0;
+  const map = browser.createSubnationalMapFeature({ getBaseValues: () => baseValues, onRegionSelect: (...args) => selected.push(args), onRegionClear: () => cleared++ });
+  const flush = async () => { await new Promise(resolve => setImmediate(resolve)); };
+  const svgResponse = { ok: true, text: async () => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path postal="CA" d="M0 0 L100 0 L100 100 Z"/></svg>' };
+  map.openSubnationalModal('US');
+  document.getElementById('subnationalModalCloseButton').click();
+  resolveMap(svgResponse);
+  await flush();
+  assert.equal(document.querySelector('#subnationalMapStage path'), null);
+  map.openSubnationalModal('US');
+  const path = document.querySelector('#subnationalMapStage path');
+  path.getBBox = () => ({ x: 0, y: 0, width: 100, height: 100 });
+  for (const key of ['Enter', ' ']) path.dispatchEvent(new browser.KeyboardEvent('keydown', { key, bubbles: true }));
+  path.dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.deepEqual(selected, Array.from({ length: 3 }, () => ['US', 'US-CA', 'California']));
+  assert.ok(path.classList.contains('subnational-active'));
+  document.querySelector('#subnationalMapStage svg').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.equal(path.classList.contains('subnational-active'), false);
+  assert.equal(cleared, 4);
+  map.openSubnationalModal('BR');
+  resolveMap({ ok: true, json: async () => ({ features: [{ properties: { sigla: 'SP' }, geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 0]]] } }] }) });
+  await flush();
+  document.querySelector('#subnationalMapStage path').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.deepEqual(selected.at(-1), ['BR', 'BR-SP', 'São Paulo']);
+  document.dispatchEvent(new browser.KeyboardEvent('keydown', { key: 'Escape' }));
+  assert.equal(document.getElementById('subnationalModal').hidden, true);
 });

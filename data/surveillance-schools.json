@@ -387,6 +387,7 @@
       "subnational": {
         "enabled": true,
         "levelName": "State",
+        "trackerLinkText": "Open InternetLab report",
         "map": {
           "format": "geojson",
           "url": "./data/maps/br-states.geojson",
@@ -1521,7 +1522,9 @@
             "name": "Chhattisgarh"
           },
           "IN-DL": {
-            "name": "Delhi"
+            "name": "Delhi",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-DH": {
             "name": "Dadra and Nagar Haveli and Daman and Diu"
@@ -1545,7 +1548,9 @@
             "name": "Jammu and Kashmir"
           },
           "IN-KA": {
-            "name": "Karnataka"
+            "name": "Karnataka",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-KL": {
             "name": "Kerala"
@@ -1590,7 +1595,9 @@
             "name": "Sikkim"
           },
           "IN-TG": {
-            "name": "Telangana"
+            "name": "Telangana",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-TN": {
             "name": "Tamil Nadu"
@@ -1599,7 +1606,9 @@
             "name": "Tripura"
           },
           "IN-UP": {
-            "name": "Uttar Pradesh"
+            "name": "Uttar Pradesh",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "IN-UT": {
             "name": "Uttarakhand"
@@ -2912,10 +2921,10 @@
     },
     "ZA": {
       "name": "South Africa",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=South+Africa+%28128%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2024,
       "subnational": {
         "enabled": false,
         "levelName": null,
@@ -3345,7 +3354,9 @@
             "name": "California"
           },
           "US-CO": {
-            "name": "Colorado"
+            "name": "Colorado",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-CT": {
             "name": "Connecticut"
@@ -3426,13 +3437,17 @@
             "name": "New Jersey"
           },
           "US-NM": {
-            "name": "New Mexico"
+            "name": "New Mexico",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-NV": {
             "name": "Nevada"
           },
           "US-NY": {
-            "name": "New York"
+            "name": "New York",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-OH": {
             "name": "Ohio"
@@ -3459,7 +3474,9 @@
             "name": "Tennessee"
           },
           "US-TX": {
-            "name": "Texas"
+            "name": "Texas",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-UT": {
             "name": "Utah"
@@ -3471,10 +3488,14 @@
             "name": "Vermont"
           },
           "US-WA": {
-            "name": "Washington"
+            "name": "Washington",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-WI": {
-            "name": "Wisconsin"
+            "name": "Wisconsin",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-WV": {
             "name": "West Virginia"

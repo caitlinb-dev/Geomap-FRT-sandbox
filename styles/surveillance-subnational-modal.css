@@ -17,7 +17,7 @@
 .subnational-modal-dialog {
   position: relative;
   z-index: 1;
-  width: min(960px, calc(100vw - 32px));
+  width: min(1280px, calc(100vw - 32px));
   margin: 24px auto;
   max-height: calc(100vh - 48px);
   overflow: hidden;
@@ -74,7 +74,9 @@
 
 .subnational-map-stage {
   position: relative;
-  min-height: 520px;
+  min-width: 0;
+  aspect-ratio: 920 / 620;
+  align-self: start;
   border: 1px solid #d5ddec;
   border-radius: 12px;
   background: linear-gradient(180deg, #f9fbff 0%, #eff5ff 100%);
@@ -85,6 +87,58 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.subnational-map-stage > .subnational-map-controls-scope {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.subnational-map-stories-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 20px;
+  align-items: start;
+}
+
+.subnational-stories.country-stories {
+  min-width: 0;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}
+
+.subnational-stories.country-stories h2 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.subnational-stories .country-story {
+  padding: 18px;
+  box-shadow: none;
+}
+
+@media (max-width: 800px) {
+  .subnational-map-stories-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .subnational-stories.country-stories {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .subnational-modal-title {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
 }
 
 .subnational-region {

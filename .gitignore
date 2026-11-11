@@ -1,5 +1,5 @@
 # Build output
-dist/
+
 
 # Source maps
 *.js.map
