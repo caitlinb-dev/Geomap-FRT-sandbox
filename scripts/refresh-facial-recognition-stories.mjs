@@ -237,8 +237,10 @@ export async function refreshStories({ countryPath = COUNTRY_PATH, outputPath = 
     }
     story.regionIDs = [...new Set(saved.regionIDs)];
   }
+  const updatedData = updateFirstExampleYears(data, snapshot.stories);
+  updatedData.lastUpdated = snapshot.fetchedAt;
   const outputs = [
-    { path: countryPath, data: updateFirstExampleYears(data, snapshot.stories) },
+    { path: countryPath, data: updatedData },
     { path: outputPath, data: snapshot }
   ].map(output => ({ ...output, temporary: new URL(`${output.path.href}.tmp`) }));
   try {

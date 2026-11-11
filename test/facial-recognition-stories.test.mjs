@@ -119,7 +119,7 @@ async function refreshFiles(context) {
   context.after(() => fs.rm(directory, { recursive: true, force: true }));
   const countryPath = pathToFileURL(path.join(directory, 'countries.json'));
   const outputPath = pathToFileURL(path.join(directory, 'stories.json'));
-  const countryText = JSON.stringify({ schemaVersion: 2, countries: {
+  const countryText = JSON.stringify({ schemaVersion: 2, lastUpdated: '2025-01-01T00:00:00Z', countries: {
     CA: { name: 'Canada', surveillanceExists: 'Y', firstExampleYear: 2026 }
   } });
   const snapshotText = JSON.stringify({ schemaVersion: 1, stories: [{ id: 'existing' }] });
@@ -138,7 +138,11 @@ test('one refresh saves new stories and timeline years from the same collection'
   assert.equal(fetchCount, 2);
   assert.equal(result.stories[0].id, '5808');
   assert.equal(JSON.parse(await fs.readFile(files.outputPath, 'utf8')).stories[0].id, '5808');
-  assert.equal(JSON.parse(await fs.readFile(files.countryPath, 'utf8')).countries.CA.firstExampleYear, 2020);
+  const updatedData = JSON.parse(await fs.readFile(files.countryPath, 'utf8'));
+  assert.equal(updatedData.countries.CA.firstExampleYear, 2020);
+  assert.equal(updatedData.lastUpdated, result.fetchedAt);
+  assert.ok(Number.isFinite(Date.parse(updatedData.lastUpdated)));
+  assert.notEqual(updatedData.lastUpdated, JSON.parse(files.countryText).lastUpdated);
   assert.deepEqual((await fs.readdir(files.directory)).sort(), ['countries.json', 'stories.json']);
 });
 
@@ -189,6 +193,95 @@ test('a shrinking collection leaves both saved stories and country years untouch
 const snapshot = JSON.parse(await fs.readFile(new URL('../data/facial-recognition-stories.json', import.meta.url), 'utf8'));
 const pageHtml = await fs.readFile(new URL('../surveillance-schools.html', import.meta.url), 'utf8');
 const renderer = await fs.readFile(new URL('../scripts/country-stories-feature.js', import.meta.url), 'utf8');
+const subnationalRenderer = await fs.readFile(new URL('../scripts/subnational-map-feature.js', import.meta.url), 'utf8');
+
+async function initializedMapPage(context, { lastUpdated = '2025-01-01T00:00:00Z', firstExampleYear = 2020, failData = false, cachedDate = null } = {}) {
+  const dom = new JSDOM(pageHtml, { runScripts: 'outside-only', url: 'http://localhost:8765/surveillance-schools.html' });
+  context.after(() => dom.window.close());
+  const browser = dom.window;
+  const requests = [];
+  const errors = [];
+  const intervalCallbacks = [];
+  let applyCount = 0;
+  browser.console.error = (...args) => errors.push(args);
+  browser.console.warn = () => {};
+  browser.setInterval = callback => intervalCallbacks.push(callback);
+  browser.clearInterval = () => {};
+  if (cachedDate) {
+    browser.localStorage.setItem('surveillance_schools_rss_date', cachedDate);
+    browser.localStorage.setItem('surveillance_schools_rss_date_timestamp', String(Date.now()));
+    browser.localStorage.setItem('surveillance_schools_last_known_rss_date', cachedDate);
+  }
+  browser.fetch = async url => {
+    requests.push(url);
+    if (url === './data/facial-recognition-stories.json') return { ok: true, json: async () => snapshot };
+    if (url === './data/surveillance-schools.json') return {
+      ok: !failData,
+      json: async () => ({ schemaVersion: 2, lastUpdated, countries: {
+        CA: { name: 'Canada', surveillanceExists: 'Y', legalChallenge: 'N', firstExampleYear }
+      } })
+    };
+    throw new Error('Unexpected request: ' + url);
+  };
+  browser.svgMap = function (options) {
+    this.options = options;
+    this.mapImage = browser.document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this.mapReset = this.moveTooltip = this.hideTooltip = () => {};
+    this.applyData = () => { applyCount++; };
+  };
+  browser.eval(renderer);
+  browser.eval(subnationalRenderer);
+  const script = [...browser.document.querySelectorAll('script:not([src])')]
+    .find(element => element.textContent.includes('var timelineState'));
+  browser.eval(script.textContent);
+  await new Promise(resolve => setImmediate(resolve));
+  return { browser, requests, errors, intervalCallbacks, get applyCount() { return applyCount; } };
+}
+
+test('map startup uses JSON update date in UTC, ignores RSS caches and initializes timeline once', async context => {
+  const page = await initializedMapPage(context, { cachedDate: '2030-12-31T00:00:00Z' });
+  const { browser, requests, errors, intervalCallbacks } = page;
+  const document = browser.document;
+  assert.equal(document.getElementById('lastUpdated').textContent, 'Last updated: 1 January 2025');
+  const range = document.getElementById('timelineRange');
+  assert.equal(range.min, '2020');
+  assert.equal(range.max, '2025');
+  assert.equal(range.disabled, false);
+  assert.equal(page.applyCount, 1);
+  range.value = '2021';
+  range.dispatchEvent(new browser.Event('input'));
+  assert.equal(browser.timelineState.currentYear, 2021);
+  browser.countryStoriesFeature.selectCountry('CA', 'Canada');
+  document.getElementById('timelinePlayButton').click();
+  assert.equal(intervalCallbacks.length, 1);
+  intervalCallbacks[0]();
+  intervalCallbacks[0]();
+  assert.equal(browser.timelineState.currentYear, 2023);
+  document.getElementById('timelinePlayButton').click();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(errors, []);
+  assert.deepEqual(requests, ['./data/facial-recognition-stories.json', './data/surveillance-schools.json']);
+});
+
+test('missing or invalid update metadata shows unavailable without hiding recorded timeline years', async context => {
+  for (const lastUpdated of [null, '', 'not-a-date', 123, false, {}]) {
+    const { browser, requests, errors } = await initializedMapPage(context, { lastUpdated, firstExampleYear: 2028 });
+    assert.equal(browser.document.getElementById('lastUpdated').textContent, 'Last updated: Unavailable');
+    assert.equal(browser.document.getElementById('timelineRange').max, '2028');
+    assert.equal(browser.document.getElementById('timelineRange').disabled, false);
+    assert.equal(browser.timelineState.currentYear, 2028);
+    assert.deepEqual(errors, []);
+    assert.deepEqual(requests, ['./data/facial-recognition-stories.json', './data/surveillance-schools.json']);
+  }
+});
+
+test('failed map JSON loading shows unavailable without attempting RSS or proxy requests', async context => {
+  const { browser, requests, errors } = await initializedMapPage(context, { failData: true });
+  assert.equal(browser.document.getElementById('lastUpdated').textContent, 'Last updated: Unavailable');
+  assert.equal(errors.length, 1);
+  assert.match(errors[0][0], /Failed to load surveillance data JSON/);
+  assert.deepEqual(requests, ['./data/facial-recognition-stories.json', './data/surveillance-schools.json']);
+});
 
 function storyPage(context, fetchSnapshot = async () => ({ ok: true, json: async () => snapshot })) {
   const dom = new JSDOM(pageHtml, { runScripts: 'outside-only', url: 'http://localhost:8080/surveillance-schools.html' });

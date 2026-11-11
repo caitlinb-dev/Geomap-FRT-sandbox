@@ -872,13 +872,7 @@
     <script src="./scripts/subnational-map-feature.js"></script>
     <script src="./scripts/country-stories-feature.js"></script>
     <script>
-      var FACIAL_RECOGNITION_FEED_URL = 'https://privacyinternational.org/examples/facial-recognition/feed';
-      var LAST_UPDATED_FALLBACK_ISO = '2026-06-26';
-      var lastUpdatedIsoDate = LAST_UPDATED_FALLBACK_ISO;
-      var CACHE_KEY = 'surveillance_schools_rss_date';
-      var CACHE_TIMESTAMP_KEY = 'surveillance_schools_rss_date_timestamp';
-      var LAST_KNOWN_RSS_DATE_KEY = 'surveillance_schools_last_known_rss_date';
-      var CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
+      var lastUpdatedIsoDate = null;
       var timelineState = {
         mapInstance: null,
         baseValues: null,
@@ -904,76 +898,29 @@
       });
       countryStoriesFeature.load();
 
-      setLastUpdated(getLastKnownRssDate() || LAST_UPDATED_FALLBACK_ISO);
-
-      function getCachedRssDate() {
-        var cached = localStorage.getItem(CACHE_KEY);
-        var timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
-
-        if (!cached || !timestamp) {
-          return null;
-        }
-
-        var age = Date.now() - parseInt(timestamp, 10);
-
-        if (age > CACHE_MAX_AGE_MS) {
-          return null;
-        }
-
-        return cached;
-      }
-
-      function setCachedRssDate(dateString) {
-        var parsedDate = new Date(dateString);
-        var lastKnownDate = new Date(getLastKnownRssDate());
-
-        if (
-          Number.isNaN(parsedDate.getTime()) ||
-          (!Number.isNaN(lastKnownDate.getTime()) && parsedDate < lastKnownDate)
-        ) {
-          return;
-        }
-
-        try {
-          localStorage.setItem(CACHE_KEY, dateString);
-          localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-          localStorage.setItem(LAST_KNOWN_RSS_DATE_KEY, dateString);
-        } catch (e) {
-          console.warn('Could not write to localStorage:', e);
-        }
-      }
-
-      function getLastKnownRssDate() {
-        return localStorage.getItem(LAST_KNOWN_RSS_DATE_KEY);
-      }
-
       function formatLastUpdated(dateString) {
         if (!dateString) {
-          return formatLastUpdated(LAST_UPDATED_FALLBACK_ISO);
+          return 'Unavailable';
         }
 
         var parsedDate = new Date(dateString);
 
         if (Number.isNaN(parsedDate.getTime())) {
-          return formatLastUpdated(LAST_UPDATED_FALLBACK_ISO);
+          return 'Unavailable';
         }
 
         return new Intl.DateTimeFormat('en-GB', {
           day: 'numeric',
           month: 'long',
-          year: 'numeric'
+          year: 'numeric',
+          timeZone: 'UTC'
         }).format(parsedDate);
       }
 
       function setLastUpdated(dateString) {
         var lastUpdatedElement = document.getElementById('lastUpdated');
-        var parsedDate = new Date(dateString || LAST_UPDATED_FALLBACK_ISO);
-
-        if (Number.isNaN(parsedDate.getTime())) {
-          parsedDate = new Date(LAST_UPDATED_FALLBACK_ISO);
-        }
-
-        lastUpdatedIsoDate = parsedDate.toISOString();
+        var parsedDate = new Date(typeof dateString === 'string' && dateString.trim() ? dateString : NaN);
+        lastUpdatedIsoDate = Number.isNaN(parsedDate.getTime()) ? null : parsedDate.toISOString();
 
         if (!lastUpdatedElement) {
           return;
@@ -982,28 +929,16 @@
         lastUpdatedElement.innerHTML = '<strong>Last updated:</strong> ' + formatLastUpdated(lastUpdatedIsoDate);
       }
 
-      function setLastUpdatedIfNewer(dateString) {
-        var parsedDate = new Date(dateString);
-        var currentDate = new Date(lastUpdatedIsoDate);
-
-        if (
-          Number.isNaN(parsedDate.getTime()) ||
-          (!Number.isNaN(currentDate.getTime()) && parsedDate < currentDate)
-        ) {
-          return;
+      function getLastUpdatedYear(baseValues) {
+        if (lastUpdatedIsoDate) {
+          return new Date(lastUpdatedIsoDate).getUTCFullYear();
         }
-
-        setLastUpdated(parsedDate.toISOString());
-      }
-
-      function getLastUpdatedYear() {
-        var parsedDate = new Date(lastUpdatedIsoDate || LAST_UPDATED_FALLBACK_ISO);
-
-        if (Number.isNaN(parsedDate.getTime())) {
-          parsedDate = new Date(LAST_UPDATED_FALLBACK_ISO);
-        }
-
-        return parsedDate.getUTCFullYear();
+        return Object.keys(baseValues).reduce(function (endYear, countryID) {
+          var firstYear = baseValues[countryID].firstExampleYear;
+          return typeof firstYear === 'number' && Number.isFinite(firstYear)
+            ? Math.max(endYear, firstYear)
+            : endYear;
+        }, 2026);
       }
 
       function setTimelineStatus(message) {
@@ -1191,7 +1126,7 @@
 
         setTimelineStatus('Loading timeline data...');
 
-        var endYear = getLastUpdatedYear();
+        var endYear = getLastUpdatedYear(baseValues);
 
         loadEarliestYearsByCountry(baseValues, endYear)
           .then(function (firstYearByCountry) {
@@ -1255,138 +1190,6 @@
             stopTimelinePlayback();
             timelinePanel.hidden = true;
           });
-      }
-
-      function getLatestPubDateFromFeedXml(feedXmlText) {
-        if (!feedXmlText) {
-          return null;
-        }
-
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(feedXmlText, 'application/xml');
-        var parseErrors = xmlDoc.getElementsByTagName('parsererror');
-
-        if (parseErrors && parseErrors.length > 0) {
-          return null;
-        }
-
-        var pubDateNodes = xmlDoc.querySelectorAll('item > pubDate');
-
-        if (!pubDateNodes || pubDateNodes.length === 0) {
-          return null;
-        }
-
-        var latestDate = null;
-
-        pubDateNodes.forEach(function (node) {
-          var rawDate = node && node.textContent ? node.textContent.trim() : '';
-
-          if (!rawDate) {
-            return;
-          }
-
-          var parsedDate = new Date(rawDate);
-
-          if (Number.isNaN(parsedDate.getTime())) {
-            return;
-          }
-
-          if (!latestDate || parsedDate > latestDate) {
-            latestDate = parsedDate;
-          }
-        });
-
-        return latestDate ? latestDate.toISOString() : null;
-      }
-
-      function getLatestPubDateFromRssJson(feedJson) {
-        if (!feedJson || !Array.isArray(feedJson.items) || feedJson.items.length === 0) {
-          return null;
-        }
-
-        var latestDate = null;
-
-        feedJson.items.forEach(function (item) {
-          var rawDate = item && item.pubDate ? String(item.pubDate).trim() : '';
-
-          if (!rawDate) {
-            return;
-          }
-
-          var parsedDate = new Date(rawDate);
-
-          if (Number.isNaN(parsedDate.getTime())) {
-            return;
-          }
-
-          if (!latestDate || parsedDate > latestDate) {
-            latestDate = parsedDate;
-          }
-        });
-
-        return latestDate ? latestDate.toISOString() : null;
-      }
-
-      function fetchLatestRssDate() {
-        var cached = getCachedRssDate();
-
-        if (cached) {
-          return Promise.resolve(cached);
-        }
-
-        var feedCandidates = [
-          {
-            url: 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(FACIAL_RECOGNITION_FEED_URL),
-            type: 'json'
-          },
-          {
-            url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent(FACIAL_RECOGNITION_FEED_URL),
-            type: 'xml'
-          }
-        ];
-
-        function tryFeedAt(index) {
-          if (index >= feedCandidates.length) {
-            return Promise.reject(new Error('Unable to fetch RSS date from available endpoints.'));
-          }
-
-          var candidate = feedCandidates[index];
-
-          return fetch(candidate.url)
-            .then(function (response) {
-              if (!response.ok) {
-                throw new Error('Feed request failed with status ' + response.status);
-              }
-
-              return candidate.type === 'json' ? response.json() : response.text();
-            })
-            .then(function (payload) {
-              var latestDate =
-                candidate.type === 'json'
-                  ? getLatestPubDateFromRssJson(payload)
-                  : getLatestPubDateFromFeedXml(payload);
-
-              if (!latestDate) {
-                throw new Error('No valid pubDate found in feed payload.');
-              }
-
-              setCachedRssDate(latestDate);
-              return latestDate;
-            })
-            .catch(function () {
-              return tryFeedAt(index + 1);
-            });
-        }
-
-        return tryFeedAt(0).catch(function () {
-          var lastKnown = getLastKnownRssDate();
-
-          if (lastKnown) {
-            return lastKnown;
-          }
-
-          return Promise.reject(new Error('No RSS date available from live feeds or cache.'));
-        });
       }
 
       function renderMap(surveillanceData) {
@@ -1561,14 +1364,6 @@
         return mapInstance;
       }
 
-      var lastUpdatedReadyPromise = fetchLatestRssDate()
-        .then(function (rssDate) {
-          setLastUpdatedIfNewer(rssDate);
-        })
-        .catch(function (error) {
-          console.warn('Could not fetch RSS date or load cached RSS date:', error);
-        });
-
       fetch('./data/surveillance-schools.json')
         .then(function (response) {
           if (!response.ok) {
@@ -1583,6 +1378,7 @@
             throw new Error('Invalid surveillance JSON schema: expected a top-level countries object.');
           }
 
+          setLastUpdated(payload.lastUpdated);
           var normalizedValues = {};
 
           Object.keys(values).forEach(function (countryID) {
@@ -1622,12 +1418,9 @@
           timelineState.baseValues = normalizedValues;
 
           initializeTimeline(normalizedValues);
-
-          lastUpdatedReadyPromise.finally(function () {
-            initializeTimeline(normalizedValues);
-          });
         })
         .catch(function (error) {
+          setLastUpdated(null);
           console.error('Failed to load surveillance data JSON:', error);
           var description = document.querySelector('.description');
           if (description) {
