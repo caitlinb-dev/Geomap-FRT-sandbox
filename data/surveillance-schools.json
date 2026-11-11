@@ -387,6 +387,7 @@
       "subnational": {
         "enabled": true,
         "levelName": "State",
+        "trackerLinkText": "Open InternetLab report",
         "map": {
           "format": "geojson",
           "url": "./data/maps/br-states.geojson",
@@ -2920,10 +2921,10 @@
     },
     "ZA": {
       "name": "South Africa",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=South+Africa+%28128%29#edit-actions",
-      "firstExampleYear": null,
+      "firstExampleYear": 2024,
       "subnational": {
         "enabled": false,
         "levelName": null,
