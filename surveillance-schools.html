@@ -528,6 +528,59 @@
         margin: 0;
       }
 
+      #svgMapSurveillance .svgMap-country {
+        transition: fill 320ms ease, stroke 180ms ease;
+      }
+
+      .country-story-list {
+        position: relative;
+      }
+
+      .fade-enter-active,
+      .fade-leave-active,
+      .fade-move {
+        transition: opacity 220ms ease, transform 220ms ease;
+      }
+
+      .fade-enter-from,
+      .fade-leave-to {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      .country-story-list > .fade-leave-active {
+        position: absolute;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      .country-story-transition {
+        display: flow-root;
+      }
+
+      .timeline-year {
+        display: grid;
+        min-width: 4ch;
+      }
+
+      .timeline-year > span {
+        grid-area: 1 / 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #svgMapSurveillance .svgMap-country,
+        .fade-enter-active,
+        .fade-leave-active,
+        .fade-move {
+          transition: none;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+          transform: none;
+        }
+      }
+
       .country-stories h2 {
         margin: 0 0 8px;
         font-size: 24px;
@@ -712,7 +765,7 @@
           <div class="timeline-title">Timeline</div>
           <div class="timeline-controls">
             <button type="button" class="timeline-play-button" id="timelinePlayButton" disabled aria-label="Play timeline animation">Play</button>
-            <div class="timeline-year" id="timelineYearLabel">-</div>
+            <div class="timeline-year" id="timelineYearLabel"></div>
           </div>
         </div>
         <input
@@ -1078,7 +1131,15 @@
 
         var timelineYearLabel = document.getElementById('timelineYearLabel');
         if (timelineYearLabel) {
-          timelineYearLabel.textContent = String(yearNumber);
+          if (window.Vue) {
+            Vue.render(Vue.h(Vue.Transition, { name: 'fade' }, {
+              default: function () {
+                return Vue.h('span', { key: yearNumber }, String(yearNumber));
+              }
+            }), timelineYearLabel);
+          } else {
+            timelineYearLabel.textContent = String(yearNumber);
+          }
         }
 
         setTimelineStatus('Showing map state for ' + yearNumber + '.');
