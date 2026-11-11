@@ -234,8 +234,9 @@
       }
 
       .timeline-panel {
+        --timeline-wide-padding: 16px;
         margin: 14px 0 26px 0;
-        padding: 14px 16px 12px 16px;
+        padding: 14px var(--timeline-wide-padding) 12px;
         border: 1px solid #d5ddec;
         border-radius: 10px;
         background: linear-gradient(180deg, #f9fbff 0%, #f1f6ff 100%);
@@ -313,7 +314,7 @@
         flex-direction: column;
         align-items: center;
         gap: 4px;
-        min-width: 0;
+        flex-shrink: 0;
       }
 
       .timeline-year-marker::before {
@@ -325,6 +326,67 @@
 
       .timeline-year-marker-label {
         white-space: nowrap;
+      }
+
+      .timeline-compact-controls {
+        display: none;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .timeline-step-button,
+      .timeline-year-select {
+        box-sizing: border-box;
+        height: 44px;
+        border: 1px solid #9aa8bd;
+        border-radius: 6px;
+        background: #fff;
+        color: #1e3283;
+        font: inherit;
+        font-weight: 700;
+      }
+
+      .timeline-step-button {
+        width: 44px;
+        flex: 0 0 44px;
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .timeline-step-button:disabled {
+        color: #8ea0be;
+        cursor: not-allowed;
+      }
+
+      .timeline-year-select {
+        width: 92px;
+        min-width: 80px;
+        padding: 0 10px;
+      }
+
+      .timeline-panel.is-compact {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .timeline-panel.is-compact .timeline-compact-controls {
+        display: flex;
+      }
+
+      .timeline-panel.is-compact .timeline-range,
+      .timeline-panel.is-compact .timeline-year-markers,
+      .timeline-panel.is-compact .timeline-year {
+        display: none;
+      }
+
+      .timeline-panel.is-compact .timeline-play-button {
+        min-height: 44px;
+        min-width: 64px;
+      }
+
+      .timeline-panel.is-compact .timeline-header {
+        align-items: center;
+        flex-wrap: wrap;
       }
 
       .timeline-status {
@@ -807,6 +869,11 @@
             <div class="timeline-year" id="timelineYearLabel"></div>
           </div>
         </div>
+        <div class="timeline-compact-controls" id="timelineCompactControls">
+          <button type="button" class="timeline-step-button" id="timelinePreviousYear" aria-label="Previous year" title="Previous year" disabled>&larr;</button>
+          <select class="timeline-year-select" id="timelineYearSelect" aria-label="Timeline year" disabled></select>
+          <button type="button" class="timeline-step-button" id="timelineNextYear" aria-label="Next year" title="Next year" disabled>&rarr;</button>
+        </div>
         <input
           type="range"
           class="timeline-range"
@@ -885,7 +952,8 @@
         endYear: null,
         currentYear: null,
         isPlaying: false,
-        playTimerId: null
+        playTimerId: null,
+        layoutCleanup: null
       };
       var storiesStore = createCountryStoriesStore();
       var countryStoriesFeature = createCountryStoriesFeature(document.getElementById('countryStories'), { store: storiesStore });
@@ -976,9 +1044,7 @@
       }
 
       function startTimelinePlayback() {
-        var timelineRange = document.getElementById('timelineRange');
-
-        if (!timelineRange || timelineRange.disabled) {
+        if (timelineState.currentYear === null || timelineState.startYear >= timelineState.endYear) {
           return;
         }
 
@@ -986,22 +1052,10 @@
         setTimelinePlaying(true);
 
         timelineState.playTimerId = setInterval(function () {
-          var currentYear = parseInt(timelineRange.value, 10);
-          var endYear = parseInt(timelineRange.max, 10);
-
-          if (Number.isNaN(currentYear) || Number.isNaN(endYear)) {
+          applyTimelineYear(timelineState.currentYear + 1);
+          if (timelineState.currentYear >= timelineState.endYear) {
             stopTimelinePlayback();
-            return;
           }
-
-          if (currentYear >= endYear) {
-            stopTimelinePlayback();
-            return;
-          }
-
-          var nextYear = currentYear + 1;
-          timelineRange.value = String(nextYear);
-          applyTimelineYear(nextYear);
         }, 800);
       }
 
@@ -1009,10 +1063,8 @@
         if (timelineState.isPlaying) {
           stopTimelinePlayback();
         } else {
-          var timelineRange = document.getElementById('timelineRange');
-          if (timelineRange && parseInt(timelineRange.value, 10) >= parseInt(timelineRange.max, 10)) {
-            timelineRange.value = String(timelineRange.min);
-            applyTimelineYear(timelineRange.value);
+          if (timelineState.currentYear >= timelineState.endYear) {
+            applyTimelineYear(timelineState.startYear);
           }
 
           startTimelinePlayback();
@@ -1081,7 +1133,12 @@
           return;
         }
 
+        yearNumber = Math.max(timelineState.startYear, Math.min(timelineState.endYear, yearNumber));
         timelineState.currentYear = yearNumber;
+        document.getElementById('timelineRange').value = String(yearNumber);
+        document.getElementById('timelineYearSelect').value = String(yearNumber);
+        document.getElementById('timelinePreviousYear').disabled = yearNumber <= timelineState.startYear;
+        document.getElementById('timelineNextYear').disabled = yearNumber >= timelineState.endYear;
         countryStoriesFeature.setYear(yearNumber);
         subnationalStoriesFeature.setYear(yearNumber);
 
@@ -1118,17 +1175,75 @@
         setTimelineStatus('Showing map state for ' + yearNumber + '.');
       }
 
+      function initializeTimelineLayout() {
+        if (timelineState.layoutCleanup) {
+          timelineState.layoutCleanup();
+        }
+
+        var panel = document.getElementById('timelinePanel');
+        var markers = document.getElementById('timelineYearMarkers');
+        var requiredWidth = 0;
+
+        function measureLabels() {
+          var measurement = markers.cloneNode(true);
+          measurement.removeAttribute('id');
+          measurement.style.cssText = 'position: absolute; visibility: hidden; display: flex; width: max-content; gap: 8px;';
+          document.body.appendChild(measurement);
+          requiredWidth = measurement.getBoundingClientRect().width;
+          measurement.remove();
+        }
+
+        function updateLayout() {
+          var panelStyle = getComputedStyle(panel);
+          var availableWidth = panel.clientWidth - 2 * parseFloat(panelStyle.getPropertyValue('--timeline-wide-padding'));
+          var compact = window.innerWidth <= 760 || availableWidth < requiredWidth;
+          var focused = document.activeElement;
+          var moveToSelect = compact && focused.id === 'timelineRange';
+          var moveToRange = !compact && document.getElementById('timelineCompactControls').contains(focused);
+          panel.classList.toggle('is-compact', compact);
+          if (moveToSelect || moveToRange) {
+            document.getElementById(moveToSelect ? 'timelineYearSelect' : 'timelineRange').focus({ preventScroll: true });
+          }
+        }
+
+        measureLabels();
+        updateLayout();
+        var observer = window.ResizeObserver ? new ResizeObserver(updateLayout) : null;
+        if (observer) {
+          observer.observe(panel);
+        }
+        window.addEventListener('resize', updateLayout);
+        var active = true;
+        if (document.fonts) {
+          document.fonts.ready.then(function () {
+            if (active) {
+              measureLabels();
+              updateLayout();
+            }
+          });
+        }
+        timelineState.layoutCleanup = function () {
+          active = false;
+          if (observer) {
+            observer.disconnect();
+          }
+          window.removeEventListener('resize', updateLayout);
+        };
+      }
+
       function initializeTimeline(baseValues) {
         var timelinePanel = document.getElementById('timelinePanel');
         var timelineRange = document.getElementById('timelineRange');
         var timelineYearMarkers = document.getElementById('timelineYearMarkers');
         var timelinePlayButton = document.getElementById('timelinePlayButton');
+        var timelineYearSelect = document.getElementById('timelineYearSelect');
 
         if (!timelinePanel || !timelineRange) {
           return;
         }
 
         setTimelineStatus('Loading timeline data...');
+        stopTimelinePlayback();
 
         var endYear = getLastUpdatedYear(baseValues);
 
@@ -1166,9 +1281,30 @@
             };
 
             if (timelinePlayButton) {
-              timelinePlayButton.disabled = false;
+              timelinePlayButton.disabled = startYear === endYear;
               timelinePlayButton.onclick = toggleTimelinePlayback;
             }
+
+            timelineYearSelect.innerHTML = '';
+            for (var optionYear = startYear; optionYear <= endYear; optionYear += 1) {
+              var option = document.createElement('option');
+              option.value = String(optionYear);
+              option.textContent = String(optionYear);
+              timelineYearSelect.appendChild(option);
+            }
+            timelineYearSelect.disabled = false;
+            timelineYearSelect.onchange = function () {
+              stopTimelinePlayback();
+              applyTimelineYear(this.value);
+            };
+            document.getElementById('timelinePreviousYear').onclick = function () {
+              stopTimelinePlayback();
+              applyTimelineYear(timelineState.currentYear - 1);
+            };
+            document.getElementById('timelineNextYear').onclick = function () {
+              stopTimelinePlayback();
+              applyTimelineYear(timelineState.currentYear + 1);
+            };
 
             if (timelineYearMarkers) {
               timelineYearMarkers.innerHTML = '';
@@ -1188,6 +1324,7 @@
 
             timelinePanel.hidden = false;
             applyTimelineYear(endYear);
+            initializeTimelineLayout();
           })
           .catch(function (error) {
             console.warn('Could not build timeline from surveillance JSON firstExampleYear data:', error);
