@@ -769,7 +769,15 @@
         </div>
         <div class="subnational-modal-body">
           <p class="subnational-modal-description" id="subnationalModalDescription">Click a state to view surveillance and legal challenge details.</p>
-          <div class="subnational-map-stage" id="subnationalMapStage"></div>
+          <div class="subnational-map-stories-layout">
+            <div class="subnational-map-stage" id="subnationalMapStage"></div>
+            <section class="subnational-stories country-stories" id="subnationalStories" aria-labelledby="subnationalStoriesTitle" tabindex="0">
+              <h2 id="subnationalStoriesTitle" data-stories-title hidden>State stories</h2>
+              <p class="country-stories-status" role="status" aria-live="polite" aria-atomic="true" data-stories-status>No state selected.</p>
+              <button type="button" class="country-stories-retry" data-stories-retry hidden>Retry loading stories</button>
+              <div data-stories-cards></div>
+            </section>
+          </div>
         </div>
       </section>
     </div>
@@ -794,12 +802,19 @@
         isPlaying: false,
         playTimerId: null
       };
+      var storiesStore = createCountryStoriesStore();
+      var countryStoriesFeature = createCountryStoriesFeature(document.getElementById('countryStories'), { store: storiesStore });
+      var subnationalStoriesFeature = createCountryStoriesFeature(document.getElementById('subnationalStories'), {
+        store: storiesStore,
+        regionView: true
+      });
       var subnationalFeature = createSubnationalMapFeature({
         getBaseValues: function () {
           return timelineState.baseValues || {};
-        }
+        },
+        onRegionSelect: subnationalStoriesFeature.selectRegion,
+        onRegionClear: subnationalStoriesFeature.clearSelection
       });
-      var countryStoriesFeature = createCountryStoriesFeature(document.getElementById('countryStories'));
       countryStoriesFeature.load();
 
       setLastUpdated(getLastKnownRssDate() || LAST_UPDATED_FALLBACK_ISO);
@@ -1042,6 +1057,7 @@
 
         timelineState.currentYear = yearNumber;
         countryStoriesFeature.setYear(yearNumber);
+        subnationalStoriesFeature.setYear(yearNumber);
 
         var valuesForYear = buildValuesForYear(
           timelineState.baseValues,

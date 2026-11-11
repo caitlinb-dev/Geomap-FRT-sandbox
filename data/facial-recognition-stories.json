@@ -248,7 +248,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-SP", "BR-RJ", "BR-GO", "BR-PR", "BR-RO", "BR-DF", "BR-MS", "BR-PI", "BR-AL", "BR-AM", "BR-ES"]
     },
     {
       "id": "5835",
@@ -439,7 +440,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-KA"]
     },
     {
       "id": "5834",
@@ -607,7 +609,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-PR"]
     },
     {
       "id": "5855",
@@ -811,7 +814,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-DL"]
     },
     {
       "id": "5412",
@@ -859,7 +863,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-NJ", "US-WI"]
     },
     {
       "id": "5820",
@@ -946,7 +951,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-CO"]
     },
     {
       "id": "5827",
@@ -1223,7 +1229,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-TG"]
     },
     {
       "id": "5411",
@@ -1267,7 +1274,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-UP"]
     },
     {
       "id": "5849",
@@ -1339,7 +1347,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-PR"]
     },
     {
       "id": "5211",
@@ -1380,7 +1389,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-TG"]
     },
     {
       "id": "5831",
@@ -1539,7 +1549,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-TG"]
     },
     {
       "id": "5217",
@@ -1618,7 +1629,8 @@
       ],
       "countryIDs": [
         "BR"
-      ]
+      ],
+      "regionIDs": ["BR-TO", "BR-BA", "BR-CE", "BR-PE", "BR-GO", "BR-MG", "BR-RJ", "BR-SP", "BR-RS", "BR-SC"]
     },
     {
       "id": "5822",
@@ -2054,7 +2066,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-WA"]
     },
     {
       "id": "5848",
@@ -2092,7 +2105,8 @@
       ],
       "countryIDs": [
         "IN"
-      ]
+      ],
+      "regionIDs": ["IN-DL"]
     },
     {
       "id": "5809",
@@ -2432,7 +2446,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-NY"]
     },
     {
       "id": "5819",
@@ -2513,7 +2528,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-TX"]
     },
     {
       "id": "5837",
@@ -2552,7 +2568,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-NM"]
     },
     {
       "id": "5846",
@@ -2808,7 +2825,8 @@
       ],
       "countryIDs": [
         "US"
-      ]
+      ],
+      "regionIDs": ["US-TX"]
     },
     {
       "id": "5801",

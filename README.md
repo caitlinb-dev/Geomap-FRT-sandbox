@@ -66,6 +66,40 @@ or parsing failures and a decrease in total story count leave both saved dataset
 untouched. Both outputs are staged before replacing either file; each replacement
 is atomic. There is no scheduled refresh.
 
+### Manually Tagging State Stories
+
+Add an optional `regionIDs` array directly to a story object in
+[data/facial-recognition-stories.json](data/facial-recognition-stories.json), alongside
+its `id`, `countryIDs`, and other existing fields. For example, a US story covering
+California and New York would contain these fields (keep the story's other fields):
+
+```json
+{
+  "countryIDs": ["US"],
+  "regionIDs": ["US-CA", "US-NY"]
+}
+```
+
+Use the exact region keys under `countries.<countryID>.subnational.regions` in
+[data/surveillance-schools.json](data/surveillance-schools.json). For example,
+`US-CA` is California and `BR-SP` is São Paulo. Multiple regions and countries are
+supported, but every region's country must already appear in the story's PI-sourced
+`countryIDs`. Do not change PI country tags merely to attach a region.
+
+Clicking a state in a configured subnational map shows explicitly tagged stories
+inside the modal, newest first and only through the selected timeline year.
+Omitting `regionIDs`, or setting it to `[]`, keeps a story country-level only.
+Region-tagged stories still appear in the country list. A state with no tagged
+stories is not evidence that facial recognition has not been deployed there.
+Tags do not change map colors, deployment/legal flags, or regional timeline data.
+
+Both refresh commands preserve `regionIDs` by stable PI story `id`, including an
+explicit empty array; other source fields continue to update from PI. New stories
+start without region tags. Refresh rejects malformed arrays, unknown region codes,
+or regions inconsistent with the newly fetched country tags before replacing either
+dataset. If validation fails, review the reported story ID and region code, correct
+or remove the manual tag, and rerun the refresh. Tags are never inferred from text.
+
 Country tags and dates come from PI, not the external publishers or collection time.
 Only PI's tracker text is reproduced, not the external articles. The dataset records
 PI source URLs; do not assume the repository's software license covers third-party
