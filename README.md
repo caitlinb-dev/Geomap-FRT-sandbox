@@ -44,6 +44,13 @@ where matching stories exist; their existing year is retained if none are found.
 Other countries keep a null timeline year, and map status flags and subnational
 data are not changed.
 
+The map's "Last updated" date comes from the top-level `lastUpdated` UTC timestamp
+in `data/surveillance-schools.json`, not from a live RSS feed. Both refresh commands
+set this timestamp whenever they successfully rewrite the map JSON, even if the
+country values are unchanged. When editing the map JSON manually, update
+`lastUpdated` too. Visitors do not trigger RSS or proxy API checks on page load or
+in the background; only explicitly running a refresh command collects source pages.
+
 Without local Node, run those commands through Docker:
 
 ```bash
