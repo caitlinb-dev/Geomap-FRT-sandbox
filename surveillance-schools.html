@@ -557,6 +557,10 @@
         margin-bottom: 0;
       }
 
+      .map-timeline-column .map-disclaimer {
+        margin-top: 24px;
+      }
+
       .country-stories {
         min-width: 0;
         margin: 0;
@@ -771,7 +775,8 @@
       <div class="banner-section">
         <h1>Mapping Facial Recognition use in Schools</h1>
         <div class="last-updated" id="lastUpdated">Last updated: Loading...</div>
-        <p class="map-summary">This map shows the spread of facial recognition in schools, and the small but increasing number of challenges to its use.</p>
+        <p class="map-summary">This map shows the spread of facial recognition in schools, and the small but increasing number of challenges to its use.
+         <br> Click a country to see relevant stories</p>
       </div>
 
       <div class="legend">
@@ -816,11 +821,18 @@
         <div class="timeline-year-markers" id="timelineYearMarkers" aria-hidden="true"></div>
         <div class="timeline-status" id="timelineStatus">Loading timeline data...</div>
       </section>
+      <aside class="map-disclaimer" aria-label="Disclaimer">
+        <strong>Disclaimer:</strong> This map is a best-effort attempt to visualise the spread of facial recognition in schools around the world.
+        It is based on <a href="https://github.com/StephanWagner/svgMap" target="_blank" rel="noopener noreferrer">Stephan Wagner's SVGMaps project</a>, with additional geographic data from <a href="https://github.com/wmgeolab/geoBoundaries/">geoBoundaries - a database built by the <a href="https://github.com/wmgeolab/geoBoundaries/">geoboundaries community</a> and <a href="https://geolab.wm.edu/" rel="nofollow">William &amp; Mary geoLab</a>, and should not be taken as an accurate representation, nor used to infer Privacy International's position on any geopolitical issue.
+        <p class="map-disclaimer-followup">
+          We collect as little data as possible; see <a href="https://privacyinternational.org/basic-page/618/how-we-use-and-protect-your-data" target="_blank" rel="noopener noreferrer">How We Use and Protect Your Data</a>.
+        </p>
+      </aside>
       </div>
 
       <section class="country-stories" id="countryStories" aria-labelledby="countryStoriesTitle" tabindex="0">
         <h2 id="countryStoriesTitle" data-stories-title hidden>Country stories</h2>
-        <p class="country-stories-status" role="status" aria-live="polite" aria-atomic="true" data-stories-status>Click a country to see relevant stories</p>
+        <p class="country-stories-status" role="status" aria-live="polite" aria-atomic="true" data-stories-status hidden></p>
         <button type="button" class="country-stories-retry" data-stories-retry hidden>Retry loading stories</button>
         <div data-stories-cards></div>
         <div class="contribution-hero">
@@ -830,14 +842,6 @@
         </div>
       </section>
       </div>
-
-      <aside class="map-disclaimer" aria-label="Disclaimer">
-        <strong>Disclaimer:</strong> This map is a best-effort attempt to visualise the spread of facial recognition in schools around the world.
-        It is based on <a href="https://github.com/StephanWagner/svgMap" target="_blank" rel="noopener noreferrer">Stephan Wagner's SVGMaps project</a>, with additional geographic data from <a href="https://github.com/wmgeolab/geoBoundaries/">geoBoundaries</a> and should not be taken as an accurate representation, nor used to infer Privacy International's position on any geopolitical issue.
-        <p class="map-disclaimer-followup">
-          We collect as little data as possible; see <a href="https://privacyinternational.org/basic-page/618/how-we-use-and-protect-your-data" target="_blank" rel="noopener noreferrer">How We Use and Protect Your Data</a>.
-        </p>
-      </aside>
 
       <div class="edtech-hero">
         <h2>Learn More About Surveillance in Schools</h2>
