@@ -336,11 +336,15 @@
         })
         .then(function (mapSource) {
           state.cache[mapUrl] = mapSource;
-          buildSubnationalMapSource(mapSource, countryID, countryValues);
+          if (state.activeCountryID === countryID && state.modal && !state.modal.hidden) {
+            buildSubnationalMapSource(mapSource, countryID, countryValues);
+          }
         })
         .catch(function (error) {
           console.error('Subnational map load error:', error);
-          showSubnationalError('Could not load the subnational map for this country.');
+          if (state.activeCountryID === countryID && state.modal && !state.modal.hidden) {
+            showSubnationalError('Could not load the subnational map for this country.');
+          }
         });
     }
 
