@@ -1,0 +1,3007 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://privacyinternational.org/examples/edtech-surveillance-tracker",
+  "fetchedAt": "2026-11-10T12:23:15.455Z",
+  "coverage": {
+    "listingPages": 1,
+    "discovered": 187,
+    "included": 74,
+    "excluded": 113
+  },
+  "unlocated": [
+    {
+      "id": "4969",
+      "sourceUrl": "https://privacyinternational.org/examples/4969/psychologist-trained-emotion-detection-software",
+      "title": "Psychologist-trained emotion detection software"
+    }
+  ],
+  "unmappedLocations": [
+    "Russia and Central Asia"
+  ],
+  "missingArticleLinks": [],
+  "stories": [
+    {
+      "id": "5806",
+      "sourceUrl": "https://privacyinternational.org/examples/5806/facial-recognition-installed-monitor-employees-first-nation-school",
+      "title": "Facial recognition installed to monitor employees in first nation school",
+      "date": "2026-07-22",
+      "paragraphs": [
+        "The Eskasoni Teachers' Union are raising concerns after facial recognition scanners were installed in the Eskasoni First Nation's school.",
+        "The union are particularly concerned as the scanners have had issues with accuracy and privacy. The scanners themselves are made by a US company - a fact creating concern about how and where the biometric data of users is being stored. Moreover, no other school has implemented similar technology in the state, leading the union to feel their First Nations school has been singledout.",
+        "The union is calling for use of the system to be paused.",
+        "Publisher: CBC news via Yahoo"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://ca.news.yahoo.com/eskasoni-teachers-facial-recognition-technology-090000209.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Canada",
+          "url": "https://privacyinternational.org/location/canada",
+          "countryID": "CA"
+        }
+      ],
+      "countryIDs": [
+        "CA"
+      ]
+    },
+    {
+      "id": "5780",
+      "sourceUrl": "https://privacyinternational.org/examples/5780/tirana-deploy-hundreds-smart-cameras-schools",
+      "title": "Tirana deploy hundreds of 'smart' cameras in schools",
+      "date": "2026-04-08",
+      "paragraphs": [
+        "20 schools across Tirana will recieve between 11 - 31 'smart' cameras as part of a wider smart cities project. The cameras claim to be enhanced with artificial intelligence, and are sold by Presight AI. It is not clear what the AI involves or what the capability of the cameras will be.",
+        "Publisher: EuroNews Albania",
+        "Writer: Nen Si"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://euronews.al/en/tirana-schools-equipped-with-380-smart-cameras-to-enhance-security/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "AI",
+          "url": "https://privacyinternational.org/examples/ai"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Albania",
+          "url": "https://privacyinternational.org/location/albania",
+          "countryID": "AL"
+        }
+      ],
+      "countryIDs": [
+        "AL"
+      ]
+    },
+    {
+      "id": "5859",
+      "sourceUrl": "https://privacyinternational.org/examples/5859/portuguese-data-protection-authority-open-investigation-facial-recognition-test",
+      "title": "Portuguese data protection authority open investigation in to facial recognition test in school",
+      "date": "2026-03-13",
+      "paragraphs": [
+        "Following questions from journalists the Portuguese data protection authority have opened an investigation into a three month trial of a facial recognition system carried out by United Lisbon International School.",
+        "Though Paraná's government claimed the technology was approved by management, the school's owner has since claimed that: “The school does not use this tool”.",
+        "Author: Nico Schmidt and Leonardo Coelho, with additional reporting by Paulo Pena.",
+        "Publication: Investigate Europe"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.investigate-europe.eu/posts/facial-recognition-software-ai-europe-brazil-school-children"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Portugal",
+          "url": "https://privacyinternational.org/location/portugal",
+          "countryID": "PT"
+        }
+      ],
+      "countryIDs": [
+        "PT"
+      ]
+    },
+    {
+      "id": "5816",
+      "sourceUrl": "https://privacyinternational.org/examples/5816/serbias-expanding-surveillance-network-raises-privacy-and-legal-concerns",
+      "title": "Serbia’s Expanding Surveillance Network Raises Privacy and Legal Concerns",
+      "date": "2026-03-03",
+      "paragraphs": [
+        "A BIRN investigation found that Serbian public institutions have purchased thousands of surveillance devices over the past five years, including facial recognition-capable cameras, licence plate readers, voice recognition tools, behavioural analytics systems, and surveillance drones. Many of these technologies have been deployed in schools, hospitals, public transport, and other public facilities despite limited regulation governing their use.",
+        "The report highlights growing concerns that the expansion of biometric surveillance is outpacing legal safeguards. Experts interviewed by BIRN warned that facial recognition, audio recording, behavioural analysis, and vehicle-tracking systems could enable extensive monitoring and profiling of citizens, creating risks for privacy and civil liberties.",
+        "Author: Aleksa Tesic Publication: Balkan Insight (BIRN) Link to Article: https://balkaninsight.com/2026/03/03/chilling-effect-serbias-growing-network-of-slippery-surveillance-technology/"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://balkaninsight.com/2026/03/03/chilling-effect-serbias-growing-network-of-slippery-surveillance-technology/",
+          "url": "https://balkaninsight.com/2026/03/03/chilling-effect-serbias-growing-network-of-slippery-surveillance-technology/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Serbia",
+          "url": "https://privacyinternational.org/location/serbia",
+          "countryID": "RS"
+        }
+      ],
+      "countryIDs": [
+        "RS"
+      ]
+    },
+    {
+      "id": "5825",
+      "sourceUrl": "https://privacyinternational.org/examples/5825/new-digital-attendance-system-kathmandu-metropolitan-city",
+      "title": "New digital attendance system in Kathmandu Metropolitan City",
+      "date": "2026-02-04",
+      "paragraphs": [
+        "The Kathmandu Metropolitan City Education Department and Department of Information technology have developed and begun to deploy a new digital attendance system.",
+        "The new system features facial recognition, and the registration of some staff has already been completed at nine secondary schools.",
+        "Publisher: Edusanjal"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://edusanjal.com/news/kmc-digitalizes-community-school-attendance-via-new-integrated-central-system/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Nepal",
+          "url": "https://privacyinternational.org/location/nepal",
+          "countryID": "NP"
+        }
+      ],
+      "countryIDs": [
+        "NP"
+      ]
+    },
+    {
+      "id": "5802",
+      "sourceUrl": "https://privacyinternational.org/examples/5802/internetlab-report-reveals-expansion-facial-recognition-brazillian-schools",
+      "title": "InternetLab report reveals expansion of facial recognition in Brazillian schools",
+      "date": "2026-02-02",
+      "paragraphs": [
+        "InternetLab have found a significant increase in the rollout of facial recognition across Brazillian's state schools.",
+        "Their 2023 report found that just 1 state, of those that responded to them, had deployed the technology, along with 9 states' municipal schools. In 2025 this number has significantly increased, with the technology now being used in 7 states. This is of the 18 that responded to freedom of information requests - a further 8 states did not respond and so cannot be included in the numbers.",
+        "InternetLab found serious problems with the regulatory environment, the safeguards in place, the understanding of the technology, and the transparency with which is has been rolled out.",
+        "Writer: Helena Secaf, Danielle Bello and Danyelle Reis",
+        "Publisher: InternetLab"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Brazil",
+          "url": "https://privacyinternational.org/location/brazil",
+          "countryID": "BR"
+        }
+      ],
+      "countryIDs": [
+        "BR"
+      ]
+    },
+    {
+      "id": "5835",
+      "sourceUrl": "https://privacyinternational.org/examples/5835/zambia-uses-facial-recognition-stop-exam-fraud",
+      "title": "Zambia uses facial recognition to stop exam fraud",
+      "date": "2026-01-21",
+      "paragraphs": [
+        "The Examinations Council of Zambia (ECZ) is using a facial recognition system to stop examination fraud and impersonation.",
+        "It says this is designed to ensure only registered candidates sit for exams, in case someone is hired to take the exam on someone else's behalf.",
+        "The candidate's face is recorded on the final certificate after an exam.",
+        "Parents are required to verify their children’s information online before the candidates’ register is finalised.",
+        "Publisher: Diggers News",
+        "Writer: Elizabeth Mabenga"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://diggers.news/local/2026/01/21/ecz-introduces-facial-capture-to-prevent-cheating-in-exams/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Zambia",
+          "url": "https://privacyinternational.org/location/zambia",
+          "countryID": "ZM"
+        }
+      ],
+      "countryIDs": [
+        "ZM"
+      ]
+    },
+    {
+      "id": "5828",
+      "sourceUrl": "https://privacyinternational.org/examples/5828/face-recognition-used-monitor-faculty",
+      "title": "Face recognition used to monitor faculty",
+      "date": "2026-01-19",
+      "paragraphs": [
+        "The Tagoloan Community College (TCC) in the Philippines has developed a facial recognition system to automate faculty attendance, logging staff as they enter and exit classrooms by matching real-time facial captures against stored embeddings and cross-checking them against teaching schedules.",
+        "It also handles leave management and generates administrative reports.",
+        "Developers suggest that this is a more reliable alternative to manual attendance tracking, although accuracy dropped with distance, angle and poor lighting and with older and less tech-experienced staff were not able to use it as well as others.",
+        "Publisher: International Journal of Engineering Research & Technology",
+        "Writer: Dave Saludares, Christine Calvo, Iryl Fritz Dela Cruz, Denmark Alegado, Alegado, Daniel Dave Lolong, Paul Vincent Del Rosario, Jan James Pada, Nikko Perez"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.ijert.org/development-of-face-recognition-for-faculty-attendance-monitoring-system"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Philippines",
+          "url": "https://privacyinternational.org/location/philippines",
+          "countryID": "PH"
+        }
+      ],
+      "countryIDs": [
+        "PH"
+      ]
+    },
+    {
+      "id": "5815",
+      "sourceUrl": "https://privacyinternational.org/examples/5815/bosnia-police-expand-surveillance-capabilities-amid-concerns-over-legal-oversight",
+      "title": "Bosnia Police Expand Surveillance Capabilities Amid Concerns Over Legal Oversight",
+      "date": "2025-09-24",
+      "paragraphs": [
+        "Police forces across Bosnia and Herzegovina are increasingly adopting advanced surveillance technologies, including drones, body cameras, smart traffic-monitoring systems, and camera networks with facial recognition capabilities. The article examines how these tools are being introduced to support policing and criminal investigations, often before clear legal frameworks are in place. Examples include the use of Interpol's Biometric Hub to identify a human-smuggling suspect and the use of public surveillance cameras to track suspects involved in a high-profile murder case.",
+        "At the centre of the debate is facial recognition technology. While authorities officially deny using facial recognition in public spaces, Bosnia has continued to expand surveillance infrastructure that could support such systems. More than 40 cameras acquired in Republika Srpska reportedly have facial recognition capabilities, and experts warn that existing camera networks could be upgraded with facial recognition software. The article highlights concerns from legal, cybersecurity, and human rights specialists who argue that Bosnia lacks the legislation, oversight mechanisms, and institutional capacity needed to govern the technology, raising questions about privacy, data protection, and the risk of mass surveillance.",
+        "Author: Nasir Muftic Publication: Balkan Insight (BIRN) Link to Article: https://balkaninsight.com/2025/09/24/bosnia-police-eye-latest-tech-tools-with-dubious-legality/"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://balkaninsight.com/2025/09/24/bosnia-police-eye-latest-tech-tools-with-dubious-legality/",
+          "url": "https://balkaninsight.com/2025/09/24/bosnia-police-eye-latest-tech-tools-with-dubious-legality/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Bosnia & Herzegovina",
+          "url": "https://privacyinternational.org/location/bosnia-herzegovina",
+          "countryID": "BA"
+        }
+      ],
+      "countryIDs": [
+        "BA"
+      ]
+    },
+    {
+      "id": "5824",
+      "sourceUrl": "https://privacyinternational.org/examples/5824/nepalese-school-introduce-new-hikvision-technology",
+      "title": "Nepalese school introduce new HikVision technology",
+      "date": "2025-08-27",
+      "paragraphs": [
+        "A Nepalese school have installed extensive HikVision - a controversial Chinese technology company - surveillance technologies throughout their campus.",
+        "The installed technologies include entry barriers equipped with facial recognition terminals, and 77 other facial recognition points outside various other facilities including classrooms, labs, and staff rooms.",
+        "Publisher: HikVision"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.hikvision.com/en/newsroom/success-stories/education/the-smart-campus-at-the-roof-of-the-world-a-nepal-college-s-digital-transformation/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Nepal",
+          "url": "https://privacyinternational.org/location/nepal",
+          "countryID": "NP"
+        }
+      ],
+      "countryIDs": [
+        "NP"
+      ]
+    },
+    {
+      "id": "5847",
+      "sourceUrl": "https://privacyinternational.org/examples/5847/open-letter-asks-karnataka-not-implement-facial-recognition-schools",
+      "title": "Open letter asks Karnataka not to implement facial recognition in schools",
+      "date": "2025-08-20",
+      "paragraphs": [
+        "Karnataka's Department of School, Education, and Literacy have been asked to roll back their new initiative to use a new facial recognition system to track student's attendance, and beneficiaries for free school lunches and other government welfare schemes. The system would cover 52,686 schools and would monitor 525,500 students.",
+        "The People's Alliance for Fundamental Right to Education - who convened the letter - raised concerns that the surveillance would make children more vulnerable rather than protecting them.",
+        "Author: Alisha Rahaman Sarkar",
+        "Publication: The Independent"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.independent.co.uk/asia/india/karnataka-schools-face-recognition-system-attendance-b2810805.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5834",
+      "sourceUrl": "https://privacyinternational.org/examples/5834/vietnam-school-uses-facial-recognition-students-teachers-and-staff",
+      "title": "Vietnam school uses facial recognition for students, teachers and staff",
+      "date": "2025-08-10",
+      "paragraphs": [
+        "Edison Inter-level School in Vietnam has deployed a facial recognition access control system for students, teachers and staff.",
+        "Faculty must register their face on a 'FaceDepot' device before being granted access through barriers, with the system holding 10,000 registered face templates and logs up to 200,000 entries.",
+        "The device also supports fingerprint, card and password authentication as alternatives to face matching, and includes anti-spoofing measures against printed photos, screen/video playback and 3D masks.",
+        "The school says that the goal is to restrict campus entry to authorised individuals only, as a security measure.",
+        "Publisher: Zkteco",
+        "Writer: Zkteco"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.zkteco.com.pk/case/Face-Recognition-Entrance-Control-Project-Edison-Schools"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Vietnam",
+          "url": "https://privacyinternational.org/location/vietnam",
+          "countryID": "VN"
+        }
+      ],
+      "countryIDs": [
+        "VN"
+      ]
+    },
+    {
+      "id": "5805",
+      "sourceUrl": "https://privacyinternational.org/examples/5805/company-claims-be-automating-attendance-bangladeshi-schools",
+      "title": "Company claims to be automating attendance for Bangladeshi schools",
+      "date": "2025-06-18",
+      "paragraphs": [
+        "A company called Tipsoi claim to have installed 800 facial recognition devices across schools operated by BRAC - a Bangladeshi International NGO who's Education programme operates thousands of schools across Bangladesh.",
+        "The company claim to have initially implemented fingerprint technology - but found it struggled with young children and instead moved on to facial recognition.",
+        "The company claim that BRAC plan to expand the deployment to every school in it's network.",
+        "Publisher: Tipsoi"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://tipsoi.pro/case-study-on-brac-education-program/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Bangladesh",
+          "url": "https://privacyinternational.org/location/bangladesh",
+          "countryID": "BD"
+        }
+      ],
+      "countryIDs": [
+        "BD"
+      ]
+    },
+    {
+      "id": "5799",
+      "sourceUrl": "https://privacyinternational.org/examples/5799/armenias-ministry-internal-affairs-given-access-school-surveillance-systems",
+      "title": "Armenia's Ministry of Internal Affairs given access to school surveillance systems",
+      "date": "2025-06-06",
+      "paragraphs": [
+        "New legislation gives government access to school surveillance cameras and allows the integration of facial recognition.",
+        "The new set of amendments to the Armenian Law on Police grants the Ministry of Internal Affairs access to surveillance cameras in a range of public places, along with schools, hospitals, airports, and border checkpoints. The law is a replacement for a previously abandoned attempt to create similar, though broader, powers in 2024.",
+        "Armenia does not have an existing legal framework that provides any safeguards for AI use. The law does require some safeguards, but it contains vague language, broadening the scope of the use of biometric technology. Moreover, the law leaves some details of the implementation to future regulations, leaving holes which may or may not be filled.",
+        "Publication: CSO Meter"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://csometer.info/updates/armenia-new-legal-amendments-expand-biometric-surveillance-police"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "AI",
+          "url": "https://privacyinternational.org/examples/ai"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Surveillance",
+          "url": "https://privacyinternational.org/examples/surveillance"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Armenia",
+          "url": "https://privacyinternational.org/location/armenia",
+          "countryID": "AM"
+        }
+      ],
+      "countryIDs": [
+        "AM"
+      ]
+    },
+    {
+      "id": "5658",
+      "sourceUrl": "https://privacyinternational.org/examples/5658/prosecution-asks-government-parana-be-condemned-facial-recognition-schools",
+      "title": "Prosecution asks the government of Paraná to be condemned for facial recognition in schools",
+      "date": "2025-05-25",
+      "paragraphs": [
+        "In April 2025, prosecutors in Paraná, Brazil initiated legal action against the state government over a program that scans students’ faces to log school attendance.",
+        "The initiative, introduced two years earlier, requires teachers to capture images of entire classes, which are then analysed to confirm who is present.",
+        "Authorities contend the measure unlawfully handles the biometric information of almost one million minors, without clear parental approval or adequate safeguards.",
+        "They are seeking R$15 million in compensation and a halt to the practice, following a United Nations Special Rapporteur report calling for governments worldwide to prohibit facial recognition in educational settings.",
+        "Publication: Folha",
+        "Writer: Isabela Palhares"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to the article",
+          "url": "https://www1.folha.uol.com.br/educacao/2025/04/promotoria-pede-que-governo-do-parana-seja-condenado-por-reconhecimento-facial-em-escolas.shtml"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Students",
+          "url": "https://privacyinternational.org/examples/students"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Brazil",
+          "url": "https://privacyinternational.org/location/brazil",
+          "countryID": "BR"
+        }
+      ],
+      "countryIDs": [
+        "BR"
+      ]
+    },
+    {
+      "id": "5855",
+      "sourceUrl": "https://privacyinternational.org/examples/5855/109-schools-install-facial-recognition-kyrgyzstan-capital",
+      "title": "109 schools install facial recognition in Kyrgyzstan capital",
+      "date": "2025-02-19",
+      "paragraphs": [
+        "109 schools in Bishkek - the capital of Kyrgyzstan - have installed 218 facial recognition cameras, 144 of which are linked to the police department.",
+        "The police said that the cameras would help to improve student's behaviour and security.",
+        "Link to article (in Russian)",
+        "Author: Adiet Asanov",
+        "Publication: Bulak.kg"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://bulak.kg/2025/02/19/v-109-shkolah-bishkeka-ustanovleno-videonablyudenie-s-raspoznavaniem-lits/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Kyrgyzstan",
+          "url": "https://privacyinternational.org/location/kyrgyzstan",
+          "countryID": "KG"
+        }
+      ],
+      "countryIDs": [
+        "KG"
+      ]
+    },
+    {
+      "id": "5826",
+      "sourceUrl": "https://privacyinternational.org/examples/5826/facial-recognition-used-chinese-campus-new-zealand-university",
+      "title": "Facial recognition used on Chinese campus of New Zealand university",
+      "date": "2025-02-15",
+      "paragraphs": [
+        "The The University of Waikato in New Zealand is using facial recognition on students at its Waikato Joint Institute at Hangzhou City University in China",
+        "It said the technology was \"used for facility access ... not used in place of roll call\".",
+        "\"The operations of our offshore campuses are influenced by our partners in those institutions and use practices that are appropriate at that university,\" the university said in a statement, but added that it did not use it locally and \"does not use and has no plans to introduce use of facial recognition technology on its New Zealand campuses, and as such does not have a policy on its use\".",
+        "Publisher: RNZ",
+        "Writer: Phil Pennington"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.rnz.co.nz/news/science-and-technology/541963/facial-recognition-used-on-students-nz-university-confirms"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "New Zealand",
+          "url": "https://privacyinternational.org/location/new-zealand",
+          "countryID": "NZ"
+        },
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "NZ",
+        "CN"
+      ]
+    },
+    {
+      "id": "5857",
+      "sourceUrl": "https://privacyinternational.org/examples/5857/some-schools-papua-new-guinea-use-teacher-biometrics",
+      "title": "Some schools in Papua New Guinea use teacher biometrics",
+      "date": "2025-02-06",
+      "paragraphs": [
+        "Following the 2024 announcement of a new biometric system for tracking teacher's attendance - Papua New Guinea' s Education Secretary has updated that a few schools in the National Capital District (NCD) have procured and installed the required devices. The devices will be rolled out throughout the NCD and then will be rolled out to the rest of the country dependent on funding.",
+        "Publication: The National"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.thenational.com.pg/some-schools-using-ict-systems/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Papua New Guinea",
+          "url": "https://privacyinternational.org/location/papua-new-guinea",
+          "countryID": "PG"
+        }
+      ],
+      "countryIDs": [
+        "PG"
+      ]
+    },
+    {
+      "id": "5833",
+      "sourceUrl": "https://privacyinternational.org/examples/5833/hoang-mai-star-school-rolls-out-facial-recognition",
+      "title": "Hoang Mai Star School rolls out facial recognition",
+      "date": "2024-10-06",
+      "paragraphs": [
+        "Hoang Mai Star School in Hanoi rolled out facial recognition access control across its whole campus in 2024.",
+        "It worked with vendor Aratek Biometrics to replace manual ID checks with BA8300 terminals at four main gates, covering over 5,000 students, faculty and staff.",
+        "The system uses liveness detection and tamper protection to verify identity, and is built to also support fingerprint, RFID and barcode authentication alongside facial recognition.",
+        "It was adopted primarily to solve queuing and congestion at peak entry times and to replace the security risks of card-based access.",
+        "Publisher: Aratek",
+        "Writer: Felpham Community College"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.aratek.co/case-studies/upgrading-school-access-control-with-biometrics-in-vietnam"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Vietnam",
+          "url": "https://privacyinternational.org/location/vietnam",
+          "countryID": "VN"
+        }
+      ],
+      "countryIDs": [
+        "VN"
+      ]
+    },
+    {
+      "id": "5429",
+      "sourceUrl": "https://privacyinternational.org/examples/5429/delhi-plans-introduce-facial-recognition-schools",
+      "title": "Delhi plans to introduce facial recognition in schools",
+      "date": "2024-08-19",
+      "paragraphs": [
+        "The Delhi government is expected to introduce facial recognition in schools in order to improve attendance, which is hovering at 65-70%. The government also proposes to provide parents with monthly attendance reports and introduce monthly and weekly tests in order to keep students engaged. Educators say that the solution to failing should be pedagogical rather than administrative.",
+        "Publication: Indian Express Writer: Vidheesha Kuntamalla"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to the article",
+          "url": "https://indianexpress.com/article/cities/delhi/face-recognition-system-likely-in-govt-schools-to-improve-attendance-9521301/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Students",
+          "url": "https://privacyinternational.org/examples/students"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/examples/india"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5412",
+      "sourceUrl": "https://privacyinternational.org/examples/5412/new-jersey-and-wisconsin-schools-install-visitor-management-software",
+      "title": "New Jersey and Wisconsin schools install visitor management software",
+      "date": "2024-08-12",
+      "paragraphs": [
+        "Schools in New Jersey and Wisconsin are installing Singlewire Software’s Visitor Aware, visitor management software that includes facial recognition and ID scanning, and collects visitors’ names, ID documents, date of birth, address, gender, and a facial photo, which it uses to check against the National Sex Offenders Registry, most-wanted lists from the FBI and Interpol, and other such lists. It does not check immigration databases, or check for criminal history or outstanding warrants.",
+        "Link to article Publication: Biometric Update Writer: Chris Burt"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.biometricupdate.com/202408/facial-recognition-reaches-more-us-schools-with-singlewire-deployments"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Public-Private Surveillance Partnerships Tracker",
+          "url": "https://privacyinternational.org/examples/public-private-partnership-tracker"
+        },
+        {
+          "name": "USA",
+          "url": "https://privacyinternational.org/examples/usa"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5820",
+      "sourceUrl": "https://privacyinternational.org/examples/5820/ngee-ann-polytechnic-pilots-facial-recognition-attendance-and-security",
+      "title": "Ngee Ann Polytechnic Pilots Facial Recognition for Attendance and Security",
+      "date": "2024-08-11",
+      "paragraphs": [
+        "Ngee Ann Polytechnic announced a pilot programme using facial recognition technology in selected classrooms to automate attendance taking and support class management. The system uses artificial intelligence and data analytics to verify student identities and streamline administrative processes.",
+        "The institution said the technology could also be used to monitor student engagement through facial expressions and behavioural indicators. Beyond the classroom, facial recognition is being explored for campus security purposes, including detecting unauthorised individuals in restricted areas and generating real-time alerts to security personnel. Publication: Ngee Ann Polytechnic Link to Article: https://www.np.edu.sg/about-np/our-story/smart-campus/facial-recognition"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.np.edu.sg/about-np/our-story/smart-campus/facial-recognition",
+          "url": "https://www.np.edu.sg/about-np/our-story/smart-campus/facial-recognition"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Singapore",
+          "url": "https://privacyinternational.org/location/singapore",
+          "countryID": "SG"
+        }
+      ],
+      "countryIDs": [
+        "SG"
+      ]
+    },
+    {
+      "id": "5652",
+      "sourceUrl": "https://privacyinternational.org/examples/5652/colorado-legislators-wrangle-laws-facial-recognition-schools-data-protection",
+      "title": "Colorado legislators wrangle laws on facial recognition in schools, data protection",
+      "date": "2024-08-10",
+      "paragraphs": [
+        "A Colorado moratorium on facial recognition cameras in schools is set to end after two years. State legislators had voted to investigate how biometric systems are used, but its expiration in July 2025 could trigger a surge in facial recognition and AI surveillance that could enter the education system.",
+        "However, schools that were already using AI facial recognition before the pause came into effect were allowed to continue using it, with some districts having as many as 400 cameras distributed between them.",
+        "While schools are hoping that AI and facial recognition technology will be beneficial in a state that has suffered from several mass shootings since the 1999 massacre at Columbine High School, rights groups such as the American Civil Liberties Union have criticised the idea that surveillance makes schools safer.",
+        "Publication: Biometric Update",
+        "Writer: Joel R. McConvey"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to the article",
+          "url": "https://www.biometricupdate.com/202410/colorado-legislators-wrangle-laws-on-facial-recognition-in-schools-data-protection"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Students",
+          "url": "https://privacyinternational.org/examples/students"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "AI",
+          "url": "https://privacyinternational.org/examples/ai"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Surveillance",
+          "url": "https://privacyinternational.org/examples/surveillance"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5827",
+      "sourceUrl": "https://privacyinternational.org/examples/5827/philippines-uses-face-recognition-teacher-tracking",
+      "title": "Philippines uses face recognition for teacher tracking",
+      "date": "2024-08-10",
+      "paragraphs": [
+        "Three ICT systems have been launched in the Philippines: the Teachers Biometric Time and Attendance System, Smart Teachers ID Card and the Smart Interactive Board for Teaching and Learning System.",
+        "The Teachers Biometric Time and Attendance System uses facial recognition at schools, while the Smart Teachers ID Card contains information about any individual teacher, linked with a QR code.",
+        "Data is provided to the Department of Education in real time. “We have invented the biometric time and attendance system in schools for real time tracking of teacher’s attendance and punctuality and will conjoin with the student’s identification program that is yet to be launched,” said Minister for Education Lucas Dekena. Link to article",
+        "Publisher: TVWAN",
+        "Writer: TVWAN"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://economicon.mx/blog/una-prepa-de-la-universidad-de-guadalajara-impone-reconocimiento-facial-a-sus-estudiantes/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Philippines",
+          "url": "https://privacyinternational.org/location/philippines",
+          "countryID": "PH"
+        }
+      ],
+      "countryIDs": [
+        "PH"
+      ]
+    },
+    {
+      "id": "5856",
+      "sourceUrl": "https://privacyinternational.org/examples/5856/papua-new-guinea-launches-new-teachers-biometric-time-and-attendance-system",
+      "title": "Papua new Guinea launches new Teachers Biometric Time and Attendance System",
+      "date": "2024-08-10",
+      "paragraphs": [
+        "Papua New Guinea's Education Minister announces launch of several new technology systems for schools, including a new facial recognition system called The Teachers Biometric Time and Attendance System.",
+        "The systems are supposed to be rolled out to secondary schools in late 2024.",
+        "Publication: TVWAN Online"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://tvwan.com.pg/news/990"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Papua New Guinea",
+          "url": "https://privacyinternational.org/location/papua-new-guinea",
+          "countryID": "PG"
+        }
+      ],
+      "countryIDs": [
+        "PG"
+      ]
+    },
+    {
+      "id": "5443",
+      "sourceUrl": "https://privacyinternational.org/examples/5443/uk-ico-reprimands-schools-over-facial-recognition",
+      "title": "UK ICO reprimands schools over facial recognition",
+      "date": "2024-07-24",
+      "paragraphs": [
+        "The UK's Information Commissioner's Office (ICO) has reprimanded the Chelmer Valley High School in Chelmsford, Essex for unlawfully implementing facial recognition technology in its canteen. The school failed to perform a data protection information assessment, and didn't get adequate permission to process their students' biometric data or ask students to give consent by opting in. North Ayrshire Council - who implemented facial recognition in nine schools in Scotland - have also been warned by the ICO that inflicting facial recognition to manage over 2,000 student's lunch payments probably infringed their data protection rights.",
+        "Publication: Biometric Update Writer: Abigail Opiah"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to Article",
+          "url": "https://www.biometricupdate.com/202407/uk-school-reprimanded-by-ico-for-using-facial-recognition-without-dpia"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Public-Private Surveillance Partnerships Tracker",
+          "url": "https://privacyinternational.org/examples/public-private-partnership-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United Kingdom",
+          "url": "https://privacyinternational.org/location/united-kingdom",
+          "countryID": "GB"
+        }
+      ],
+      "countryIDs": [
+        "GB"
+      ]
+    },
+    {
+      "id": "5818",
+      "sourceUrl": "https://privacyinternational.org/examples/5818/privacy-group-challenges-facial-recognition-serbian-schools",
+      "title": "Privacy Group Challenges Facial Recognition in Serbian Schools",
+      "date": "2024-05-22",
+      "paragraphs": [
+        "Partners Serbia said it had submitted several requests to Serbia’s Commissioner for Information of Public Importance and Personal Data Protection to investigate alleged violations of privacy and data protection laws by public authorities. The organisation highlighted concerns about the growing use of surveillance technologies and other practices involving excessive collection of personal data by government bodies.",
+        "One of the complaints focused on municipalities and cities that had acquired equipment with facial recognition capabilities and installed it in primary schools. Partners Serbia argued that the use of such technology on children raises serious legal and privacy concerns, describing it as one of the most significant potential violations of Serbia’s personal data protection framework.",
+        "Author: Partners Serbia Publication: Partners Serbia Link to Article: https://partners-serbia.org/en/due-to-frequent-violations-of-citizens-privacy-partners-serbia-has-addressed-the-commissioner-four-times-since-the-beginning-of-2024/"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://partners-serbia.org/en/due-to-frequent-violations-of-citizens-privacy-partners-serbia-has-addressed-the-commissioner-four-times-since-the-beginning-of-2024/",
+          "url": "https://partners-serbia.org/en/due-to-frequent-violations-of-citizens-privacy-partners-serbia-has-addressed-the-commissioner-four-times-since-the-beginning-of-2024/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Bosnia & Herzegovina",
+          "url": "https://privacyinternational.org/location/bosnia-herzegovina",
+          "countryID": "BA"
+        }
+      ],
+      "countryIDs": [
+        "BA"
+      ]
+    },
+    {
+      "id": "5413",
+      "sourceUrl": "https://privacyinternational.org/examples/5413/researchers-develop-facial-recognition-systems-classroom-management",
+      "title": "Researchers develop facial recognition systems for classroom management",
+      "date": "2024-02-27",
+      "paragraphs": [
+        "Numerous research efforts are developing facial recognition systems for use in classrooms. In one example, researchers at Guilford College are designing a system for classroom management that will use multiple cameras to take attendance, monitor students’ activities, and detect their emotional states, believing that it will reduce stress for teachers. While such use is not illegal and Guilford’s researchers say protecting student privacy is an important part of their design, the ethics and the educational value of these systems are both unclear.",
+        "Publication: Inside Higher Ed",
+        "Writer: Susan D’Agostino"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to the article",
+          "url": "https://www.insidehighered.com/news/tech-innovation/teaching-learning/2024/02/27/facial-recognition-heads-class-will-students"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Education",
+          "url": "https://privacyinternational.org/examples/education"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5829",
+      "sourceUrl": "https://privacyinternational.org/examples/5829/south-african-university-implements-facial-recognition",
+      "title": "South African university implements facial recognition",
+      "date": "2024-01-24",
+      "paragraphs": [
+        "The University of Johannesburg (UJ) has integrated facial recognition technology into its registration process, which verifies the identity of individuals by analysing unique facial features.",
+        "“New students registering this year will receive an SMS with instructions to confirm their identity through a quick and non-intrusive facial scan. This advanced level of authentication ensures that the person registering is indeed who they claim to be, offering a robust defence against identity-related fraud” says UJ’s Senior Director of Central Academic Administration, Dr. Tinus van Zyl.",
+        "“This pioneering step is not just about preventing fraud; it’s a testament to the University’s commitment to providing a secure and progressive learning environment for its students and staff. It reflects our dedication to staying at the forefront of technological advancements, underscoring the institution’s status as a leader in South African higher education” says UJ’s Registrar, Prof Bettine van Vuuren.",
+        "Publisher: University of Johannesburg",
+        "Writer: University of Johannesburg"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://news.uj.ac.za/news/uj-implements-facial-recognition-for-a-secure-registration-a-first-for-a-south-african-university/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "South Africa",
+          "url": "https://privacyinternational.org/location/south-africa",
+          "countryID": "ZA"
+        }
+      ],
+      "countryIDs": [
+        "ZA"
+      ]
+    },
+    {
+      "id": "5430",
+      "sourceUrl": "https://privacyinternational.org/examples/5430/hyderabad-schools-adopt-facial-recognition-morning-attendance",
+      "title": "Hyderabad schools adopt facial recognition for morning attendance",
+      "date": "2023-12-22",
+      "paragraphs": [
+        "Schools in Hyderabad, the capital of the Indian state of Telangana, are using facial recognition to take morning attendance. Telangana is also using facial recognition to pay pensions, renew driving licences, evoting, and deter crime. Adoption was partly fueled by fear of spreading covid-19 through fingerprints. There are now 370,000 cameras in Hyderabad, controlled from a new command-and-control centre, and about 925,000 across Telangana.",
+        "Publication: The Print Writer: Vandana Menon"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to the article",
+          "url": "https://theprint.in/ground-reports/hyderabad-wants-to-be-smart-efficient-but-face-recognition-tech-cctvs-making-it-paranoid/1895948/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/examples/india"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Surveillance",
+          "url": "https://privacyinternational.org/examples/surveillance"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5411",
+      "sourceUrl": "https://privacyinternational.org/examples/5411/uttar-pradesh-praises-facial-recognition-attendance-system",
+      "title": "Uttar Pradesh praises facial recognition attendance system",
+      "date": "2023-11-09",
+      "paragraphs": [
+        "The 746 KGBV schools in the Indian state of Uttar Pradesh say the schools’ facial recognition attendance system has helped improve both students’ and teachers’ attendance. KGBVs are residential schools intended to educate girls from impoverished backgrounds.",
+        "Link: Face-recognition Tech helps KGBV in record attendance Publication: Times of India Publication date: 2023-11-09 Writer: Isha Jain"
+      ],
+      "articleLinks": [
+        {
+          "label": "Face-recognition Tech helps KGBV in record attendance",
+          "url": "https://timesofindia.indiatimes.com/city/lucknow/face-recognition-tech-helps-kgbv-in-record-attendance/articleshow/105083428.cms"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Education",
+          "url": "https://privacyinternational.org/examples/education"
+        },
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/examples/india"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5849",
+      "sourceUrl": "https://privacyinternational.org/examples/5849/facial-recognition-reportedly-installed-iranian-universities",
+      "title": "Facial recognition reportedly installed in Iranian Universities",
+      "date": "2023-10-03",
+      "paragraphs": [
+        "Students in Iran have raised concerns about facial recognition systems being installed that are becoming required for access to services including University food services at Shiraz University, and entrance to the female student dorms and collecting student ID at Isfahan University of Arts.",
+        "It is not clear if facial recognition has been installed at other campuses as political pressure ramps up in Iran's universities.",
+        "Publication: IranWire"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://iranwire.com/en/features/121129-iranian-students-undergo-face-scanning-at-universities/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Iran",
+          "url": "https://privacyinternational.org/location/iran",
+          "countryID": "IR"
+        }
+      ],
+      "countryIDs": [
+        "IR"
+      ]
+    },
+    {
+      "id": "5874",
+      "sourceUrl": "https://privacyinternational.org/examples/5874/new-report-raises-concerns-about-use-facial-recognition-parana-schools",
+      "title": "New report raises concerns about the use of facial recognition in Paraná schools",
+      "date": "2023-10-01",
+      "paragraphs": [
+        "A new report produced by the Observatory of the Metropolises Núcleo Curitiba, JararacaLab and the LAVITS Network reviews the implementation of facial recognition in state public schools between 2022 and 2023 - and highlights issues that the authors believe may violate Brazil's data protection law - the LGPD."
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to report",
+          "url": "https://jararacalab.org/relatorio-rf-pr/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Brazil",
+          "url": "https://privacyinternational.org/location/brazil",
+          "countryID": "BR"
+        }
+      ],
+      "countryIDs": [
+        "BR"
+      ]
+    },
+    {
+      "id": "5211",
+      "sourceUrl": "https://privacyinternational.org/examples/5211/telengana-facial-recognition-system-will-include-ai",
+      "title": "Telengana facial recognition system will include AI",
+      "date": "2023-09-12",
+      "paragraphs": [
+        "The facial recognition system the Indian state of Telangana intends to adopt for taking attendance in schools will be AI-enhanced, eliminate the paper register via an Android app, serve 2.6 million students in 26,000 schools, and be extended to teachers after it has been successfully implemented for students. The system will capture a secured binary template based on 72 points on the face rather than photos of end users.",
+        "Publication: Hans India",
+        "Writer: Meghna Nath"
+      ],
+      "articleLinks": [
+        {
+          "label": "Article: Telengana facial recognition system will include AI",
+          "url": "https://www.thehansindia.com/news/cities/hyderabad/telangana-govt-schools-in-state-to-adopt-facial-recognition-system-soon-821972"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5831",
+      "sourceUrl": "https://privacyinternational.org/examples/5831/tajikistan-pilots-facial-recogntion-replacing-access-cards",
+      "title": "Tajikistan pilots facial recogntion replacing access cards",
+      "date": "2023-06-20",
+      "paragraphs": [
+        "Tajikistan is piloting facial recognition as a replacement for access cards and fobs at school entrances, currently running in 3 schools as part of the government's wider AI strategy.",
+        "The stated privacy safeguard is that the ML matching runs locally within each school and data is stored on internal servers rather than sent elsewhere.",
+        "With no dedicated AI regulator in the country, approval of AI projects run through existing sector regulators on a case-by-case basis, with no AI-specific regulation setting binding standards for privacy protection or requiring accuracy testing across different demographic groups.",
+        "Publisher: Oxford Insights",
+        "Writer: Annys Rogerson"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://oxfordinsights.com/insights/spotlight-series-tajikistan/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Tajikistan",
+          "url": "https://privacyinternational.org/location/tajikistan",
+          "countryID": "TJ"
+        }
+      ],
+      "countryIDs": [
+        "TJ"
+      ]
+    },
+    {
+      "id": "5216",
+      "sourceUrl": "https://privacyinternational.org/examples/5216/hong-kong-schools-adopt-facial-recognition-and-security-cameras",
+      "title": "Hong Kong schools adopt facial recognition and security cameras",
+      "date": "2023-05-23",
+      "paragraphs": [
+        "According to police plans to enhance “school safety”, security cameras and facial recognition will monitor children in Hong Kong in class and around educational facilities. The move is part of a trend also found in China, India, and the US toward mining children’s data, even though few benefits have been found.",
+        "Publication: Biometric Update",
+        "Writer: Christ Burt"
+      ],
+      "articleLinks": [
+        {
+          "label": "Article: Hong Kong schools adopt facial recognition and security cameras",
+          "url": "https://www.biometricupdate.com/202305/student-data-grab-grows-as-facial-recognition-planned-for-hong-kong-schools"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Hong Kong",
+          "url": "https://privacyinternational.org/location/hong-kong",
+          "countryID": "HK"
+        },
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "HK",
+        "CN"
+      ]
+    },
+    {
+      "id": "5858",
+      "sourceUrl": "https://privacyinternational.org/examples/5858/lisbon-school-tests-facial-recognition-technology",
+      "title": "Lisbon school tests facial recognition technology",
+      "date": "2023-05-19",
+      "paragraphs": [
+        "The United Lisbon International School - a private school in Portugal - have signed an agreement with Celepar, the controversial facial recognition provider who have been supplying the state of Paraná in Brazil, to test their facial recognition system for 3 months.",
+        "Link to article (via wayback machine, in Portuguese)",
+        "Publication: parana.pr.gov.br"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://web.archive.org/web/20251109011250/https://www.parana.pr.gov.br/aen/Noticia/Parana-vai-exportar-tecnologia-de-chamada-por-reconhecimento-facial-para-Portugal"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Portugal",
+          "url": "https://privacyinternational.org/location/portugal",
+          "countryID": "PT"
+        }
+      ],
+      "countryIDs": [
+        "PT"
+      ]
+    },
+    {
+      "id": "5210",
+      "sourceUrl": "https://privacyinternational.org/examples/5210/telangana-adopts-facial-recognition-taking-attendance",
+      "title": "Telangana adopts facial recognition for taking attendance",
+      "date": "2023-04-19",
+      "paragraphs": [
+        "Following pilots in Nirmal and Jayashankar Bhupalpally districts, the government of the Indian state of Telangana is planning on adopting facial recognition software to manage attendance in the schools. Officials have said the system should ensure every transaction is transparent and traceable and work in all environments with low-configuration mobiles and tablets. The existing biometric system has had technical issues.",
+        "Publication: The Hindu Writer: M. Rajeev"
+      ],
+      "articleLinks": [
+        {
+          "label": "Article: Telangana adopts facial recognition for taking attendance",
+          "url": "https://www.thehindu.com/news/national/telangana/govt-considering-facial-recognition-system-to-manage-teachers-attendance-in-schools/article66755019.ece"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5217",
+      "sourceUrl": "https://privacyinternational.org/examples/5217/ico-warns-north-ayrshire-council-adopting-facial-recognition-schools-without-parental",
+      "title": "ICO warns North Ayrshire Council for adopting facial recognition in schools without parental consent",
+      "date": "2023-03-17",
+      "paragraphs": [
+        "The Office of the Information Commissioner has warned Scotland's North Ayrshire council that it has likely infringed data protection law by using facial recognition technology in nine schools. North Ayrshire used the iPayimpact contactless system for payment for meals, and claimed that 97% of parents had given consent. The ICO said that although consent was the appropriate legal basis, the requirements had not been met, and the council needed to explain how students' data will be collected, used, and stored in age-appropriate language. Critics expressed disappointment that the ICO didn't question the use of the technology itself, which they argue is disproportionate.",
+        "Publication: TechMonitor AI",
+        "Writer: Sophia Waterfield"
+      ],
+      "articleLinks": [
+        {
+          "label": "Article: ICO warns North Ayrshire Council for adopting facial recognition in schools without parental consent",
+          "url": "https://techmonitor.ai/policy/privacy-and-data-protection/facial-recognition-technology-school-ico"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United Kingdom",
+          "url": "https://privacyinternational.org/location/united-kingdom",
+          "countryID": "GB"
+        }
+      ],
+      "countryIDs": [
+        "GB"
+      ]
+    },
+    {
+      "id": "5875",
+      "sourceUrl": "https://privacyinternational.org/examples/5875/15-cases-facial-recognition-adoption-uncovered-brazil",
+      "title": "15 cases of facial recognition adoption uncovered in Brazil",
+      "date": "2023-03-16",
+      "paragraphs": [
+        "A new report from InternetLab in Brazil maps 15 new cases of facial recognition in Brazilian public schools.",
+        "Cases were uncovered in Tocantins, Mata de São João, Fortaleza, Jaboatão dos Guararapes, Águas Lindas, Goiânia, Morrinhos, Betim, Rio de Janeiro, Angra dos Reis, Itanhaém, Potirendaba, Santos, Porto Alegre, and Xaxim.",
+        "The report aims to evaluate current usage and the environment around the deployment of this technology in Brazilian schools, along with the justifications and practices around deployment.",
+        "Publication: InternetLab"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to report",
+          "url": "https://internetlab.org.br/pt/noticias/em-novo-relatorio-internetlab-mapeia-o-uso-de-reconhecimento-facial-em-escolas-publicas-brasileiras/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Brazil",
+          "url": "https://privacyinternational.org/location/brazil",
+          "countryID": "BR"
+        }
+      ],
+      "countryIDs": [
+        "BR"
+      ]
+    },
+    {
+      "id": "5822",
+      "sourceUrl": "https://privacyinternational.org/examples/5822/university-guadalajara-prep-school-introduce-facial-recognition",
+      "title": "University of Guadalajara prep school introduce facial recognition",
+      "date": "2022-09-12",
+      "paragraphs": [
+        "The director of the Preparatory 9 high school has announced via Facebook that the school are about to turn on a new facial recognition entry system. This is despite - seemingly - not updating their pre-existing privacy notice, which governed the previous fingerprint system for access to campus.",
+        "When asked - the Jalisco data protection office said they did not know about the new system, and if it didn't have a data protection impact assessment they would ask that it be suspended.",
+        "Link to article (in Spanish)",
+        "Publisher: Economicón",
+        "Writer: José Soto Galindo"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://economicon.mx/blog/una-prepa-de-la-universidad-de-guadalajara-impone-reconocimiento-facial-a-sus-estudiantes/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Mexico",
+          "url": "https://privacyinternational.org/location/mexico",
+          "countryID": "MX"
+        }
+      ],
+      "countryIDs": [
+        "MX"
+      ]
+    },
+    {
+      "id": "5823",
+      "sourceUrl": "https://privacyinternational.org/examples/5823/guadalajara-introduce-facial-recognition-10-schools",
+      "title": "Guadalajara introduce facial recognition in 10 schools",
+      "date": "2022-09-07",
+      "paragraphs": [
+        "10 high schools in Guadalajara are introducing facial recognition as part of an initiative called Tu Sonrisa Checa, intending to manage school attendance.",
+        "The initiative doesn't have approval from the data protection authority, nor has the initiative completed the legally required data protection impact assessment. Nor is it clear yet which schools will take part.",
+        "However, the municipal government have agreed to pay for the equipment and software licenses, from a company called Viuk S.A. de C.V., which will then be loaned to the state Ministry of Education.",
+        "Link to article (in Spanish)",
+        "Publisher: Economicón",
+        "Writer: José Soto Galindo"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://economicon.mx/blog/la-ciudad-de-guadalajara-usara-reconocimiento-facial-con-estudiantes-de-secundaria/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Mexico",
+          "url": "https://privacyinternational.org/location/mexico",
+          "countryID": "MX"
+        }
+      ],
+      "countryIDs": [
+        "MX"
+      ]
+    },
+    {
+      "id": "4977",
+      "sourceUrl": "https://privacyinternational.org/examples/4977/school-monitoring-software-violates-americans-disabilities-act",
+      "title": "School monitoring software violates Americans with Disabilities Act",
+      "date": "2022-08-03",
+      "paragraphs": [
+        "The 32-year-old Americans with Disabilities Act is failing to protect neurodivergent students from school monitoring and risk assessment software that treats any divergence from stereotypically \"normal\" behaviour as a harm to both the students themselves and others. Remote proctoring software penalises those who need psychological help, flag \"suspicious\" movements such as looking away from the screen during a test, and makes no provision for disabled students' special needs. These problems are being exacerbated by the increasing use of biometric software such as emotion recognition and attention-detection software, which compares students' behaviour to a baseline it has dubbed \"normal\".",
+        "Writer: Evan Enzer",
+        "Publication: The Daily Beast"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.thedailybeast.com/how-school-tech-treats-students-with-disabilities-like-criminals",
+          "url": "https://www.thedailybeast.com/how-school-tech-treats-students-with-disabilities-like-criminals"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Disabled People",
+          "url": "https://privacyinternational.org/examples/disabled-people"
+        },
+        {
+          "name": "Discrimination",
+          "url": "https://privacyinternational.org/examples/discrimination"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "AI",
+          "url": "https://privacyinternational.org/examples/ai"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "4969",
+      "sourceUrl": "https://privacyinternational.org/examples/4969/psychologist-trained-emotion-detection-software",
+      "title": "Psychologist-trained emotion detection software",
+      "date": "2022-04-19",
+      "paragraphs": [
+        "Intel, in partnership with the software company Classroom Technologies, has developed an AI facial analysis system (\"Class\") by training an algorithmic model based on labels psychologists applied to the emotions they could detect in videos of students in real-life classrooms. The software is intended to help teachers get feedback from students in online classrooms and warn if the students are bored or confused; critics worry the system could threaten student privacy and damage teacher-student relationships.",
+        "Writer: Annie Rauwerda",
+        "Publication: Input Magazine"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.inputmag.com/tech/intel-classroom-ai-student-surveillance-facial-recognition",
+          "url": "https://www.inputmag.com/tech/intel-classroom-ai-student-surveillance-facial-recognition"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [],
+      "countryIDs": []
+    },
+    {
+      "id": "5812",
+      "sourceUrl": "https://privacyinternational.org/examples/5812/concerns-raised-parent-over-facial-recognition-middle-school",
+      "title": "Concerns raised by parent over facial recognition in middle school",
+      "date": "2022-02-21",
+      "paragraphs": [
+        "A parent in Badong County has complained about Jingxin Youyi Middle School - a local middle school - implementing a facial recognition system to manage on-campus purchases.",
+        "The system is the Alipay One Face Pass system, which - the school claimed - was deployed as part of China's Smart Campus initiative. The parent complained that the system is compulsory and coverage of the complaint included concerns that the privacy risks of such a system were too high.",
+        "Publisher: Sixth Tone",
+        "Writer: Zhang Wanqing"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.sixthtone.com/news/1009712"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "CN"
+      ]
+    },
+    {
+      "id": "5854",
+      "sourceUrl": "https://privacyinternational.org/examples/5854/serbia-buys-dahua-cameras-kosovo-schools",
+      "title": "Serbia buys Dahua cameras for Kosovo schools",
+      "date": "2021-12-31",
+      "paragraphs": [
+        "Serbian authorities have procured 196 cameras from Dahua - a Chinese camera company sanctioned in the US for it's reported involvement in human rights abuses in Xinjiang - for use in 30 schools across 12 municipalities in Kosovo. The schools include ages from pre-school all the way through to high school. The procurement documentation apparently highlights the facial recognition capability of the system.",
+        "Publisher: BalkansWeb"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.balkanweb.com/en/Chinese-cameras-from-the-American-blacklist-through-Serbia-in-Kosovo-dedicated-to-schools-in-12-municipalities/#gsc.tab=0"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Kosovo",
+          "url": "https://privacyinternational.org/location/kosovo",
+          "countryID": "XK"
+        }
+      ],
+      "countryIDs": [
+        "XK"
+      ]
+    },
+    {
+      "id": "5817",
+      "sourceUrl": "https://privacyinternational.org/examples/5817/emotion-recognition-deployed-chinas-schools",
+      "title": "Emotion recognition deployed in China's schools",
+      "date": "2021-12-25",
+      "paragraphs": [
+        "Article 19 have published a report investigating the deployment of emotion recognition technology in schools in China found the technology has been deployed in some schools, and is being heavily promoted despite concerns about it's accuracy, it's potential to erode human rights, and whether the technology can really do what it claims at all.",
+        "The report highlights examples of emotion recognition systems for sale, that can include features such as warnings that flag concerning emotions.",
+        "Article 19 recommend that the sale and use of emotion recognition is banned - both in China and across the globe.",
+        "The report follows previous studies, and many others raising concerns about these kinds of technology.",
+        "Publisher: Rest of World",
+        "Writers: Meaghan Tobin and Louise Matsakis"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://restofworld.org/2021/chinas-emotion-recognition-tech/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "CN"
+      ]
+    },
+    {
+      "id": "5813",
+      "sourceUrl": "https://privacyinternational.org/examples/5813/visionlabs-expands-facial-recognition-systems-across-russian-educational-institutions",
+      "title": "VisionLabs Expands Facial Recognition Systems Across Russian Educational Institutions",
+      "date": "2021-11-23",
+      "paragraphs": [
+        "VisionLabs announced that its biometric and computer vision technologies had been introduced in more than 60 educational institutions across Russia, including Far Eastern Federal University, Kazan Federal University, Tomsk State University, and several schools. The company said the rollout was part of a broader effort to strengthen security and improve monitoring capabilities across campuses, with plans to extend the technology to dozens more institutions by the end of 2021.",
+        "The systems combine video analytics, behavioural monitoring, and facial recognition to help staff identify potential security incidents and respond more quickly to emergencies. In addition to controlling access to campus facilities, the technology can perform temperature screening and support face-based payments in cafeterias, kiosks, and vending machines. VisionLabs and Sberbank stated that these tools are intended to improve safety, prevent unauthorized access, and streamline everyday campus operations.",
+        "Author: Alessandro Mascellino Publication: Biometric Update Link to Article: https://www.biometricupdate.com/202111/visionlabs-biometrics-deployed-at-more-than-60-universities-schools-in-russia"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.biometricupdate.com/202111/visionlabs-biometrics-deployed-at-more-than-60-universities-schools-in-russia",
+          "url": "https://www.biometricupdate.com/202111/visionlabs-biometrics-deployed-at-more-than-60-universities-schools-in-russia"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Russia and Central Asia",
+          "url": "https://privacyinternational.org/taxonomy/term/126",
+          "countryID": null
+        },
+        {
+          "name": "Russian Federation",
+          "url": "https://privacyinternational.org/location/russian-federation",
+          "countryID": "RU"
+        }
+      ],
+      "countryIDs": [
+        "RU"
+      ]
+    },
+    {
+      "id": "5832",
+      "sourceUrl": "https://privacyinternational.org/examples/5832/felpham-community-college-uses-facial-recognition-school-meal-payment",
+      "title": "Felpham Community College uses facial recognition for school meal payment",
+      "date": "2021-10-22",
+      "paragraphs": [
+        "Felpham Community College is introducing facial recognition as an optional way for students to pay for school meals through its cashless catering system.",
+        "It is aimed at speeding up service during busy lunch periods.",
+        "Participation is voluntary — students without parental consent, or who simply don't want to use it, will keep using their existing catering cards.",
+        "Publisher: Felpham Community College",
+        "Writer: Felpham Community College"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.felpham.com/parents-students/catering/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United Kingdom",
+          "url": "https://privacyinternational.org/location/united-kingdom",
+          "countryID": "GB"
+        }
+      ],
+      "countryIDs": [
+        "GB"
+      ]
+    },
+    {
+      "id": "5804",
+      "sourceUrl": "https://privacyinternational.org/examples/5804/private-schools-azerbaijan-implement-face-recognition",
+      "title": "Private schools in Azerbaijan implement face recognition",
+      "date": "2021-08-18",
+      "paragraphs": [
+        "A network of Azerbaijani private schools called LANDAU school have added employee GPS tracking, contact monitoring, and facial recognition to their existing surveillance systems.",
+        "Wialon - the software solution being implemented - claim that their facial recognition system \"captures the mood\" - though it isn't clear what that means or whether it might be some kind of emotion recognition.",
+        "Publisher: Wialon"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://wialon.com/en/case-studies/school-monitoring-systems-in-azerbaijan"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Azerbaijan",
+          "url": "https://privacyinternational.org/location/azerbaijan",
+          "countryID": "AZ"
+        }
+      ],
+      "countryIDs": [
+        "AZ"
+      ]
+    },
+    {
+      "id": "5836",
+      "sourceUrl": "https://privacyinternational.org/examples/5836/washington-state-universitys-police-department-uses-facial-recognition-technology",
+      "title": "Washington State University's police department uses facial recognition technology",
+      "date": "2021-07-26",
+      "paragraphs": [
+        "Washington State University's police department uses facial recognition technology.",
+        "Real-time or near-real-time identification, ongoing surveillance, and persistent tracking - such as keeping facial template data beyond 48 hours or cross-linking it to identify someone - are allowed if officers obtain a warrant. It is also allowed under court order to locate a missing person or identify a deceased person.",
+        "The policy document does not allow using FRT based on protected characteristics such as religion, political or social views, race, immigration status, disability, gender identity, sexual orientation.",
+        "Officers must disclose FRT use in writing to prosecutors on any case where it was applied, demographic data from surveillance warrant applications must be reported annually to the state legislature, and all FRT use must be documented for public reporting and audit purposes.",
+        "Publication: Washington State University Writer: Washington State University"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://s3.wp.wsu.edu/uploads/sites/2962/2021/08/Washington-State-University-PD-Policy-Manual-7-26-2021.pdf"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5848",
+      "sourceUrl": "https://privacyinternational.org/examples/5848/rights-organisations-object-delhi-facial-recognition",
+      "title": "Rights organisations object to Delhi facial recognition",
+      "date": "2021-03-02",
+      "paragraphs": [
+        "Internet Freedom Foundation (IFF) have raised concerns with facial recognition being installed in schools in Delhi despite there being no laws that might regulate their use, or the collection or use of data.",
+        "The systems are installed in over 12 schools in Delhi, and follows Delhi's decision to install CCTV cameras in hundreds of schools.",
+        "Publisher: Al Jazeera",
+        "Author: Reuters"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.aljazeera.com/news/2021/3/2/privacy-fears-as-indias-govt-schools-install-facial-recognition"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "India",
+          "url": "https://privacyinternational.org/location/india",
+          "countryID": "IN"
+        }
+      ],
+      "countryIDs": [
+        "IN"
+      ]
+    },
+    {
+      "id": "5809",
+      "sourceUrl": "https://privacyinternational.org/examples/5809/grozny-plans-introduce-facial-recognition-and-unified-school-monitoring-system",
+      "title": "Grozny Plans to Introduce Facial Recognition and Unified School Monitoring System",
+      "date": "2021-02-10",
+      "paragraphs": [
+        "Authorities in Grozny are planning to modernize school security infrastructure by upgrading existing surveillance cameras with facial recognition technology and connecting 60 schools to a single online education monitoring platform. The initiative is intended to automate staff attendance tracking and reduce the need for traditional student roll calls. The system may also be integrated with a digital diary platform, allowing parents to receive notifications when their children arrive at or leave school.",
+        "At present, school cameras are primarily used to monitor entrances, hallways, and school grounds for safety purposes. Officials say the planned upgrade will strengthen child protection measures while improving oversight and transparency within educational institutions through more comprehensive monitoring and automated record-keeping.",
+        "Publication: Grozny Inform Link to Article: https://www.grozny-inform.ru/news/culture/125905/"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.grozny-inform.ru/news/culture/125905/",
+          "url": "https://www.grozny-inform.ru/news/culture/125905/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Russia and Central Asia",
+          "url": "https://privacyinternational.org/taxonomy/term/126",
+          "countryID": null
+        },
+        {
+          "name": "Russian Federation",
+          "url": "https://privacyinternational.org/location/russian-federation",
+          "countryID": "RU"
+        }
+      ],
+      "countryIDs": [
+        "RU"
+      ]
+    },
+    {
+      "id": "5808",
+      "sourceUrl": "https://privacyinternational.org/examples/5808/proctoring-company-data-leak-raises-concerns",
+      "title": "Proctoring company data leak raises concerns",
+      "date": "2020-12-10",
+      "paragraphs": [
+        "Proctortrack - a proctoring service used in universities across Canada that uses facial recognition and other tools to attempt to prevent cheating in online tests - experienced a data breach in 2020. Despite claims by the company that no identifiable information was accessed, more than 150 students had their names and emails leaked.",
+        "Consumer reports analysed Proctortrack's source code included in the breach. The analysis raises significant concerns about their security practices and their safeguards for the sensitive data they collect - including videos of students, facial recognition and other biometric data, and more.",
+        "The security flaws seem to be extremely significant, though the company disputes the claims.",
+        "Publisher: Consumer Reports",
+        "Writer: Thomas Germain"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.consumerreports.org/electronics/digital-security/poor-security-at-online-proctoring-company-proctortrack-may-have-put-student-data-at-risk-a8711230545/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Security fail",
+          "url": "https://privacyinternational.org/examples/security-fail"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Proctoring",
+          "url": "https://privacyinternational.org/examples/proctoring"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Canada",
+          "url": "https://privacyinternational.org/location/canada",
+          "countryID": "CA"
+        }
+      ],
+      "countryIDs": [
+        "CA"
+      ]
+    },
+    {
+      "id": "5810",
+      "sourceUrl": "https://privacyinternational.org/examples/5810/petition-ban-proctoring-software-used-western-university-hits-4000-signatures",
+      "title": "A petition to ban proctoring software used at Western University hits 4,000 signatures",
+      "date": "2020-09-29",
+      "paragraphs": [
+        "A student at Western University has started a petition asking for controversial proctoring software - Proctortrack - to be banned.",
+        "The software is voluntary for professors, with only some choosing to use it. The software claims to prevent cheating in exams by monitoring students via their webcams using Facial Recognition, knuckle scans, and other methods.",
+        "The petition raced to over 4,000 signatures in just 4 days.",
+        "Publisher: The London Free Press",
+        "Writer: Heather Rivers"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://lfpress.com/news/local-news/western-students-want-online-anti-cheating-program-banned-as-potential-privacy-threat"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Proctoring",
+          "url": "https://privacyinternational.org/examples/proctoring"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Canada",
+          "url": "https://privacyinternational.org/location/canada",
+          "countryID": "CA"
+        }
+      ],
+      "countryIDs": [
+        "CA"
+      ]
+    },
+    {
+      "id": "5807",
+      "sourceUrl": "https://privacyinternational.org/examples/5807/secondary-school-implements-facial-recognition-access-control-staff-and-students",
+      "title": "Secondary School implements facial recognition for access control of staff and students",
+      "date": "2020-08-04",
+      "paragraphs": [
+        "A secondary school in Blagoveshchensk introduced a new security system aimed at improving safety and controlling access to the building. The system allows students and staff to enter the school automatically and is intended to make the entry process faster while providing better oversight of who is on the premises. School officials presented the installation as part of ongoing efforts to modernize school security and protect pupils.",
+        "A notable aspect of the project is the use of facial recognition technology at the entrance. According to the report, the system verifies a person's identity by matching their face with stored registration data and grants access when the information corresponds correctly. The school described the technology as a way to enhance security, automate attendance and access management, and ensure that only authorized individuals can enter the building",
+        "Author: Tatiana Larina Publication: Bezformata Link to Article: https://blagoveshensk.bezformata.com/listnews/shkole-blagoveshenska-ustanovili-sistemu/86126936/"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://blagoveshensk.bezformata.com/listnews/shkole-blagoveshenska-ustanovili-sistemu/86126936/",
+          "url": "https://blagoveshensk.bezformata.com/listnews/shkole-blagoveshenska-ustanovili-sistemu/86126936/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Russia and Central Asia",
+          "url": "https://privacyinternational.org/taxonomy/term/126",
+          "countryID": null
+        },
+        {
+          "name": "Russian Federation",
+          "url": "https://privacyinternational.org/location/russian-federation",
+          "countryID": "RU"
+        }
+      ],
+      "countryIDs": [
+        "RU"
+      ]
+    },
+    {
+      "id": "5803",
+      "sourceUrl": "https://privacyinternational.org/examples/5803/university-queensland-introduce-controversial-exam-proctoring-software",
+      "title": "University of Queensland introduce controversial exam proctoring software",
+      "date": "2020-06-15",
+      "paragraphs": [
+        "Medical students at the University of Queensland object to the introduction of invasive and inconsistent proctoring software to monitor students taking exams remotely.",
+        "The software must be downloaded on student's personal computers, it performs a biometric check using facial recognition to compare the student to an ID, and then monitors the student with camera footage, microphone recording, screen recording, and the student's keystrokes.",
+        "The implementation has been plagued with issues that have made life difficult for people trying to take their exams, and the student union has objected to ProctorU being allowed to \"store and commodify their personal data\".",
+        "Publisher: Brisbane Times",
+        "Writer: Lucy Stone"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.brisbanetimes.com.au/national/queensland/uq-students-complain-about-exam-monitoring-software-20200615-p552qm.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        },
+        {
+          "name": "Proctoring",
+          "url": "https://privacyinternational.org/examples/proctoring"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Canada",
+          "url": "https://privacyinternational.org/location/canada",
+          "countryID": "CA"
+        }
+      ],
+      "countryIDs": [
+        "CA"
+      ]
+    },
+    {
+      "id": "5842",
+      "sourceUrl": "https://privacyinternational.org/examples/5842/hualong-primary-school-install-facial-recognition-attendance-and-campus-management",
+      "title": "Hualong primary school install facial recognition for attendance and campus management",
+      "date": "2020-03-18",
+      "paragraphs": [
+        "The article claims that nearly 1,000 schools in China are using facial recognition supplied by a company called Baidu Brain.",
+        "The article looks at Hualong Primary School, a school in Guangzhou in China, and highlights several other Middle schools that have installed facial recognition to manage students and staff on campus. Hualong school uses a physical system by Tenniu Technlogy, which integrates facial recognition using Baidu Brain's software development kit (SDK).",
+        "The system was updated during Covid to allow for facial recognition with masks, and to raise an alert if the system detects someone the system doesn't recognise.",
+        "Link to article (in Simplified Chinese)",
+        "Publisher: Sina Tech"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://tech.sina.com.cn/roll/2020-03-18/doc-iimxxstf9950064.shtml"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "CN"
+      ]
+    },
+    {
+      "id": "5845",
+      "sourceUrl": "https://privacyinternational.org/examples/5845/marseille-court-rules-against-facial-recognition-schools",
+      "title": "Marseille court rules against facial recognition in Schools",
+      "date": "2020-02-28",
+      "paragraphs": [
+        "Court rules against Facial Recognition installed in two high schools in victory for La Quadrature du Net. The two schools, one in Nice and one in Marseille installed the cameras in 2018 as an experiment.",
+        "La Quadrature du Net brought the case in 2019 and have been vindicated by France's first court decision on facial recognition.",
+        "Author: Ivana Nikolic",
+        "Publication: B.I.R.D"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://bird.tools/french-court-rules-against-facial-recognition-in-high-schools/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "France",
+          "url": "https://privacyinternational.org/location/france",
+          "countryID": "FR"
+        }
+      ],
+      "countryIDs": [
+        "FR"
+      ]
+    },
+    {
+      "id": "5840",
+      "sourceUrl": "https://privacyinternational.org/examples/5840/new-york-schools-use-facial-recognition-technology-guns-trespassers",
+      "title": "New York schools use facial recognition technology for guns, trespassers",
+      "date": "2020-02-06",
+      "paragraphs": [
+        "In Lockport, New York, facial recognition technology is used in eight public schools to monitor who’s on the property.",
+        "Faces match a “persons of interest” database made by school administrators.",
+        "It includes sex offenders, people not allowed to see students by restraining orders, former employees other “credible threats” marked by law enforcement.",
+        "If the software detects a person on the list, the Aegis system alerts security personnel. They then looks at a picture of the person in the database and manually confirm or reject it.",
+        "If the match is confirmed, another alert goes out to a handful of district administrators, who decide on an action.",
+        "It also scans for guns, which sends an alert to the police department.",
+        "Some students said they had been told very little about how the system worked, however.",
+        "Publication: New York Times Writer: Davey Alba"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.nytimes.com/2020/02/06/business/facial-recognition-schools.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5819",
+      "sourceUrl": "https://privacyinternational.org/examples/5819/school-becomes-first-malaysia-introduce-facial-recognition-attendance",
+      "title": "School becomes first in Malaysia to introduce facial recognition for attendance",
+      "date": "2020-01-02",
+      "paragraphs": [
+        "The SK Taman Perling 1 school became the first in Malaysia to use facial recognition to take attendance. The headteacher told the New Straits Times that two facial recognition scanners had been installed for pupils to use and another for staff, and that all 1,034 students and 88 staff would use the system.",
+        "The system claims to 'only' take 2 seconds to complete a scan, and the registration data will be transferred to the Education Ministry.",
+        "Publisher: New Straits Times",
+        "Writer: Rizalman Hammim"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.nst.com.my/news/nation/2020/01/552737/sk-taman-perling-1-uses-facial-recognition-scanners-mark-pupils"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Malaysia",
+          "url": "https://privacyinternational.org/location/malaysia",
+          "countryID": "MY"
+        }
+      ],
+      "countryIDs": [
+        "MY"
+      ]
+    },
+    {
+      "id": "5839",
+      "sourceUrl": "https://privacyinternational.org/examples/5839/barbers-hill-school-district-uses-facial-recognition-technology",
+      "title": "Barbers Hill school district uses facial recognition technology",
+      "date": "2019-10-30",
+      "paragraphs": [
+        "Barbers Hill school district in Texas is using facial recognition technology from AnyVision on 32 entryways throughout the district.",
+        "The software uses AI to detect, track and recognise people in a mass crowd in real-time, and can notifying safety personnel immediately. The software costs $131,000.",
+        "The system allows for searching backward in a timeline, a watch list, different alerts, the ability to create groups, face-blurring mode, privacy mode and camera management. It claims accuracy of up to 99% because it uses biometrics and bone structure.",
+        "The program also creates a database with past and current students, staff members and people of interest - including sex offenders, protective orders, suspended students, expelled students, those that make terroristic threats, and others.",
+        "Publication: Baytown Sun Writer: Christopher James"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://baytownsun.com/news/article_353fc052-fac4-11e9-8879-dffabb4a0fe0.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5837",
+      "sourceUrl": "https://privacyinternational.org/examples/5837/santa-fe-independent-school-district-uses-ai-based-surveillance",
+      "title": "Santa Fe Independent School District uses AI-based surveillance",
+      "date": "2019-10-29",
+      "paragraphs": [
+        "The Santa Fe Independent School District is working with a company called AnyVision for AI-based surveillance.",
+        "The system works with an existing camera network to track certain faces, bodies or objects.",
+        "It can recognise people based on old photos, or if they are wearing hoodies or glasses – although it is less accurate in that situation.",
+        "The Santa Fe school district keeps data from the system stored locally rather than on the cloud.",
+        "Publication: Security Magazine Writer: Ed Finkel"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.securitymagazine.com/articles/91151-artificial-intelligence-bolsters-physical-security"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5846",
+      "sourceUrl": "https://privacyinternational.org/examples/5846/french-data-protection-authority-comes-out-against-facial-recognition-experiment",
+      "title": "French Data Protection Authority comes out against facial recognition experiment",
+      "date": "2019-10-29",
+      "paragraphs": [
+        "The French Data Protection Authority (CNIL) have decided that an experiment in which facial recognition was installed in two high schools in Nice and Marseille.",
+        "The CNIL decided that the implementation didn't comply with the GDPR principles of proportionality or data minimisation, and ultimately concluded that facial recognition systems cannot be legally implemented in schools.",
+        "Publisher: CNIL"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.cnil.fr/fr/experimentation-de-la-reconnaissance-faciale-dans-deux-lycees-la-cnil-precise-sa-position"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "France",
+          "url": "https://privacyinternational.org/location/france",
+          "countryID": "FR"
+        }
+      ],
+      "countryIDs": [
+        "FR"
+      ]
+    },
+    {
+      "id": "5811",
+      "sourceUrl": "https://privacyinternational.org/examples/5811/fefu-deploys-campus-wide-facial-recognition-security-system",
+      "title": "FEFU Deploys Campus-Wide Facial Recognition Security System",
+      "date": "2019-09-09",
+      "paragraphs": [
+        "Far Eastern Federal University (FEFU) became the first university in Russia to deploy a large-scale campus-wide video surveillance and facial recognition system. Implemented with support from Sberbank, VisionLabs, and Tekhnozreniye, the project introduced 24/7 monitoring across university buildings using cameras, data-processing servers, and the FASystem platform. University officials stated that the initiative was designed to strengthen campus security and improve the protection of students, staff, and visitors.",
+        "A notable aspect of the project is the use of facial recognition technology developed by VisionLabs. The system uses the LUNA SDK platform to identify individuals in real time by comparing facial images against the university's database. When a person is detected, the system provides the university's Situation Center with information including their name, role, photograph, and location, allowing operators to monitor different groups such as students, teachers, and administrative staff. According to the developers, the facial recognition capability was integrated into the university's security and access-control infrastructure to enhance situational awareness and campus safety.",
+        "Publication: SberPress (Sberbank) Link to Article: https://www.sberbank.ru/ru/sberpress/all/article?lang=en&newsID=84a1d6ef-3de2-44d2-b383-b00b436d439c&regionID=77&type=NEWS&blockID=1539"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.sberbank.ru/ru/sberpress/all/article?lang=en&newsID=84a1d6ef-3de2-44d2-b383-b00b436d439c&regionID=77&type=NEWS&blockID=1539",
+          "url": "https://www.sberbank.ru/ru/sberpress/all/article?lang=en&newsID=84a1d6ef-3de2-44d2-b383-b00b436d439c&regionID=77&type=NEWS&blockID=1539"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Russia and Central Asia",
+          "url": "https://privacyinternational.org/taxonomy/term/126",
+          "countryID": null
+        },
+        {
+          "name": "Russian Federation",
+          "url": "https://privacyinternational.org/location/russian-federation",
+          "countryID": "RU"
+        }
+      ],
+      "countryIDs": [
+        "RU"
+      ]
+    },
+    {
+      "id": "5850",
+      "sourceUrl": "https://privacyinternational.org/examples/5850/medical-school-japan-installs-facial-recognition",
+      "title": "Medical school in Japan installs Facial recognition",
+      "date": "2019-04-12",
+      "paragraphs": [
+        "Hyogo College of Medicine have become the first university in Japan to install a facial recognition system.",
+        "The college claims they will save 425 hours of work per year. They system is designed to confirm students' presence in class.",
+        "Publisher: Vice News",
+        "Author: Lex Celera"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.vice.com/en/article/this-medical-school-in-japan-uses-facial-recognition-for-attendance/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Japan",
+          "url": "https://privacyinternational.org/location/japan",
+          "countryID": "JP"
+        }
+      ],
+      "countryIDs": [
+        "JP"
+      ]
+    },
+    {
+      "id": "2880",
+      "sourceUrl": "https://privacyinternational.org/examples/2880/chile-children-asked-their-biometrics-data-obtain-food-rations-schools",
+      "title": "Chile: children asked for their biometrics data to obtain food rations in schools",
+      "date": "2019-02-17",
+      "paragraphs": [
+        "The National Board of Scholarships and School Aid (Junaeb) in Chile was also heavily criticised for its use of facial recognition programmes to deliver meals at thirty schools in three cities across the country. After the Supreme Court requested in 2017 that the system must not be applied without the consent of the parents, in February 2019 it was the Council for Transparency that declared that: “The use of biometric identification systems to certify the delivery of food rations at schools inevitably involves the processing of information related to children and adolescents. Many of them are in vulnerable situations and as such they deserve even stricter protection of their personal data, as they may be less aware of the risks, consequences, guarantees and rights concerning the processing of that data.\"",
+        "Link to article: https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/",
+        "Author: Diego Bastarrica",
+        "Publication: Fayer Wayer"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/",
+          "url": "https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Benefits claimants",
+          "url": "https://privacyinternational.org/examples/benefits-claimants"
+        },
+        {
+          "name": "Low income",
+          "url": "https://privacyinternational.org/examples/low-income"
+        },
+        {
+          "name": "Children",
+          "url": "https://privacyinternational.org/examples/children"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Poverty",
+          "url": "https://privacyinternational.org/examples/poverty"
+        },
+        {
+          "name": "Welfare",
+          "url": "https://privacyinternational.org/examples/welfare"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Chile",
+          "url": "https://privacyinternational.org/location/chile",
+          "countryID": "CL"
+        }
+      ],
+      "countryIDs": [
+        "CL"
+      ]
+    },
+    {
+      "id": "5800",
+      "sourceUrl": "https://privacyinternational.org/examples/5800/victoria-introduces-new-rules-facial-recognition-state-schools",
+      "title": "Victoria introduces new rules for facial recognition in state schools",
+      "date": "2019-02-05",
+      "paragraphs": [
+        "Following trials of 'LoopLearn', an Australian start-up who sell facial recognition scanners to monitor attendance, in Victorian independent schools - Victoria have introduced much tighter rules for schools who want to introduce facial recognition.",
+        "Now, any state that wants to implement the technology will have to get proper consent from parents or carers, students, approval from the Department for Education, and doing a thorough privacy impact assessment.",
+        "Publisher: The Age",
+        "Writer: Henrietta Cook"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.theage.com.au/national/victoria/tough-new-rules-for-big-brother-face-reading-technology-in-schools-20190205-p50vpx.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Australia",
+          "url": "https://privacyinternational.org/location/australia",
+          "countryID": "AU"
+        }
+      ],
+      "countryIDs": [
+        "AU"
+      ]
+    },
+    {
+      "id": "5838",
+      "sourceUrl": "https://privacyinternational.org/examples/5838/texas-school-builds-600000-surveillance-system",
+      "title": "Texas school builds $600,000 surveillance system",
+      "date": "2019-02-03",
+      "paragraphs": [
+        "The Texas City school district is using a facial recognition system to scan for people not allowed on school grounds.",
+        "The security measures, cost $6.3 million in eight months to protect from potential school shooters. The ID system itself cost $621,000.",
+        "It means the school has a digital map showing the locations of around 9000 students throughout the school.",
+        "“My philosophy is you fight fire with fire,” said former U.S. Secret Service agent Mike Matranga, who is now head of security for the district.",
+        "Publication: Wall Street Journal Writer: Tawnell D. Hobbs"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.wsj.com/articles/one-school-districts-security-upgrade-facial-recognition-tracking-ids-and-ar-15s-11549202427"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
+      "id": "5801",
+      "sourceUrl": "https://privacyinternational.org/examples/5801/australian-school-facial-recognition-company-gets-government-funding",
+      "title": "Australian school facial recognition company gets government funding",
+      "date": "2019-01-23",
+      "paragraphs": [
+        "LoopLearn - a controversial school facial recognition start-up from Melbourne, Australia - have received an Accelerating Commercialisation grant from the Australian federal government.",
+        "The technology claims to currently be being trialed in 100 schools across Australia - though the company refuse to confirm which schools they claim due to 'commercial confidentiality'. The company also claims that only around 1% of parents were concerned by the technology when asked.",
+        "Publisher: PerthNow",
+        "Writer: Claire Heaney"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.perthnow.com.au/news/business/melbourne-start-up-looplearn-scores-470k-for-school-roll-facial-recognition-technology-ng-7af4c2455842f33afdeb469224a1c636"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Australia",
+          "url": "https://privacyinternational.org/location/australia",
+          "countryID": "AU"
+        }
+      ],
+      "countryIDs": [
+        "AU"
+      ]
+    },
+    {
+      "id": "5782",
+      "sourceUrl": "https://privacyinternational.org/examples/5782/facial-recognition-be-tested-victoria-australia-independent-school",
+      "title": "Facial Recognition to be tested in Victoria, Australia independent school",
+      "date": "2018-08-29",
+      "paragraphs": [
+        "Schools in Victoria in Australia have started a 6-week trial of facial recognition devices in order to provide real time attendance data. Sacred Heart College - a Catholic girls school - have written to parents ahead of implementing the systems in their Year 11 classes.",
+        "However, the Department for Education in the state claim to not be aware of the trial in this school or any other in the state, and at least one student speaking to KidsNews raised concerns over being monitored, and questioned the value of the trial given the limited amount of time taken to take a register.",
+        "Publisher: KidsNews",
+        "Writer: Mandy Squires"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.kidsnews.com.au/technology/australian-schools-begin-spying-trials-using-facial-recognition-technology/news-story/2d38f743af6309dd2f68f696c3ffedc1"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Australia",
+          "url": "https://privacyinternational.org/location/australia",
+          "countryID": "AU"
+        }
+      ],
+      "countryIDs": [
+        "AU"
+      ]
+    },
+    {
+      "id": "5830",
+      "sourceUrl": "https://privacyinternational.org/examples/5830/swedish-school-fined-facial-recognition-use",
+      "title": "Swedish school fined for facial recognition use",
+      "date": "2018-08-27",
+      "paragraphs": [
+        "The Swedish Data Protection Authority (DPA) fined the Skelleftea municipality 200,000 Swedish Krona for trialling facial recognition on high-school students to track attendance.",
+        "22 students we tracked over three weeks, with the system detecting when a pupil entered a classroom.",
+        "Although the school secured parents' consent to monitor the students, this was not deemed legally reasonable because face data is sensitive personal data.",
+        "Students had a certain expectation of privacy when they entered a classroom, and there were less intrusive ways to monitor attendance, the watchdog said.",
+        "Publisher: BBC",
+        "Writer: BBC"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.bbc.com/news/technology-49489154"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Sweden",
+          "url": "https://privacyinternational.org/location/sweden",
+          "countryID": "SE"
+        }
+      ],
+      "countryIDs": [
+        "SE"
+      ]
+    },
+    {
+      "id": "5821",
+      "sourceUrl": "https://privacyinternational.org/examples/5821/giis-smart-campus-uses-facial-recognition-attendance-and-access-control",
+      "title": "GIIS SMART Campus Uses Facial Recognition for Attendance and Access Control",
+      "date": "2018-07-14",
+      "paragraphs": [
+        "Global Indian International School (GIIS) announced the use of facial recognition technology at its SMART Campus in Singapore to automate attendance tracking and control access to classrooms. Students are enrolled through a facial identification system, allowing them to enter classrooms while automatically recording their attendance.",
+        "The school said the system forms part of a broader security framework that includes RFID-enabled student ID cards and CCTV monitoring. According to GIIS, the technology helps account for student whereabouts on campus, restrict access to authorised individuals, and reduce the administrative burden of manual attendance taking. Publication: Global Indian International School Blog Link to Article: https://blog.globalindianschool.org/facial-recognition-device-to-control-access-in-the-smart-campus"
+      ],
+      "articleLinks": [
+        {
+          "label": "https://blog.globalindianschool.org/facial-recognition-device-to-control-access-in-the-smart-campus",
+          "url": "https://blog.globalindianschool.org/facial-recognition-device-to-control-access-in-the-smart-campus"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Singapore",
+          "url": "https://privacyinternational.org/location/singapore",
+          "countryID": "SG"
+        }
+      ],
+      "countryIDs": [
+        "SG"
+      ]
+    },
+    {
+      "id": "5814",
+      "sourceUrl": "https://privacyinternational.org/examples/5814/communications-university-china-trial-facial-recognition",
+      "title": "Communications University of China trial facial recognition",
+      "date": "2017-10-25",
+      "paragraphs": [
+        "Six classes at the University are trialing facial recognition to take registration. Students attending the class need to check in when they arrive in order to have their identity checked. The introduction of the system has led to some disquiet amongst students - including those not attending those classes.",
+        "Publisher: BBC News",
+        "Writer: Kerry Allen"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.bbc.co.uk/news/blogs-news-from-elsewhere-41749929"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "China",
+          "url": "https://privacyinternational.org/location/china",
+          "countryID": "CN"
+        }
+      ],
+      "countryIDs": [
+        "CN"
+      ]
+    }
+  ]
+}

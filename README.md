@@ -15,6 +15,62 @@ This repository serves two purposes:
 
 If you are here for the campaign-facing map, start with `surveillance-schools.html`.
 
+## Country Story Cards
+
+Selecting a country shows facial-recognition-tagged entries from Privacy International's
+[EdTech Surveillance Tracker](https://privacyinternational.org/examples/edtech-surveillance-tracker)
+beside the map on wide screens, or below the timeline in windows narrower than
+1000px. The desktop story column scrolls independently; smaller screens use normal
+page scrolling. Before selection, the map uses the full width and the selection
+prompt appears below the timeline. Cards contain the complete PI entry text, its source date,
+and button-styled links to the original reporting. Only stories
+dated up to the map timeline's selected year are shown, newest first.
+
+The map loads `data/facial-recognition-stories.json` from this repository, not from PI
+on each click. To refresh both the saved collection and country timeline years with
+Node 22 or newer:
+
+```bash
+npm install
+npm run test:stories
+npm run refresh:stories
+```
+
+`npm run regen:timeline-years` runs the same combined refresh, so either command
+checks for new stories and updates `firstExampleYear` in `data/surveillance-schools.json`
+in one collection pass. The year is taken from each country's earliest tagged story,
+not the time the script runs. Countries marked `surveillanceExists: "Y"` are updated
+where matching stories exist; their existing year is retained if none are found.
+Other countries keep a null timeline year, and map status flags and subnational
+data are not changed.
+
+Without local Node, run those commands through Docker:
+
+```bash
+docker run --rm -v "$PWD":/app -w /app node:22-bookworm sh -c 'npm install && npm run test:stories && npm run refresh:stories'
+```
+
+The refresh script follows the unfiltered tracker's pagination, deduplicates entries,
+and checks the actual Facial recognition tag on each detail page. It does not depend
+on PI's country or topic filters. The versioned snapshot records the collection time,
+coverage counts, source tags and locations, dates, text paragraphs and article links.
+Stories with multiple country tags appear under each tagged country, even where a
+tag seems unexpected. Regional tags are preserved without inferring individual countries.
+
+Review the refresh report and dataset diff before publishing. `unlocated`,
+`unmappedLocations`, and `missingArticleLinks` record source-data gaps that need review.
+The initial collection contains 74 matching stories from 187 entries, across 34
+countries; one entry has no location, and `Russia and Central Asia` is a regional tag.
+PI source URLs are retained in the dataset rather than displayed on each card. Network
+or parsing failures and a decrease in total story count leave both saved datasets
+untouched. Both outputs are staged before replacing either file; each replacement
+is atomic. There is no scheduled refresh.
+
+Country tags and dates come from PI, not the external publishers or collection time.
+Only PI's tracker text is reproduced, not the external articles. The dataset records
+PI source URLs; do not assume the repository's software license covers third-party
+editorial content. Confirm applicable content permissions before republishing elsewhere.
+
 ## Highlights
 
 - Interactive SVG world map with pan and zoom
