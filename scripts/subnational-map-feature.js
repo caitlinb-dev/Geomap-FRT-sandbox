@@ -394,7 +394,16 @@
           trackerLink: regionData.trackerLink
         });
 
+        tooltip.hidden = false;
         var rect = state.mapStage.getBoundingClientRect();
+        var scrollContainer = state.mapStage.parentElement;
+        var scrollRect = scrollContainer ? scrollContainer.getBoundingClientRect() : rect;
+        var visibleLeft = Math.max(rect.left, scrollRect.left, 0);
+        var visibleTop = Math.max(rect.top, scrollRect.top, 0);
+        var visibleRight = Math.min(rect.right, scrollRect.right, window.innerWidth);
+        var visibleBottom = Math.min(rect.bottom, scrollRect.bottom, window.innerHeight);
+        var visibleWidth = Math.max(0, visibleRight - visibleLeft);
+        var visibleHeight = Math.max(0, visibleBottom - visibleTop);
         var left = 0;
         var top = 0;
 
@@ -407,9 +416,20 @@
           top = box.y + box.height / 2 + 10;
         }
 
-        tooltip.style.left = Math.max(8, Math.min(left, rect.width - 300)) + 'px';
-        tooltip.style.top = Math.max(8, Math.min(top, rect.height - 180)) + 'px';
-        tooltip.hidden = false;
+        tooltip.style.boxSizing = 'border-box';
+        tooltip.style.maxWidth = Math.max(0, visibleWidth - 16) + 'px';
+        tooltip.style.minWidth = Math.min(220, Math.max(0, visibleWidth - 16)) + 'px';
+        tooltip.style.maxHeight = Math.max(0, visibleHeight - 16) + 'px';
+        tooltip.style.overflowY = 'auto';
+
+        var tooltipRect = tooltip.getBoundingClientRect();
+        var minLeft = visibleLeft - rect.left + 8;
+        var maxLeft = visibleRight - rect.left - tooltipRect.width - 8;
+        var minTop = visibleTop - rect.top + 8;
+        var maxTop = visibleBottom - rect.top - tooltipRect.height - 8;
+
+        tooltip.style.left = Math.max(minLeft, Math.min(left, maxLeft)) + 'px';
+        tooltip.style.top = Math.max(minTop, Math.min(top, maxTop)) + 'px';
 
         if (featureOptions.onRegionSelect) {
           featureOptions.onRegionSelect(state.activeCountryID, regionCode, regionData.name || regionCode);
@@ -631,98 +651,6 @@
         }
 
         appendInteractiveRegion(svg, tooltip, pathData, regionCode, regionData, subnational);
-        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', pathData);
-        path.setAttribute('class', 'subnational-region');
-        path.setAttribute('data-region-code', regionCode);
-        path.setAttribute('data-region-name', regionData.name || regionCode);
-        path.setAttribute('role', 'button');
-        path.setAttribute('tabindex', '0');
-        path.setAttribute('aria-label', 'View details for ' + (regionData.name || regionCode));
-        path.style.fill = getStatusColor(regionData.surveillanceExists, regionData.legalChallenge);
-
-        function activateRegion(event) {
-          svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
-            activeEl.classList.remove('subnational-active');
-          });
-
-          path.classList.add('subnational-active');
-
-          tooltip.innerHTML = createTooltipMarkup({
-            subjectLabel: subnational.levelName || 'Region',
-            entityName: regionData.name || regionCode,
-            surveillanceExists: regionData.surveillanceExists,
-            legalChallenge: regionData.legalChallenge,
-            trackerLink: regionData.trackerLink,
-            trackerLinkText: subnational.trackerLinkText
-          });
-
-          tooltip.hidden = false;
-
-          var rect = state.mapStage.getBoundingClientRect();
-          var scrollContainer = state.mapStage.parentElement;
-          var scrollRect = scrollContainer ? scrollContainer.getBoundingClientRect() : rect;
-          var visibleLeft = Math.max(rect.left, scrollRect.left, 0);
-          var visibleTop = Math.max(rect.top, scrollRect.top, 0);
-          var visibleRight = Math.min(rect.right, scrollRect.right, window.innerWidth);
-          var visibleBottom = Math.min(rect.bottom, scrollRect.bottom, window.innerHeight);
-          var visibleWidth = Math.max(0, visibleRight - visibleLeft);
-          var visibleHeight = Math.max(0, visibleBottom - visibleTop);
-          var left = 0;
-          var top = 0;
-
-          if (typeof event.clientX === 'number' && typeof event.clientY === 'number') {
-            left = event.clientX - rect.left + 10;
-            top = event.clientY - rect.top + 10;
-          } else {
-            var box = path.getBBox();
-            left = box.x + box.width / 2 + 10;
-            top = box.y + box.height / 2 + 10;
-          }
-
-          tooltip.style.boxSizing = 'border-box';
-          tooltip.style.maxWidth = Math.max(0, visibleWidth - 16) + 'px';
-          tooltip.style.minWidth = Math.min(220, Math.max(0, visibleWidth - 16)) + 'px';
-          tooltip.style.maxHeight = Math.max(0, visibleHeight - 16) + 'px';
-          tooltip.style.overflowY = 'auto';
-
-          var tooltipRect = tooltip.getBoundingClientRect();
-          var minLeft = visibleLeft - rect.left + 8;
-          var maxLeft = visibleRight - rect.left - tooltipRect.width - 8;
-          var minTop = visibleTop - rect.top + 8;
-          var maxTop = visibleBottom - rect.top - tooltipRect.height - 8;
-
-          tooltip.style.left = Math.max(minLeft, Math.min(left, maxLeft)) + 'px';
-          tooltip.style.top = Math.max(minTop, Math.min(top, maxTop)) + 'px';
-
-          var trackerAnchor = tooltip.querySelector('.js-tracker-link');
-          if (trackerAnchor) {
-            ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(function (eventName) {
-              trackerAnchor.addEventListener(eventName, function (anchorEvent) {
-                anchorEvent.stopPropagation();
-              });
-            });
-          }
-
-          event.stopPropagation();
-        }
-
-        path.addEventListener('click', activateRegion);
-        path.addEventListener('keydown', function (event) {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            activateRegion(event);
-          }
-        });
-
-        svg.appendChild(path);
-      });
-
-      svg.addEventListener('click', function () {
-        tooltip.hidden = true;
-        svg.querySelectorAll('.subnational-region.subnational-active').forEach(function (activeEl) {
-          activeEl.classList.remove('subnational-active');
-        });
       });
 
       finishSubnationalSvg(svg, tooltip);
