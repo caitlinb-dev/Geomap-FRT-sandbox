@@ -496,9 +496,9 @@
           },
           "BR-PE": {
             "name": "Pernambuco",
-            "surveillanceExists": "N",
+            "surveillanceExists": "Y",
             "legalChallenge": "N",
-            "trackerLink": "https://internetlab.org.br/en/pesquisa-en/lack-of-transparency-and-national-guidelines-mark-the-expansion-of-facial-recognition-in-brazilian-education/",
+            "trackerLink": "https://giswatch.org/node/6159",
             "firstExampleYear": null
           },
           "BR-PI": {

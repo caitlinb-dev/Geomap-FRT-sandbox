@@ -523,6 +523,63 @@ test('region loading, shared retry and invalid tags preserve the current selecti
   assert.equal(section.querySelectorAll('article').length, 0);
 });
 
+test('Brazil GeoJSON selections update the stories panel from the topmost state path', async context => {
+  const story = snapshot.stories.find(entry => entry.countryIDs.includes('BR'));
+  const payload = { schemaVersion: 1, stories: [
+    { ...story, id: 'brazil-sp', date: '2020-01-01', regionIDs: ['BR-SP'] },
+    { ...story, id: 'brazil-pr', date: '2022-01-01', regionIDs: ['BR-PR'] }
+  ] };
+  const { document } = storyPage(context, async () => ({ ok: true, json: async () => payload }));
+  const browser = document.defaultView;
+  const section = document.getElementById('subnationalStories');
+  const stories = browser.createCountryStoriesFeature(section, { regionView: true });
+  await stories.load();
+  stories.setYear(2022);
+  browser.eval(subnationalRenderer);
+  const regions = { 'BR-SP': { name: 'São Paulo' }, 'BR-PR': { name: 'Paraná' }, 'BR-AC': { name: 'Acre' } };
+  browser.fetch = async () => ({ ok: true, json: async () => ({ features: Object.keys(regions).map(regionID => ({
+    properties: { sigla: regionID.slice(3) },
+    geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 0]]] }
+  })) }) });
+  const map = browser.createSubnationalMapFeature({
+    getBaseValues: () => ({ BR: { name: 'Brazil', subnational: {
+      enabled: true, map: { format: 'geojson', url: '/br.json', regionCodeProperty: 'sigla', regionCodePrefix: 'BR-' }, regions
+    } } }),
+    onRegionSelect: stories.selectRegion,
+    onRegionClear: stories.clearSelection
+  });
+  map.openSubnationalModal('BR');
+  await new Promise(resolve => setImmediate(resolve));
+  const stage = document.getElementById('subnationalMapStage');
+  const topmostPath = regionID => [...stage.querySelectorAll('[data-region-code="' + regionID + '"]')].at(-1);
+  const ids = () => [...section.querySelectorAll('article')].map(card => card.dataset.storyId);
+  topmostPath('BR-SP').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.equal(section.querySelector('h2').textContent, 'Stories from São Paulo');
+  assert.deepEqual(ids(), ['brazil-sp']);
+  assert.equal(stage.querySelectorAll('path').length, 3);
+  const parana = topmostPath('BR-PR');
+  parana.getBBox = () => ({ x: 0, y: 0, width: 100, height: 100 });
+  for (const key of ['Enter', ' ']) {
+    parana.dispatchEvent(new browser.KeyboardEvent('keydown', { key, bubbles: true }));
+    assert.equal(section.querySelector('h2').textContent, 'Stories from Paraná');
+    assert.deepEqual(ids(), ['brazil-pr']);
+  }
+  assert.equal(topmostPath('BR-SP').classList.contains('subnational-active'), false);
+  assert.equal(parana.classList.contains('subnational-active'), true);
+  stories.setYear(2021);
+  assert.deepEqual(ids(), []);
+  assert.match(section.querySelector('[role="status"]').textContent, /through 2021/);
+  topmostPath('BR-AC').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.equal(section.querySelector('[role="status"]').textContent, 'No stories have been tagged for Acre yet.');
+  stage.querySelector('svg').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  assert.equal(section.querySelector('[role="status"]').textContent, 'No state selected.');
+  assert.equal(stage.querySelector('.subnational-active'), null);
+  topmostPath('BR-SP').dispatchEvent(new browser.MouseEvent('click', { bubbles: true }));
+  document.getElementById('subnationalModalCloseButton').click();
+  assert.equal(section.querySelector('[role="status"]').textContent, 'No state selected.');
+  assert.deepEqual(ids(), []);
+});
+
 test('SVG and GeoJSON state selections support keyboard, clearing and stale-load protection', async context => {
   const { document } = storyPage(context);
   const browser = document.defaultView;
