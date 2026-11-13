@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "sourceUrl": "https://privacyinternational.org/examples/edtech-surveillance-tracker",
-  "fetchedAt": "2026-11-10T12:23:15.455Z",
+  "fetchedAt": "2026-11-13T11:02:15.868Z",
   "coverage": {
     "listingPages": 1,
-    "discovered": 187,
-    "included": 74,
+    "discovered": 188,
+    "included": 75,
     "excluded": 113
   },
   "unlocated": [
@@ -249,7 +249,19 @@
       "countryIDs": [
         "BR"
       ],
-      "regionIDs": ["BR-SP", "BR-RJ", "BR-GO", "BR-PR", "BR-RO", "BR-DF", "BR-MS", "BR-PI", "BR-AL", "BR-AM", "BR-ES"]
+      "regionIDs": [
+        "BR-SP",
+        "BR-RJ",
+        "BR-GO",
+        "BR-PR",
+        "BR-RO",
+        "BR-DF",
+        "BR-MS",
+        "BR-PI",
+        "BR-AL",
+        "BR-AM",
+        "BR-ES"
+      ]
     },
     {
       "id": "5835",
@@ -441,7 +453,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-KA"]
+      "regionIDs": [
+        "IN-KA"
+      ]
     },
     {
       "id": "5834",
@@ -610,7 +624,9 @@
       "countryIDs": [
         "BR"
       ],
-      "regionIDs": ["BR-PR"]
+      "regionIDs": [
+        "BR-PR"
+      ]
     },
     {
       "id": "5855",
@@ -815,7 +831,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-DL"]
+      "regionIDs": [
+        "IN-DL"
+      ]
     },
     {
       "id": "5412",
@@ -864,7 +882,10 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-NJ", "US-WI"]
+      "regionIDs": [
+        "US-NJ",
+        "US-WI"
+      ]
     },
     {
       "id": "5820",
@@ -952,7 +973,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-CO"]
+      "regionIDs": [
+        "US-CO"
+      ]
     },
     {
       "id": "5827",
@@ -1230,7 +1253,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-TG"]
+      "regionIDs": [
+        "IN-TG"
+      ]
     },
     {
       "id": "5411",
@@ -1275,7 +1300,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-UP"]
+      "regionIDs": [
+        "IN-UP"
+      ]
     },
     {
       "id": "5849",
@@ -1348,7 +1375,9 @@
       "countryIDs": [
         "BR"
       ],
-      "regionIDs": ["BR-PR"]
+      "regionIDs": [
+        "BR-PR"
+      ]
     },
     {
       "id": "5211",
@@ -1390,7 +1419,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-TG"]
+      "regionIDs": [
+        "IN-TG"
+      ]
     },
     {
       "id": "5831",
@@ -1550,7 +1581,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-TG"]
+      "regionIDs": [
+        "IN-TG"
+      ]
     },
     {
       "id": "5217",
@@ -1630,7 +1663,18 @@
       "countryIDs": [
         "BR"
       ],
-      "regionIDs": ["BR-TO", "BR-BA", "BR-CE", "BR-PE", "BR-GO", "BR-MG", "BR-RJ", "BR-SP", "BR-RS", "BR-SC"]
+      "regionIDs": [
+        "BR-TO",
+        "BR-BA",
+        "BR-CE",
+        "BR-PE",
+        "BR-GO",
+        "BR-MG",
+        "BR-RJ",
+        "BR-SP",
+        "BR-RS",
+        "BR-SC"
+      ]
     },
     {
       "id": "5822",
@@ -2067,7 +2111,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-WA"]
+      "regionIDs": [
+        "US-WA"
+      ]
     },
     {
       "id": "5848",
@@ -2106,7 +2152,9 @@
       "countryIDs": [
         "IN"
       ],
-      "regionIDs": ["IN-DL"]
+      "regionIDs": [
+        "IN-DL"
+      ]
     },
     {
       "id": "5809",
@@ -2447,7 +2495,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-NY"]
+      "regionIDs": [
+        "US-NY"
+      ]
     },
     {
       "id": "5819",
@@ -2529,7 +2579,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-TX"]
+      "regionIDs": [
+        "US-TX"
+      ]
     },
     {
       "id": "5837",
@@ -2569,7 +2621,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-NM"]
+      "regionIDs": [
+        "US-NM"
+      ]
     },
     {
       "id": "5846",
@@ -2826,7 +2880,9 @@
       "countryIDs": [
         "US"
       ],
-      "regionIDs": ["US-TX"]
+      "regionIDs": [
+        "US-TX"
+      ]
     },
     {
       "id": "5801",
@@ -3019,6 +3075,46 @@
       ],
       "countryIDs": [
         "CN"
+      ]
+    },
+    {
+      "id": "5889",
+      "sourceUrl": "https://privacyinternational.org/examples/5889/5-public-schools-pernambuco-brazil-implement-facial-recognition-schools",
+      "title": "5 public schools in Pernambuco, Brazil to implement facial recognition in schools",
+      "date": "2017-04-19",
+      "paragraphs": [
+        "Facial recognition launched has been 5 public schools - in Jaboatão, a city in the state of Pernambuco in the northeast of Brazil. The aim is for the 139 other schools in the city will take up the technology following this initial launch.",
+        "The cameras will be installed on the entrance and exists of the schools, and hope to register students' arrival and notify their parents if students don't show up.The system will cost around R$36,000 per year per school, and has already captured 2,500 students' biometric data.",
+        "Publication: Folha de Pernambuco"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.folhape.com.br/noticias/tecnologia-para-registrar-presenca-nas-escolas-de-jaboatao/24738/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Brazil",
+          "url": "https://privacyinternational.org/location/brazil",
+          "countryID": "BR"
+        }
+      ],
+      "countryIDs": [
+        "BR"
+      ],
+      "regionIDs": [
+        "BR-PE"
       ]
     }
   ]

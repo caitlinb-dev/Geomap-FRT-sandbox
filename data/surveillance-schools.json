@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-11-11T13:28:52Z",
+  "lastUpdated": "2026-11-13T11:02:15.868Z",
   "countries": {
     "AF": {
       "name": "Afghanistan",
@@ -384,7 +384,7 @@
       "surveillanceExists": "Y",
       "legalChallenge": "Y",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Brazil+%2850%29#edit-actions",
-      "firstExampleYear": 2023,
+      "firstExampleYear": 2017,
       "subnational": {
         "enabled": true,
         "levelName": "State",
