@@ -3448,7 +3448,7 @@
           "US-NY": {
             "name": "New York",
             "surveillanceExists": "Y",
-            "legalChallenge": "N"
+            "legalChallenge": "Y"
           },
           "US-OH": {
             "name": "Ohio"
