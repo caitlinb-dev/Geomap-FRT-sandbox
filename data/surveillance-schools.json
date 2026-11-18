@@ -3326,7 +3326,7 @@
     "US": {
       "name": "United States of America",
       "surveillanceExists": "Y",
-      "legalChallenge": "N",
+      "legalChallenge": "Y",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=United+States+of+America+%2827%29#edit-actions",
       "firstExampleYear": 2019,
       "subnational": {
@@ -3448,7 +3448,7 @@
           "US-NY": {
             "name": "New York",
             "surveillanceExists": "Y",
-            "legalChallenge": "N"
+            "legalChallenge": "Y"
           },
           "US-OH": {
             "name": "Ohio"
