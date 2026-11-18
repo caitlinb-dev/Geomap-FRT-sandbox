@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "sourceUrl": "https://privacyinternational.org/examples/edtech-surveillance-tracker",
-  "fetchedAt": "2026-11-13T11:02:15.868Z",
+  "fetchedAt": "2026-11-18T10:03:00.116Z",
   "coverage": {
     "listingPages": 1,
     "discovered": 188,
-    "included": 75,
-    "excluded": 113
+    "included": 76,
+    "excluded": 112
   },
   "unlocated": [
     {
@@ -1380,6 +1380,47 @@
       ]
     },
     {
+      "id": "5231",
+      "sourceUrl": "https://privacyinternational.org/examples/5231/new-york-state-bans-facial-recognition-schools",
+      "title": "New York State bans facial recognition in schools",
+      "date": "2023-09-27",
+      "paragraphs": [
+        "The New York State Department of Education has prohibited schools in New York State from purchasing or using facial recognition technology. Schools can use other types of biometric identifying technology as long as they consider the privacy implications.",
+        "Article: New York State bans facial recognition in schools Publication: New York State Education Department",
+        "Writer: NYSED"
+      ],
+      "articleLinks": [
+        {
+          "label": "Article: New York State bans facial recognition in schools",
+          "url": "https://www.nysed.gov/news/2023/state-education-department-issues-determination-biometric-identifying-technology-schools"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Children",
+          "url": "https://privacyinternational.org/examples/children"
+        },
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ]
+    },
+    {
       "id": "5211",
       "sourceUrl": "https://privacyinternational.org/examples/5211/telengana-facial-recognition-system-will-include-ai",
       "title": "Telengana facial recognition system will include AI",
@@ -2744,19 +2785,19 @@
     },
     {
       "id": "2880",
-      "sourceUrl": "https://privacyinternational.org/examples/2880/chile-children-asked-their-biometrics-data-obtain-food-rations-schools",
-      "title": "Chile: children asked for their biometrics data to obtain food rations in schools",
+      "sourceUrl": "https://privacyinternational.org/examples/2880/chile-supreme-court-says-no-biometrics-food-without-parental-consent",
+      "title": "Chile: Supreme Court says no biometrics for food without parental consent",
       "date": "2019-02-17",
       "paragraphs": [
-        "The National Board of Scholarships and School Aid (Junaeb) in Chile was also heavily criticised for its use of facial recognition programmes to deliver meals at thirty schools in three cities across the country. After the Supreme Court requested in 2017 that the system must not be applied without the consent of the parents, in February 2019 it was the Council for Transparency that declared that: “The use of biometric identification systems to certify the delivery of food rations at schools inevitably involves the processing of information related to children and adolescents. Many of them are in vulnerable situations and as such they deserve even stricter protection of their personal data, as they may be less aware of the risks, consequences, guarantees and rights concerning the processing of that data.\"",
-        "Link to article: https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/",
+        "The National Board of Scholarships and School Aid (Junaeb) in Chile was also heavily criticised for its use of facial recognition programmes to deliver meals at thirty schools in three cities across the country.",
+        "After the Supreme Court requested in 2017 that the system must not be applied without the consent of the parents, in February 2019 it was the Council for Transparency that declared that: “The use of biometric identification systems to certify the delivery of food rations at schools inevitably involves the processing of information related to children and adolescents. Many of them are in vulnerable situations and as such they deserve even stricter protection of their personal data, as they may be less aware of the risks, consequences, guarantees and rights concerning the processing of that data.\"",
         "Author: Diego Bastarrica",
         "Publication: Fayer Wayer"
       ],
       "articleLinks": [
         {
-          "label": "https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/",
-          "url": "https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/"
+          "label": "Link to article (via the Wayback machine)",
+          "url": "https://web.archive.org/web/20191206074531/https://www.fayerwayer.com/2019/01/junaeb-biometria-facial-alimentos/"
         }
       ],
       "tags": [

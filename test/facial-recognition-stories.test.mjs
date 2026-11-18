@@ -457,6 +457,7 @@ test('country and state tooltips omit the tracker link but retain status and con
 
 test('shared story views filter explicit region tags independently and respect the year', async context => {
   const payload = structuredClone(snapshot);
+  for (const story of payload.stories) delete story.regionIDs;
   const tagged = payload.stories.find(story => story.countryIDs.includes('US'));
   tagged.regionIDs = ['US-CA', 'US-NY', 'US-CA'];
   let fetchCount = 0;
