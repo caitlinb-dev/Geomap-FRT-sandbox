@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-11-18T10:03:00.116Z",
+  "lastUpdated": "2026-11-20T10:59:16.220Z",
   "countries": {
     "AF": {
       "name": "Afghanistan",
@@ -1752,7 +1752,7 @@
     },
     "JE": {
       "name": "Jersey",
-      "surveillanceExists": "N",
+      "surveillanceExists": "Y",
       "legalChallenge": "N",
       "trackerLink": "https://privacyinternational.org/examples/edtech-surveillance-tracker?tid%5B%5D=281&tid_1=Jersey#edit-actions",
       "firstExampleYear": null,
@@ -3393,7 +3393,9 @@
             "name": "Kansas"
           },
           "US-KY": {
-            "name": "Kentucky"
+            "name": "Kentucky",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-LA": {
             "name": "Louisiana"
@@ -3408,7 +3410,9 @@
             "name": "Maine"
           },
           "US-MI": {
-            "name": "Michigan"
+            "name": "Michigan",
+            "surveillanceExists": "Y",
+            "legalChallenge": "N"
           },
           "US-MN": {
             "name": "Minnesota"

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "sourceUrl": "https://privacyinternational.org/examples/edtech-surveillance-tracker",
-  "fetchedAt": "2026-11-18T10:03:00.116Z",
+  "fetchedAt": "2026-11-20T10:59:16.220Z",
   "coverage": {
     "listingPages": 1,
-    "discovered": 188,
-    "included": 76,
-    "excluded": 112
+    "discovered": 195,
+    "included": 79,
+    "excluded": 116
   },
   "unlocated": [
     {
@@ -16,10 +16,52 @@
     }
   ],
   "unmappedLocations": [
+    "Channel Islands",
     "Russia and Central Asia"
   ],
   "missingArticleLinks": [],
   "stories": [
+    {
+      "id": "5891",
+      "sourceUrl": "https://privacyinternational.org/examples/5891/university-kentucky-install-facial-recognition-entry",
+      "title": "University of Kentucky install facial recognition for entry",
+      "date": "2026-09-16",
+      "paragraphs": [
+        "The University of Kentucky are installing facial recognition systems on some of it's facilities on campus. The system will be mandatory to access some areas with a higher security requirement, such as its police building, and some of its labratories, the system will be installed to manage access to other areas - but will not be mandatory, such as dorms.",
+        "The system replaces the pre-existing 'Eyelock' iris scanners on some doors, and is installed following a test on two dormitories and some research facilities.",
+        "Author: Jesse Fraga",
+        "Outlet: The Lexington Herald Leader"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.kentucky.com/news/local/education/article317252939.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ],
+      "regionIDs": [
+        "US-MI"
+      ]
+    },
     {
       "id": "5806",
       "sourceUrl": "https://privacyinternational.org/examples/5806/facial-recognition-installed-monitor-employees-first-nation-school",
@@ -56,6 +98,51 @@
       ],
       "countryIDs": [
         "CA"
+      ]
+    },
+    {
+      "id": "5899",
+      "sourceUrl": "https://privacyinternational.org/examples/5899/visitor-aware-facial-recognition-system-installed-across-12-michigan-school-districts",
+      "title": "Visitor Aware facial recognition system installed across 12 Michigan school districts",
+      "date": "2026-04-27",
+      "paragraphs": [
+        "The Detroit Public Schools Community District have installed Visitor Aware facial recognition system. The system checks visitors to the school against a presented form of ID, and then saves the verified information for future reference.",
+        "This is just one of 12 across the state using the technology, and 360 across the US. Significant concerns have been raised about the technology.",
+        "Author: Max Bryan",
+        "Publication: The Detroit News"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://www.govtech.com/education/k-12/detroit-public-schools-deploy-facial-recognition-system"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "United States of America",
+          "url": "https://privacyinternational.org/location/united-states-america",
+          "countryID": "US"
+        }
+      ],
+      "countryIDs": [
+        "US"
+      ],
+      "regionIDs": [
+        "US-KY"
       ]
     },
     {
@@ -1465,6 +1552,53 @@
       ],
       "regionIDs": [
         "IN-TG"
+      ]
+    },
+    {
+      "id": "5897",
+      "sourceUrl": "https://privacyinternational.org/examples/5897/girls-school-jersey-introduce-facial-recognition-cafeteria",
+      "title": "Girls school in Jersey introduce facial recognition to the cafeteria",
+      "date": "2023-07-18",
+      "paragraphs": [
+        "Jersey College for Girls has begun the process of introducing facial recognition to the lunch queue - the system is an additional opt-in option alongside it's cashless top-up cards for students who do not, or who's parents, do not want them to participate.",
+        "The provider - CRB Cunningham - also provided facial recognition to a school in Essex who were formally reprimanded following infringements in the school's consent process.",
+        "Author: Richard Heath",
+        "Outlet: Jersey Evening Post"
+      ],
+      "articleLinks": [
+        {
+          "label": "Link to article",
+          "url": "https://jerseyeveningpost.com/news/2023/07/18/jersey-school-introduces-facial-recognition-at-lunchtime/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "EdTech: Surveillance Tracker",
+          "url": "https://privacyinternational.org/examples/edtech-surveillance-tracker"
+        },
+        {
+          "name": "Biometrics",
+          "url": "https://privacyinternational.org/examples/biometrics"
+        },
+        {
+          "name": "Facial recognition",
+          "url": "https://privacyinternational.org/examples/facial-recognition"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Jersey",
+          "url": "https://privacyinternational.org/location/channel-islands",
+          "countryID": null
+        },
+        {
+          "name": "United Kingdom",
+          "url": "https://privacyinternational.org/location/united-kingdom",
+          "countryID": "GB"
+        }
+      ],
+      "countryIDs": [
+        "JE", "UK"
       ]
     },
     {
