@@ -59,7 +59,7 @@
         "US"
       ],
       "regionIDs": [
-        "US-MI"
+        "US-KY"
       ]
     },
     {
@@ -142,7 +142,7 @@
         "US"
       ],
       "regionIDs": [
-        "US-KY"
+        "US-MI"
       ]
     },
     {
@@ -1589,7 +1589,7 @@
         {
           "name": "Jersey",
           "url": "https://privacyinternational.org/location/channel-islands",
-          "countryID": null
+          "countryID": "JE"
         },
         {
           "name": "United Kingdom",
@@ -1598,7 +1598,7 @@
         }
       ],
       "countryIDs": [
-        "JE", "UK"
+        "JE", "GB"
       ]
     },
     {
